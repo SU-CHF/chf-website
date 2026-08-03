@@ -1,0 +1,10 @@
+# Shared front matter for every Insights post.
+#
+# bibliography/csl deliberately live in each post's front matter rather than
+# here: this file also applies to index.qmd, which has no citations, and citeproc
+# fails the render if it loads a style for a document with no bibliography.
+toc: true
+toc-depth: 2
+toc-title: "On this page"
+date-format: "D MMMM YYYY"
+title-block-banner: false

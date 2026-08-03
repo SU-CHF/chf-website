@@ -1,0 +1,34 @@
+---
+title: "About the Centre"
+pagetitle: "About"
+---
+
+The Centre for Household Finance is a research centre in the
+[Department of Economics](https://www.ekon.sun.ac.za) at
+[Stellenbosch University](https://www.sun.ac.za). Our goal is to advance
+knowledge about consumer financial markets in developing countries: how they
+work, and which policies may make them work more efficiently and more equitably.
+
+We use tools from applied microeconomics and causal inference to study how people
+make financial decisions and what influences their choices. We focus on South
+African survey and administrative data across a range of domains, including
+retirement, insurance and credit.
+
+## What we are looking for
+
+We are a new and growing research centre, and are actively seeking
+
+- data partners
+- research funding
+- research assistants, postgraduate students and postdocs
+
+If any of these describe you or your organisation, please
+[get in touch](contact.qmd).
+
+## Governance
+
+The Centre operates under a constitution approved by the Faculty and a Research
+Charter that governs research independence, data governance, and our
+relationships with funders and data partners. These, together with our annual
+reports, are published in full on the
+[Governance & reports](governance.qmd) page.

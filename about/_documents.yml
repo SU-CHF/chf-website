@@ -1,0 +1,43 @@
+# Governance document register. Rendered by chf_doc_list() in R/chf.R.
+#
+# PDFs live in documents/ and are named to the guidelines' convention:
+#   CHF-[DocType]-[ShortTitle]-vX.Y.pdf
+#
+# Two rules the renderer enforces, so a broken download fails the build rather
+# than reaching the site:
+#   - the file named here must exist in documents/
+#   - its filename must end in -v<version>.pdf, matching the `version:` field
+#
+# So add an entry only once its PDF is in documents/. An empty list renders a
+# "no documents published yet" note.
+#
+# Fields: title, doctype, version, date (ISO), file, summary
+
+[]
+
+# - title: "Constitution of the Centre for Household Finance"
+#   doctype: Constitution
+#   version: "1.0"
+#   date: 2025-11-04
+#   file: CHF-Constitution-CHF-v1.0.pdf
+#   summary: >
+#     Establishes the Centre, its objects and membership, and its relationship
+#     to the Department of Economics and the Faculty.
+#
+# - title: "Research Charter"
+#   doctype: Charter
+#   version: "1.1"
+#   date: 2026-07-15
+#   file: CHF-Charter-Research-v1.1.pdf
+#   summary: >
+#     Governs research independence, data governance, conflicts of interest,
+#     funder relationships and publication disclaimers.
+#
+# - title: "Directors' Report 2025"
+#   doctype: Report
+#   version: "1.0"
+#   date: 2026-03-31
+#   file: CHF-Report-Directors2025-v1.0.pdf
+#   summary: >
+#     Annual report on activities, outputs, funding and staffing for the 2025
+#     calendar year.

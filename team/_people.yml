@@ -1,0 +1,73 @@
+# People shown on the Team page. Edited by hand; rendered by R/chf.R.
+#
+# Staff fields:    name, role, qualification, email, photo, interests, links
+# Student fields:  name, degree, year, email, photo, thesis, supervisor, links
+#
+# Every field except `name` is optional — a person with no photo falls back to a
+# tinted placeholder, and one with no email simply omits that line. So an entry
+# can be added before all its details are to hand.
+#
+# Photos live in images/team/ and are square. Drop any crop into _inbox/ and it
+# will be normalised.
+#
+# links: may contain any of website, scholar, linkedin, github.
+
+staff:
+  - name: Jesse Naidoo
+    role: Director
+    qualification: PhD, University of Chicago
+    # TODO CONFIRM: address assumed from the firstname.lastname@sun.ac.za pattern.
+    email: jesse.naidoo@sun.ac.za
+    photo: /images/team/jesse-naidoo.jpg
+    interests: >
+      The interaction of formal and informal finance, retirement savings, and
+      how households use the financial system to navigate major life events
+      such as death and divorce.
+    links:
+      website:  https://jnaidoo.rbind.io/
+      linkedin: https://www.linkedin.com/in/jesse-naidoo/
+
+  - name: Allan Davids
+    role: Senior Researcher
+    qualification: PhD, University of Cape Town
+    # TODO CONFIRM: Allan is an affiliated researcher based at UCT — decide
+    # whether to show a UCT address here instead.
+    email: allan.davids@sun.ac.za
+    photo: /images/team/allan-davids.jpg
+    interests: >
+      Housing, which is often the largest asset and the largest liability a
+      household holds, and how housing and credit decisions drive wealth
+      inequality.
+    links:
+      website:  https://allandav.github.io/
+      linkedin: https://www.linkedin.com/in/allan-davids-34139a99/
+
+  - name: Matthew Olckers
+    role: Senior Researcher
+    qualification: PhD, Paris School of Economics
+    # TODO CONFIRM: address assumed from the firstname.lastname@sun.ac.za pattern.
+    email: matthew.olckers@sun.ac.za
+    photo: /images/team/matthew-olckers.jpg
+    interests: >
+      Retirement saving, financial advice and informal borrowing, with past
+      work on financial literacy, mobile money adoption and sports betting.
+    links:
+      website:  https://matthewolckers.com/
+      linkedin: https://www.linkedin.com/in/matthew-olckers/
+
+# Students. Copy the commented block below for each one.
+#
+# Before publishing a student, confirm they consent to their name, email and
+# thesis topic appearing on a public page.
+students: []
+
+#  - name: Full Name
+#    degree: PhD (Economics)          # or: MCom (Economics)
+#    year: 2nd year                   # optional
+#    email: student@sun.ac.za
+#    photo: /images/team/full-name.jpg
+#    thesis: >
+#      Working title or one-line description of the thesis topic.
+#    supervisor: Jesse Naidoo
+#    links:
+#      linkedin: https://www.linkedin.com/in/...

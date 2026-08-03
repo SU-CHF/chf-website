@@ -1,0 +1,31 @@
+---
+title: "Our Team"
+pagetitle: "Team"
+page-layout: full
+aliases:
+  - /team.html
+---
+
+```{r}
+#| include: false
+source("../R/chf.R")
+people <- yaml::read_yaml("_people.yml")
+```
+
+## Staff
+
+```{r}
+#| output: asis
+chf_people_grid(people$staff, "staff")
+```
+
+## Students
+
+We supervise Masters and PhD students working on household finance in South
+Africa. If you are a postgraduate student at Stellenbosch University with an
+interest in the field, please [get in touch](/about/contact.html).
+
+```{r}
+#| output: asis
+chf_people_grid(people$students, "student")
+```

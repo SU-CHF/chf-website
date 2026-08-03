@@ -4,3 +4,10 @@ _site
 /.quarto/
 
 .DS_Store
+*.Rproj.user
+
+# Staging area for raw inputs (photos, PDFs, logo artwork) before they are
+# normalised into images/ and documents/. Never committed.
+_inbox/
+
+**/*.quarto_ipynb

@@ -1,0 +1,61 @@
+---
+title: "Research"
+pagetitle: "Research"
+aliases:
+  - /research.html
+listing:
+  - id: papers
+    contents: papers.yml
+    type: default
+    sort: "date desc"
+    categories: true
+    fields: [title, author, date, description, categories]
+    field-display-names:
+      description: "Abstract"
+    date-format: "YYYY"
+    max-description-length: 2000
+    sort-ui: false
+    filter-ui: true
+  - id: datasets
+    contents: datasets.yml
+    type: default
+    sort: "date desc"
+    categories: false
+    fields: [title, author, date, description]
+    date-format: "YYYY"
+    max-description-length: 2000
+    sort-ui: false
+    filter-ui: false
+---
+
+We use tools from applied microeconomics and causal inference to study how South
+African households make financial decisions, and which policies would make
+consumer financial markets work more efficiently and more equitably.
+
+## Research programmes
+
+Our work is organised into programmes. Each output below is tagged with the
+programme it belongs to; use the tags to filter the list.
+
+**Mortgage pricing in South Africa.** Access to affordable housing finance is
+essential for economic mobility, yet mortgage pricing varies significantly across
+applicants. This programme investigates disparities in mortgage offer
+probabilities and interest rates by age, gender, marital status and first-time
+buyer status, with a view to policies that promote fair and transparent lending.
+
+**The market for funeral insurance.** Funeral insurance is one of the most widely
+purchased financial products in South Africa, while life insurance remains far
+less common. This programme examines the extent to which the two are substitutes,
+on both the supply side — regulatory barriers and industry practice — and the
+demand side, where mortality, income and intergenerational living arrangements
+shape what households buy.
+
+## Papers
+
+:::{#papers}
+:::
+
+## Data
+
+:::{#datasets}
+:::

@@ -1,0 +1,12 @@
+---
+title: "Page not found"
+pagetitle: "404"
+---
+
+Sorry — that page does not exist. It may have moved when the site was
+reorganised in 2026.
+
+- [Research](/research/) — papers and data
+- [Insights](/insights/) — market overviews and policy notes
+- [Team](/team/)
+- [Contact](/about/contact.html)

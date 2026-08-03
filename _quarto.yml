@@ -1,37 +1,87 @@
 project:
   type: website
   output-dir: docs
+  pre-render:
+    - scripts/build-research.R
+  render:
+    - "*"
+    # brand/ holds internal reference material — desktop fonts, the brand
+    # implementation record, the founding-announcements archive. Not published.
+    - "!brand/**"
+    # Repo documentation, not site pages. CONTRIBUTING.md in particular shows a
+    # {{< include >}} example, which Quarto would execute if it rendered the file.
+    # (README.md is excluded by Quarto automatically.)
+    - "!CONTRIBUTING.md"
+  resources:
+    - CNAME
+    # Quarto discovers resources by scanning rendered HTML. It cannot see url()
+    # references inside compiled SCSS, so fonts must be declared explicitly or
+    # they are never copied into docs/ and every @font-face 404s.
+    - fonts/*.woff2
+    # Likewise: governance PDFs are linked from HTML emitted by an R chunk,
+    # which the scanner does not trace.
+    - documents/*.pdf
 
 website:
   title: "Centre for Household Finance"
+  site-url: https://householdfinance.org.za
+  description: >
+    Research on consumer financial markets in developing countries, at the
+    Department of Economics, Stellenbosch University.
+  favicon: favicon.png
+  search: true
+  open-graph: true
+  image: images/banner_001.jpg
+
   navbar:
-    title: false
-    logo: "images/logo.png"
+    # The supplied logo.png is the reversed lockup on a solid maroon field, which
+    # cannot sit on a white navbar. Until images/logo-on-light.svg arrives, the
+    # Centre's name carries the brand as a maroon wordmark. To swap: add
+    # `logo: images/logo-on-light.svg` and set `title: false`.
+    title: "Centre for Household Finance"
     right:
       - text: Research
-        href: research.qmd
+        href: research/index.qmd
+      - text: Insights
+        href: insights/index.qmd
       - text: Team
-        href: team.qmd
-      - text: Contact
-        href: contact.qmd
-  search: false
-  favicon: favicon.png
+        href: team/index.qmd
+      - text: About
+        menu:
+          - text: About the Centre
+            href: about/index.qmd
+          - text: Governance & reports
+            href: about/governance.qmd
+          - text: Contact
+            href: about/contact.qmd
+
   page-footer:
-    background: dark 
+    # Brilliant Gold hairline above the footer, per the guidelines' letterhead
+    # anatomy. Set here so it needs no CSS.
+    border: "#CAA258"
+    left: |
+      **Centre for Household Finance** · Department of Economics · Stellenbosch University<br>
+      CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br>
+      +27 (0)21 808 2247 · <econ@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
     right: |
-      &copy; 2025 Centre for Household Finance.
+      &copy; 2026 Centre for Household Finance<br>
+      [Contact](/about/contact.html) · [Governance](/about/governance.html)
 
 format:
   html:
     theme:
       - flatly
       - custom.scss
-    css: styles.css
     toc: false
+    anchor-sections: false
+    link-external-newwindow: true
     include-in-header:
       - text: |
+          <link rel="preload" href="/fonts/SU-Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/SU-Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-resources:
-  - CNAME
-
+execute:
+  echo: false
+  warning: false
+  message: false

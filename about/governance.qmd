@@ -1,0 +1,20 @@
+---
+title: "Governance & reports"
+pagetitle: "Governance"
+---
+
+The Centre operates under a constitution approved by the Faculty and a Research
+Charter that governs research independence, data governance, and our
+relationships with funders and data partners. These, and our annual reports, are
+published here in full.
+
+```{r}
+#| include: false
+source("../R/chf.R")
+docs <- yaml::read_yaml("_documents.yml")
+```
+
+```{r}
+#| output: asis
+chf_doc_list(docs)
+```

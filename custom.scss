@@ -1,53 +1,453 @@
 /*-- scss:defaults --*/
 
-$dark: #61223b !default;
-$link-color: #61223b !default;
+// ═══════════════════════════════════════════════════════════════════════
+//  CHF brand palette — CHF Brand & Document Guidelines v1.1 (July 2026), §3.
+//  Every colour on this site traces to a value below. Nothing hardcodes a hex.
+//
+//  Note: inside scss:defaults you cannot use Bootstrap's own variables
+//  ($white, $primary) or functions (tint-color, shade-color) — user defaults
+//  are emitted BEFORE Bootstrap's _variables.scss. Use literals and Sass mix().
+// ═══════════════════════════════════════════════════════════════════════
+$chf-maroon:      #61223B;   // Confident Maroon — primary
+$chf-gold:        #CAA258;   // Brilliant Gold   — accent; RULES ONLY, never text
+$chf-black:       #2C2A29;   // SU Black         — body text
+$chf-steel:       #4D5356;   // Steel Grey       — captions, footers, metadata
+$chf-white:       #FFFFFF;
 
-$font-family-sans-serif: "Raleway", "Trebuchet MS", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// Sanctioned maroon tints (guidelines allow 10/20/40/60% only). Each is the
+// stated percentage of Confident Maroon mixed into white — the 10% value is
+// exactly the #EFE9EB printed in §3, so the others are derived, not invented.
+//
+// Written as literals rather than mix() calls because Dart Sass emits
+// fractional rgb(239.2, 232.9, 235.4), which browsers round correctly but which
+// makes the compiled CSS impossible to check against the guidelines by eye.
+$chf-maroon-10:   #EFE9EB;   // mix($chf-maroon, #FFFFFF, 10%)
+$chf-maroon-20:   #DFD3D8;   // mix($chf-maroon, #FFFFFF, 20%)
+$chf-maroon-dark: #4C1B2E;   // mix($chf-maroon, #000000, 78%) — hover/pressed only
+
+// Gold is never used for text. This is an accessibility requirement as well as
+// a brand rule: gold on white measures 2.38:1, failing every WCAG threshold.
+// For contrast, maroon on white is 11.67:1, SU Black 14.28:1, Steel Grey 7.81:1.
+$chf-rule-gold:   2px solid $chf-gold;
+$chf-rule-hair:   1px solid $chf-maroon-20;
+
+// Layout tokens (were CSS custom properties in the deleted styles.css)
+$chf-gap:         2rem;
+$chf-radius:      6px;
+$chf-transition:  0.25s;
+
+// ── Bootstrap / flatly overrides ──────────────────────────────────────
+$body-bg:               $chf-white;
+$body-color:            $chf-black;
+$primary:               $chf-maroon;
+$secondary:             $chf-steel;
+$dark:                  $chf-black;
+$light:                 $chf-maroon-10;
+
+$link-color:            $chf-maroon;
+$link-hover-color:      $chf-maroon-dark;
+$link-decoration:       none;
+$link-hover-decoration: underline;
+
+$font-family-sans-serif: "SU Raleway", "Trebuchet MS", Verdana, -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-size-base:        1rem;
+$line-height-base:      1.6;
+$font-weight-normal:    400;
+$font-weight-bold:      700;
+
+// Heading scale. The guidelines specify print points (24–28 / 15 / 12.5 / 10.5pt).
+// Transcribed literally that yields ~14px body text, which is unreadable on
+// screen. The RATIOS, weights and colours are preserved against a web-native
+// 16px base. This is a deliberate interpretation and awaits brand-owner sign-off.
+$headings-font-weight:  700;
+$headings-color:        $chf-maroon;
+$headings-line-height:  1.25;
+$h1-font-size:          2rem;      // document title   (24–28pt Bold)
+$h2-font-size:          1.5rem;    // section H1       (15pt Bold, gold rule)
+$h3-font-size:          1.2rem;    // sub-section H2   (12.5pt SemiBold, gold rule)
+$h4-font-size:          1.05rem;
+$h5-font-size:          1rem;
+$h6-font-size:          0.9rem;
+
+// ── Navbar: white field, maroon links, gold rule beneath ──────────────
+$navbar-bg:             $chf-white;
+$navbar-fg:             $chf-maroon;
+$navbar-hl:             $chf-maroon;
+$navbar-brand:          $chf-maroon;
+$navbar-brand-hl:       $chf-maroon;
+
+// ── Footer: white page, gold hairline, Steel Grey metadata ────────────
+// A full-bleed maroon footer would be exactly the "background wash" the
+// guidelines rule out, and would fight the white header.
+$footer-bg:             $chf-white;
+$footer-fg:             $chf-steel;
+$footer-font-size:      0.8125rem;   // the 7.5–8.5pt caption band
+
+// ── Tables: maroon header row, 10% maroon stripes ─────────────────────
+$table-striped-bg:      $chf-maroon-10;
+$table-striped-color:   $chf-black;
+$table-border-color:    $chf-maroon-20;
+$table-cell-padding-y:  0.5rem;
+$table-cell-padding-x:  0.75rem;
+
+$border-radius:         $chf-radius;
+$blockquote-font-size:  1rem;
+
 
 /*-- scss:rules --*/
 
-a {
-    text-decoration: none;
-    color: $link-color;
-    opacity: 1;
+// ═══════════════════════════════════════════════════════════════════════
+//  1. SU Raleway v3.000g, self-hosted.
+//
+//  Paths MUST be root-relative. This file compiles into /site_libs/bootstrap/,
+//  so url("fonts/…") resolves to /site_libs/bootstrap/fonts/… and 404s. That
+//  bug, plus fonts/ never being copied into docs/, is why the site served
+//  Trebuchet rather than Raleway until August 2026.
+//
+//  Safe because the site is served at a domain root. If it ever moves to a
+//  subpath, these become wrong and the resources: glob needs revisiting.
+// ═══════════════════════════════════════════════════════════════════════
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-SemiBold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Bold.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-BoldItalic.woff2") format("woff2");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
 
-    &:hover {
-        opacity: 0.6;
-        text-decoration: underline;
+// Ligatures off, per guidelines §4. Raleway v3.000g ships liga/clig/dlig;
+// browsers enable liga and clig by default, which is what this switches off.
+html {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  2. Navbar — white, gold hairline, brand hard left
+// ═══════════════════════════════════════════════════════════════════════
+.navbar {
+  background-color: $chf-white;
+  border-bottom: $chf-rule-gold;
+  box-shadow: none;
+
+  .navbar-container { max-width: 1320px; margin: 0 auto; padding: 0 $chf-gap; }
+
+  // Quarto centres a logo-only brand with .mx-auto; the guidelines require the
+  // logo (or wordmark) top-left.
+  .navbar-brand-container.mx-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .navbar-title {
+    color: $chf-maroon;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .navbar-logo { max-height: 56px; width: auto; }
+
+  .nav-link {
+    color: $chf-maroon;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.15rem;
+
+    &:hover, &:focus { color: $chf-maroon-dark; border-bottom-color: $chf-gold; }
+    &.active         { color: $chf-maroon; font-weight: 600; border-bottom-color: $chf-gold; }
+  }
+
+  .dropdown-menu {
+    border: $chf-rule-hair;
+    border-top: $chf-rule-gold;
+    border-radius: 0 0 $chf-radius $chf-radius;
+    .dropdown-item {
+      color: $chf-maroon;
+      &:hover, &:focus { background-color: $chf-maroon-10; color: $chf-maroon-dark; }
     }
+  }
 }
 
-
-/* Fonts */
-
-@font-face {
-    font-family: 'Raleway';
-    src: url('fonts/Raleway-Bold.woff2') format('woff2'),
-        url('fonts/Raleway-Bold.woff') format('woff'),
-        url('fonts/Raleway-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+@media (max-width: 768px) {
+  .navbar .navbar-container { padding: 0 1rem; }
+  .navbar .navbar-logo      { max-height: 40px; }
 }
 
-@font-face {
-    font-family: 'Raleway';
-    src: url('fonts/Raleway-Regular.woff2') format('woff2'),
-        url('fonts/Raleway-Regular.woff') format('woff'),
-        url('fonts/Raleway-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+// ═══════════════════════════════════════════════════════════════════════
+//  3. Headings — maroon, gold rules on the two section levels
+// ═══════════════════════════════════════════════════════════════════════
+#title-block-header .quarto-title h1.title {
+  color: $chf-maroon;
+  font-weight: 700;
+  border-bottom: $chf-rule-gold;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.25rem;
 }
 
-@font-face {
-    font-family: 'Raleway';
-    src: url('fonts/Raleway-Italic.woff2') format('woff2'),
-        url('fonts/Raleway-Italic.woff') format('woff'),
-        url('fonts/Raleway-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+.quarto-title-block .subtitle, p.subtitle {
+  color: $chf-steel;
+  font-weight: 400;
 }
 
+main h2 {
+  color: $chf-maroon;
+  font-weight: 700;
+  border-bottom: $chf-rule-gold;
+  padding-bottom: 0.3rem;
+  margin-top: 2.25rem;
+}
+main h3 {
+  color: $chf-maroon;
+  font-weight: 600;                      // SemiBold, per the H2 spec
+  border-bottom: 1px solid $chf-gold;
+  padding-bottom: 0.2rem;
+  margin-top: 1.75rem;
+}
+main h4, main h5, main h6 {
+  color: $chf-maroon;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+// Body text is never maroon, gold or light grey.
+main p, main li { color: $chf-black; }
+
+// Captions / metadata band (7.5–8.5pt, Steel Grey)
+figcaption, .figure-caption, .quarto-figure figcaption,
+caption, .chf-meta, .quarto-title-meta {
+  color: $chf-steel;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  4. Tables — maroon header row, 10% maroon stripes
+// ═══════════════════════════════════════════════════════════════════════
+main table, .table {
+  // Belt-and-braces: Bootstrap 5.3 drives striping through CSS variables, so
+  // setting $table-striped-bg alone is not always sufficient.
+  --bs-table-striped-bg: #{$chf-maroon-10};
+  border-color: $chf-maroon-20;
+  font-size: 0.95rem;
+
+  > thead {
+    background-color: $chf-maroon;
+    th {
+      color: $chf-white;
+      font-weight: 600;                  // "reversed out: one weight heavier"
+      border-bottom: none;
+      vertical-align: bottom;
+    }
+  }
+  > tbody > tr:nth-of-type(odd) > * { background-color: $chf-maroon-10; }
+  > tbody td { border-color: $chf-maroon-20; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  5. Card grid — evolved from the original .team-grid / .team-member.
+//     Generalised so people, documents and listings share one card system.
+// ═══════════════════════════════════════════════════════════════════════
+.chf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $chf-gap;
+  margin: $chf-gap 0 3rem;
+}
+
+.chf-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $chf-white;
+  border: $chf-rule-hair;
+  border-top: $chf-rule-gold;            // gold as a thin rule, not a fill
+  border-radius: $chf-radius;
+  padding: 1.25rem;
+  transition: transform $chf-transition ease, box-shadow $chf-transition ease;
+
+  &:hover, &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba($chf-maroon, 0.14);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: $chf-maroon-10;    // tint placeholder while loading
+  }
+}
+
+.chf-card-body  { flex-grow: 1; }
+.chf-card-name  { font-size: 1.15rem; font-weight: 700; color: $chf-maroon; margin: 0 0 0.15rem; }
+.chf-card-role  { font-size: 0.95rem; font-weight: 500; color: $chf-steel; margin: 0 0 0.1rem; }
+.chf-card-qual  { font-size: 0.85rem; color: $chf-steel; font-style: italic; margin: 0 0 0.75rem; }
+.chf-card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+                  text-transform: uppercase; color: $chf-steel; margin-bottom: 0.15rem; }
+.chf-card-text  { font-size: 0.95rem; color: $chf-black; margin-bottom: 0.75rem; }
+.chf-card-email { font-size: 0.9rem; word-break: break-word; }
+
+.chf-card-links {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: $chf-rule-hair;
+  a {
+    margin-right: 0.9rem;
+    font-size: 1.1rem;
+    color: $chf-steel;
+    &:hover { color: $chf-maroon; }
+  }
+}
+
+@media (max-width: 768px) {
+  .chf-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  6. Governance document list
+// ═══════════════════════════════════════════════════════════════════════
+.chf-doclist { list-style: none; padding-left: 0; margin: 1.5rem 0 2.5rem; }
+
+.chf-doc {
+  padding: 0.9rem 0;
+  border-bottom: $chf-rule-hair;
+  &:first-child { border-top: $chf-rule-gold; }
+
+  .chf-doc-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: $chf-maroon;
+    i { margin-right: 0.5rem; }
+  }
+  .chf-doc-meta    { display: block; font-size: 0.8125rem; color: $chf-steel; margin-top: 0.2rem; }
+  .chf-doc-summary { font-size: 0.95rem; color: $chf-black; margin: 0.4rem 0 0; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  7. Listings — Research outputs, Insights posts
+// ═══════════════════════════════════════════════════════════════════════
+.quarto-listing {
+  .listing-title { color: $chf-maroon; font-weight: 700; }
+  .listing-date, .listing-author { color: $chf-steel; font-size: 0.85rem; }
+  .listing-description { color: $chf-black; }
+  .listing-item { padding-bottom: 1.25rem; border-bottom: $chf-rule-hair; }
+}
+
+.quarto-category, .listing-category {
+  background-color: $chf-maroon-10;
+  color: $chf-maroon !important;
+  border: 1px solid $chf-maroon-20;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  &:hover { background-color: $chf-maroon-20; }
+}
+
+.quarto-listing-category .category.active {
+  color: $chf-maroon;
+  font-weight: 600;
+  border-bottom: 2px solid $chf-gold;
+}
+
+// Publication-status badge on research outputs
+.chf-status {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $chf-white;
+  background-color: $chf-maroon;
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+  vertical-align: middle;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  8. Footer
+// ═══════════════════════════════════════════════════════════════════════
+.nav-footer {
+  background-color: $chf-white;
+  color: $chf-steel;
+  font-size: $footer-font-size;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  line-height: 1.5;
+
+  a       { color: $chf-steel; text-decoration: none; }
+  a:hover { color: $chf-maroon; text-decoration: underline; }
+  strong  { color: $chf-maroon; font-weight: 600; }
+
+  // The contact block is three long lines; give it room so the address does not
+  // wrap mid-phrase against a narrow default column.
+  .nav-footer-left  { flex: 1 1 72%; max-width: 72%; }
+  .nav-footer-right { flex: 0 1 28%; text-align: right; }
+
+  @media (max-width: 768px) {
+    .nav-footer-left, .nav-footer-right {
+      flex: 1 1 100%;
+      max-width: 100%;
+      text-align: left;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  9. Contact block, disclaimer, misc
+// ═══════════════════════════════════════════════════════════════════════
+.chf-contact {
+  font-size: 1.1rem;
+  a { color: $chf-maroon; font-weight: 500; }
+}
+
+// Research Charter §7.2 disclaimer, carried by every Insights post.
+.chf-disclaimer {
+  margin-top: 3rem;
+  padding: 0.9rem 1.1rem;
+  background-color: $chf-maroon-10;
+  border-left: 3px solid $chf-gold;
+  color: $chf-steel;
+  font-size: 0.8125rem;
+  border-radius: 0 $chf-radius $chf-radius 0;
+}
+
+iframe { border-radius: $chf-radius; border: 0; }
+
+img.chf-banner { width: 100%; border-radius: $chf-radius; margin: 1.5rem 0 2rem; }
+
+blockquote {
+  border-left: 3px solid $chf-gold;
+  color: $chf-steel;
+  padding-left: 1rem;
+}
+
+::selection { background: $chf-maroon-20; }

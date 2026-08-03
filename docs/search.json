@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "team/index.html",
+    "href": "team/index.html",
+    "title": "Our Team",
+    "section": "",
+    "text": "Jesse Naidoo\n\n\nDirector\n\n\nPhD, University of Chicago\n\n\nResearch interests\n\n\nThe interaction of formal and informal finance, retirement savings, and how households use the financial system to navigate major life events such as death and divorce.\n\n\njesse.naidoo@sun.ac.za\n\n\n\n\n\n\n\n\n\n\nAllan Davids\n\n\nSenior Researcher\n\n\nPhD, University of Cape Town\n\n\nResearch interests\n\n\nHousing, which is often the largest asset and the largest liability a household holds, and how housing and credit decisions drive wealth inequality.\n\n\nallan.davids@sun.ac.za\n\n\n\n\n\n\n\n\n\n\nMatthew Olckers\n\n\nSenior Researcher\n\n\nPhD, Paris School of Economics\n\n\nResearch interests\n\n\nRetirement saving, financial advice and informal borrowing, with past work on financial literacy, mobile money adoption and sports betting.\n\n\nmatthew.olckers@sun.ac.za"
+  },
+  {
+    "objectID": "team/index.html#staff",
+    "href": "team/index.html#staff",
+    "title": "Our Team",
+    "section": "",
+    "text": "Jesse Naidoo\n\n\nDirector\n\n\nPhD, University of Chicago\n\n\nResearch interests\n\n\nThe interaction of formal and informal finance, retirement savings, and how households use the financial system to navigate major life events such as death and divorce.\n\n\njesse.naidoo@sun.ac.za\n\n\n\n\n\n\n\n\n\n\nAllan Davids\n\n\nSenior Researcher\n\n\nPhD, University of Cape Town\n\n\nResearch interests\n\n\nHousing, which is often the largest asset and the largest liability a household holds, and how housing and credit decisions drive wealth inequality.\n\n\nallan.davids@sun.ac.za\n\n\n\n\n\n\n\n\n\n\nMatthew Olckers\n\n\nSenior Researcher\n\n\nPhD, Paris School of Economics\n\n\nResearch interests\n\n\nRetirement saving, financial advice and informal borrowing, with past work on financial literacy, mobile money adoption and sports betting.\n\n\nmatthew.olckers@sun.ac.za"
+  },
+  {
+    "objectID": "team/index.html#students",
+    "href": "team/index.html#students",
+    "title": "Our Team",
+    "section": "Students",
+    "text": "Students\nWe supervise Masters and PhD students working on household finance in South Africa. If you are a postgraduate student at Stellenbosch University with an interest in the field, please get in touch.\n\nNo entries yet."
+  },
+  {
+    "objectID": "insights/index.html",
+    "href": "insights/index.html",
+    "title": "Insights",
+    "section": "",
+    "text": "Short, evidence-led pieces on South African consumer financial markets — market overviews, new facts from our data work, reviews of policy issues, and book reviews. Work that informs decisions but would not appear in an academic journal.\nSubscribe by RSS\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "About the Centre",
+    "section": "",
+    "text": "The Centre for Household Finance is a research centre in the Department of Economics at Stellenbosch University. Our goal is to advance knowledge about consumer financial markets in developing countries: how they work, and which policies may make them work more efficiently and more equitably.\nWe use tools from applied microeconomics and causal inference to study how people make financial decisions and what influences their choices. We focus on South African survey and administrative data across a range of domains, including retirement, insurance and credit."
+  },
+  {
+    "objectID": "about/index.html#what-we-are-looking-for",
+    "href": "about/index.html#what-we-are-looking-for",
+    "title": "About the Centre",
+    "section": "What we are looking for",
+    "text": "What we are looking for\nWe are a new and growing research centre, and are actively seeking\n\ndata partners\nresearch funding\nresearch assistants, postgraduate students and postdocs\n\nIf any of these describe you or your organisation, please get in touch."
+  },
+  {
+    "objectID": "about/index.html#governance",
+    "href": "about/index.html#governance",
+    "title": "About the Centre",
+    "section": "Governance",
+    "text": "Governance\nThe Centre operates under a constitution approved by the Faculty and a Research Charter that governs research independence, data governance, and our relationships with funders and data partners. These, together with our annual reports, are published in full on the Governance & reports page."
+  },
+  {
+    "objectID": "about/governance.html",
+    "href": "about/governance.html",
+    "title": "Governance & reports",
+    "section": "",
+    "text": "The Centre operates under a constitution approved by the Faculty and a Research Charter that governs research independence, data governance, and our relationships with funders and data partners. These, and our annual reports, are published here in full.\n\nNo documents have been published yet."
+  },
+  {
+    "objectID": "about/contact.html",
+    "href": "about/contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "If you or your organisation would like to work with us, please get in touch. Research students at Stellenbosch University with an interest in household finance are welcome to email us to set up a meeting."
+  },
+  {
+    "objectID": "about/contact.html#email",
+    "href": "about/contact.html#email",
+    "title": "Contact",
+    "section": "Email",
+    "text": "Email\n\nhouseholdfinance@sun.ac.za"
+  },
+  {
+    "objectID": "about/contact.html#physical-address",
+    "href": "about/contact.html#physical-address",
+    "title": "Contact",
+    "section": "Physical address",
+    "text": "Physical address\nCentre for Household Finance\nDepartment of Economics, Stellenbosch University\nCGW Schumann Building, Bosman Street\nStellenbosch Central, Stellenbosch 7600\nPostal: Private Bag X1, Stellenbosch 7599, South Africa\nTelephone: +27 (0)21 808 2247"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Centre for Household Finance",
@@ -7,31 +84,31 @@
     "text": "We are a research group within the Department of Economics at Stellenbosch University. Our goal is to advance knowledge about consumer financial markets in developing countries: how they work, and which policies may make them work more efficiently and more equitably.\nWe use tools from applied microeconomics and causal inference to study how people make financial decisions and what influences their choices. We focus on South African survey and administrative data in a variety of domains, including retirement, insurance, and credit."
   },
   {
-    "objectID": "index.html#news",
-    "href": "index.html#news",
-    "title": "Centre for Household Finance",
-    "section": "News",
-    "text": "News\n\nMarch, 2025: We welcomed Dr Matthew Olckers as a senior researcher and founding member of our group. Matthew has worked on a range of household finance topics, including retirement saving and financial literacy.\nFebruary, 2025: Dr Allan Davids, a senior lecturer at the University of Cape Town, has joined our group as an affiliated researcher and founding member. Allan’s research focuses on housing and credit.\nJanuary, 2025: Dr Jesse Naidoo joined Stellenbosch University as the founding director of our research centre. Here is an interview with Jesse where he describes his vision for the Centre."
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "We use tools from applied microeconomics and causal inference to study how South African households make financial decisions, and which policies would make consumer financial markets work more efficiently and more equitably."
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Centre for Household Finance",
-    "section": "",
-    "text": "Contact Us\nWe are a new and growing research centre and are actively seeking\n\ndata partners\nresearch funding\nresearch assistants, postgraduate students, and postdocs\n\nIf you or your organisation would like to work with us, please get in touch. Research students at Stellenbosch University who are interested in household finance should email us to set up a meeting.\n\nEmail\n\nhouseholdfinance@sun.ac.za\n\n\n\nPhysical Address\nDepartment of Economics, Stellenbosch University\nCGW Schumann Building\nBosman St, Stellenbosch Central\nStellenbosch 7600"
+    "objectID": "research/index.html#research-programmes",
+    "href": "research/index.html#research-programmes",
+    "title": "Research",
+    "section": "Research programmes",
+    "text": "Research programmes\nOur work is organised into programmes. Each output below is tagged with the programme it belongs to; use the tags to filter the list.\nMortgage pricing in South Africa. Access to affordable housing finance is essential for economic mobility, yet mortgage pricing varies significantly across applicants. This programme investigates disparities in mortgage offer probabilities and interest rates by age, gender, marital status and first-time buyer status, with a view to policies that promote fair and transparent lending.\nThe market for funeral insurance. Funeral insurance is one of the most widely purchased financial products in South Africa, while life insurance remains far less common. This programme examines the extent to which the two are substitutes, on both the supply side — regulatory barriers and industry practice — and the demand side, where mortality, income and intergenerational living arrangements shape what households buy."
   },
   {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Our Research",
-    "section": "",
-    "text": "We focus on advancing knowledge in household finance and development economics while generating insights that can inform local policy. Below are some of our current projects.\nCurrent Projects\nMortgage Pricing in South Africa\nAccess to affordable housing finance is essential for economic mobility, yet mortgage pricing can vary significantly across different groups of applicants. This project investigates disparities in mortgage offer probabilities and interest rates based on factors such as age, gender, marital status, and first-time buyer status. By identifying potential biases and inefficiencies in the mortgage market, our research aims to contribute to policies that promote fair and transparent lending practices.\nThe Market for Funeral Insurance in South Africa\nFuneral insurance is one of the most widely purchased financial products in South Africa, while life insurance remains far less common. This project explores the extent to which these two products serve as substitutes, examining both supply- and demand-side factors. On the supply side, we assess regulatory barriers and industry practices that shape market offerings. On the demand side, we analyze how differences in mortality rates, income levels, and family structure — such as intergenerational living arrangements — affect consumer choices. Understanding these dynamics can help improve financial products and policies to better serve South African households."
+    "objectID": "research/index.html#papers",
+    "href": "research/index.html#papers",
+    "title": "Research",
+    "section": "Papers",
+    "text": "Papers\n\n\n    \n      \n      \n    \n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Our Team",
-    "section": "",
-    "text": "Jesse Naidoo\n\nDirector\nPhD, University of Chicago\nJesse’s research interests include the interaction of formal and informal finance, retirement savings, and how households use the financial system to navigate major life events like death and divorce.\n\n\n\n \n\n\n\n\n\nAllan Davids\n\nSenior Researcher\nPhD, University of Cape Town\nAllan’s research focuses on housing, which is often the largest asset and largest liability for households. He focuses on how housing and credit decisions can be a driver of wealth inequality.\n\n\n\n \n\n\n\n\n\nMatthew Olckers\n\nSenior Researcher\nPhD, Paris School of Economics\nMatthew’s research interests include retirement saving, financial advice, and informal borrowing. His past research includes projects on financial literacy, adoption of mobile money, and sports betting."
+    "objectID": "research/index.html#data",
+    "href": "research/index.html#data",
+    "title": "Research",
+    "section": "Data",
+    "text": "Data\n\n\n\n\nNo matching items"
   }
 ]
