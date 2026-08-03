@@ -170,7 +170,21 @@ html {
     letter-spacing: 0.01em;
   }
 
-  .navbar-logo { max-height: 56px; width: auto; }
+  // The supplied lockups declare a viewBox but no width/height, so they have no
+  // intrinsic size. Quarto's default `max-height` + `width: auto` collapses them
+  // to nothing; an explicit height is required. Do not change this back.
+  //
+  // At 64px the horizontal lockup is ~218px wide, comfortably over the 142px
+  // on-screen minimum in §2 of the guidelines.
+  // `max-height: none` is load-bearing: Quarto's base rule caps .navbar-logo at
+  // 24px, which would otherwise clamp the height set here.
+  .navbar-logo {
+    height: 64px;
+    max-height: none;
+    width: auto;
+    max-width: 100%;
+    padding: 4px 0;
+  }
 
   .nav-link {
     color: $chf-maroon;
@@ -196,7 +210,8 @@ html {
 
 @media (max-width: 768px) {
   .navbar .navbar-container { padding: 0 1rem; }
-  .navbar .navbar-logo      { max-height: 40px; }
+  // Stays above the 142px minimum: 44px tall is ~150px wide.
+  .navbar .navbar-logo      { height: 44px; max-height: none; }
 }
 
 // ═══════════════════════════════════════════════════════════════════════

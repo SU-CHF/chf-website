@@ -21,6 +21,9 @@ project:
     # Likewise: governance PDFs are linked from HTML emitted by an R chunk,
     # which the scanner does not trace.
     - documents/*.pdf
+    # Only the lockup referenced by the navbar is discovered. Ship the other
+    # variants too, so referencing one from CSS later cannot silently 404.
+    - images/logo/*.svg
 
 website:
   title: "Centre for Household Finance"
@@ -34,11 +37,12 @@ website:
   image: images/banner_001.jpg
 
   navbar:
-    # The supplied logo.png is the reversed lockup on a solid maroon field, which
-    # cannot sit on a white navbar. Until images/logo-on-light.svg arrives, the
-    # Centre's name carries the brand as a maroon wordmark. To swap: add
-    # `logo: images/logo-on-light.svg` and set `title: false`.
-    title: "Centre for Household Finance"
+    # Official co-branded lockup, gold-and-maroon on transparent, for the white
+    # header. images/logo/chf-horizontal-on-maroon.svg is the reversed variant,
+    # for any dark background added later.
+    title: false
+    logo: images/logo/chf-horizontal-on-light.svg
+    logo-alt: "Centre for Household Finance, Stellenbosch University"
     right:
       - text: Research
         href: research/index.qmd

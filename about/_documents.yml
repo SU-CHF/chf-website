@@ -11,18 +11,20 @@
 # So add an entry only once its PDF is in documents/. An empty list renders a
 # "no documents published yet" note.
 #
-# Fields: title, doctype, version, date (ISO), file, summary
+# Fields: title, doctype, version, file, summary, and date (optional — the
+# approval date; omitted rather than guessed).
 
-[]
+- title: "Constitution of the Centre for Household Finance"
+  doctype: Constitution
+  version: "1.0"
+  # TODO: add the approval date once confirmed, as `date: YYYY-MM-DD`.
+  file: CHF-Constitution-Centre-v1.0.pdf
+  summary: >
+    Establishes the Centre, its objects and membership, its Board, and its
+    relationship to the Department of Economics and the Faculty.
 
-# - title: "Constitution of the Centre for Household Finance"
-#   doctype: Constitution
-#   version: "1.0"
-#   date: 2025-11-04
-#   file: CHF-Constitution-CHF-v1.0.pdf
-#   summary: >
-#     Establishes the Centre, its objects and membership, and its relationship
-#     to the Department of Economics and the Faculty.
+# Add the Research Charter and the Directors' Report here once their PDFs are
+# in documents/:
 #
 # - title: "Research Charter"
 #   doctype: Charter
@@ -36,7 +38,6 @@
 # - title: "Directors' Report 2025"
 #   doctype: Report
 #   version: "1.0"
-#   date: 2026-03-31
 #   file: CHF-Report-Directors2025-v1.0.pdf
 #   summary: >
 #     Annual report on activities, outputs, funding and staffing for the 2025

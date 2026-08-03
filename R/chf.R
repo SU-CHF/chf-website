@@ -77,6 +77,14 @@ chf_person_card <- function(p, kind = c("staff", "student")) {
 
   photo <- p$photo %||% "/images/team/placeholder.png"
 
+  # Cards are square but portraits are not, so the browser crops with
+  # object-fit: cover. `focus:` moves the crop window up or down — a lower
+  # percentage keeps more of the top of the frame, which is what a portrait with
+  # the face high in it needs. Omit for square photos; the default is centred.
+  focus <- if (!is.null(p$focus) && nzchar(p$focus)) {
+    sprintf(' style="object-position: %s"', esc(p$focus))
+  } else ""
+
   email_html <- if (!is.null(p$email) && nzchar(p$email)) {
     sprintf('<p class="chf-card-email"><a href="mailto:%s">%s</a></p>',
             esc(p$email), esc(p$email))
@@ -96,8 +104,8 @@ chf_person_card <- function(p, kind = c("staff", "student")) {
   # a <pre>, so do not "tidy" this into a nested layout.
   paste0(
     '<div class="chf-card">\n',
-    sprintf('<img src="%s" alt="%s" loading="lazy">\n',
-            esc(photo), esc(paste("Photograph of", p$name))),
+    sprintf('<img src="%s" alt="%s" loading="lazy"%s>\n',
+            esc(photo), esc(paste("Photograph of", p$name)), focus),
     '<div class="chf-card-body">\n',
     sprintf('<p class="chf-card-name">%s</p>\n', esc(p$name)),
     sprintf('<p class="chf-card-role">%s</p>\n', esc(role)),
@@ -159,7 +167,14 @@ chf_doc_list <- function(docs, dir = "../documents") {
     }
 
     size <- sprintf("%.0f kB", file.size(path) / 1024)
-    when <- trimws(format(as.Date(d$date), "%e %B %Y"))
+
+    # `date` is the approval date and is optional — better to publish a document
+    # with no date than to guess one. Omitted dates just drop from the meta line.
+    meta <- c(esc(d$doctype), paste("Version", esc(d$version)))
+    if (!is.null(d$date) && nzchar(as.character(d$date))) {
+      meta <- append(meta, trimws(format(as.Date(d$date), "%e %B %Y")), after = 2)
+    }
+    meta <- paste(c(meta, paste0("PDF, ", size)), collapse = " &middot; ")
 
     # Flush-left, as in chf_person_card — indentation would make Pandoc read
     # this as a code block.
@@ -167,8 +182,7 @@ chf_doc_list <- function(docs, dir = "../documents") {
       '<li class="chf-doc">\n',
       sprintf('<a class="chf-doc-title" href="/documents/%s"><i class="fas fa-file-pdf" aria-hidden="true"></i>%s</a>\n',
               esc(d$file), esc(d$title)),
-      sprintf('<span class="chf-doc-meta">%s &middot; Version %s &middot; %s &middot; PDF, %s</span>\n',
-              esc(d$doctype), esc(d$version), when, size),
+      sprintf('<span class="chf-doc-meta">%s</span>\n', meta),
       sprintf('<p class="chf-doc-summary">%s</p>\n', esc(tidy_text(d$summary))),
       '</li>\n'
     ))

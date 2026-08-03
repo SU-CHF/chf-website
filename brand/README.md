@@ -83,32 +83,39 @@ backgrounds.
 make the page bookend-heavy against a white header. If more colour is wanted, the
 sanctioned move is a `#EFE9EB` tint band, not a maroon fill.
 
-## Outstanding: the logo
+## The logo
 
-The navbar currently shows the Centre's name as a maroon wordmark rather than the
-co-branded lockup.
+The official co-branded lockups, exactly as supplied by SU Corporate
+Communication (RGB SVG), live in `images/logo/`:
 
-`images/logo.png` is the **reversed** lockup — gold and white knocked out of a
-solid maroon rectangle, with no transparency (verified: 80% of its pixels are
-`#61223B`). On a white navbar it renders as a maroon plate, which is that variant
-used outside the context §2 sanctions.
+| File | Use |
+|---|---|
+| `chf-horizontal-on-light.svg` | **In use** — the white navbar |
+| `chf-stacked-on-light.svg` | Narrow or square spaces on light backgrounds |
+| `chf-horizontal-on-maroon.svg` | Reversed, gold-and-white, for dark backgrounds |
+| `chf-stacked-on-maroon.svg` | Reversed, narrow or square |
 
-**What is needed:** `images/logo-on-light.svg` — the gold-and-maroon lockup on a
-transparent background — from SU Corporate Communication. Optionally
-`logo-on-maroon.svg` for any dark-background use later.
+They are byte-identical to the supplied artwork — no recolouring, no reformatting,
+no added attributes. Each contains only paths in `#61223B` and `#CAA258` on a
+transparent ground.
 
-To switch once it arrives, in `_quarto.yml`:
+The earlier `images/logo.png` has been deleted. It was the **reversed** lockup
+flattened onto a solid maroon rectangle with no transparency (80% of its pixels
+were `#61223B`), so on a white navbar it rendered as a maroon plate — that
+variant used outside the context §2 sanctions.
 
-```yaml
-  navbar:
-    title: false
-    logo: images/logo-on-light.svg
-    logo-alt: "Centre for Household Finance, Stellenbosch University"
-```
+### Sizing gotcha
 
-Minimum size on screen is 142px wide for the horizontal lockup, 85px high for the
-stacked one, with clear space of twice the cap-height of the "S" in
-"Stellenbosch" (§2).
+The supplied SVGs declare a `viewBox` but no `width`/`height`, so they have **no
+intrinsic size**. Quarto's default `.navbar-logo { max-height: 24px; width: auto }`
+collapses such an image to zero width — the logo silently disappears. `custom.scss`
+therefore sets an explicit `height` *and* `max-height: none`; both are needed,
+since the 24px cap would otherwise clamp the height back down.
+
+Current sizing is 64px tall (~218px wide) on desktop and 44px (~150px) on mobile.
+The §2 on-screen minimum is 142px wide for the horizontal lockup and 85px high for
+the stacked one, with clear space of twice the cap-height of the "S" in
+"Stellenbosch".
 
 ## Charts
 

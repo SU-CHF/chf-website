@@ -7,7 +7,9 @@
 # tinted placeholder, and one with no email simply omits that line. So an entry
 # can be added before all its details are to hand.
 #
-# Photos live in images/team/ and are square. Drop any crop into _inbox/ and it
+# Photos live in images/team/. Cards are square, so a portrait is cropped by the
+# browser; `focus:` moves the crop window (a lower percentage keeps more of the
+# top of the frame). Omit it for square photos. Drop any crop into _inbox/ and it
 # will be normalised.
 #
 # links: may contain any of website, scholar, linkedin, github.
@@ -16,8 +18,7 @@ staff:
   - name: Jesse Naidoo
     role: Director
     qualification: PhD, University of Chicago
-    # TODO CONFIRM: address assumed from the firstname.lastname@sun.ac.za pattern.
-    email: jesse.naidoo@sun.ac.za
+    email: jnaidoo@sun.ac.za
     photo: /images/team/jesse-naidoo.jpg
     interests: >
       The interaction of formal and informal finance, retirement savings, and
@@ -30,9 +31,8 @@ staff:
   - name: Allan Davids
     role: Senior Researcher
     qualification: PhD, University of Cape Town
-    # TODO CONFIRM: Allan is an affiliated researcher based at UCT — decide
-    # whether to show a UCT address here instead.
-    email: allan.davids@sun.ac.za
+    # Allan is an affiliated researcher based at UCT.
+    email: allan.davids@uct.ac.za
     photo: /images/team/allan-davids.jpg
     interests: >
       Housing, which is often the largest asset and the largest liability a
@@ -45,27 +45,56 @@ staff:
   - name: Matthew Olckers
     role: Senior Researcher
     qualification: PhD, Paris School of Economics
-    # TODO CONFIRM: address assumed from the firstname.lastname@sun.ac.za pattern.
-    email: matthew.olckers@sun.ac.za
+    email: olckersm@sun.ac.za
     photo: /images/team/matthew-olckers.jpg
     interests: >
       Retirement saving, financial advice and informal borrowing, with past
       work on financial literacy, mobile money adoption and sports betting.
     links:
-      website:  https://matthewolckers.com/
+      website:  https://www.matthewolckers.com/
       linkedin: https://www.linkedin.com/in/matthew-olckers/
 
-# Students. Copy the commented block below for each one.
+# Students. Copy an entry below to add one.
 #
-# Before publishing a student, confirm they consent to their name, email and
-# thesis topic appearing on a public page.
-students: []
+# Before publishing a student, confirm they are happy for their name, email and
+# thesis topic to appear on a public page.
+students:
+  - name: Anine Keel
+    degree: Master's student
+    year: Expected graduation 2027
+    email: aninekeel@sun.ac.za
+    photo: /images/team/anine-keel.jpg
+    focus: center 8%
+    thesis: >
+      The balance sheets of South African households.
+    supervisor: Jesse Naidoo
+
+  - name: Connor Lane
+    degree: Master's student
+    year: Expected graduation 2028
+    email: connorlane@sun.ac.za
+    photo: /images/team/connor-lane.jpg
+    focus: center 55%
+    thesis: >
+      Marginal borrowers in the market for home loans.
+    supervisor: Jesse Naidoo
+
+  - name: Annemé Lahoud
+    degree: Master's student
+    year: Expected graduation 2028
+    email: lahoudai@sun.ac.za
+    photo: /images/team/anneme-lahoud.jpg
+    focus: center 40%
+    thesis: >
+      Why is funeral insurance both expensive and popular?
+    supervisor: Jesse Naidoo
 
 #  - name: Full Name
-#    degree: PhD (Economics)          # or: MCom (Economics)
-#    year: 2nd year                   # optional
-#    email: student@sun.ac.za
+#    degree: Master's student         # or: PhD candidate
+#    year: Expected graduation 2029   # optional
+#    email: name@sun.ac.za
 #    photo: /images/team/full-name.jpg
+#    focus: center 40%                # optional; portraits only
 #    thesis: >
 #      Working title or one-line description of the thesis topic.
 #    supervisor: Jesse Naidoo
