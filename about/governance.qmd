@@ -8,29 +8,27 @@ Charter that governs research independence, data governance, and our
 relationships with funders and data partners. These, and our annual reports, are
 published here in full.
 
+```{r}
+#| include: false
+source("../R/chf.R")
+board <- yaml::read_yaml("_board.yml")
+docs  <- yaml::read_yaml("_documents.yml")
+```
+
 ## Board
 
 The Board oversees the Centre's work and holds the Director to account for it.
 
-| Member | Position |
-|---|---|
-| Sophia du Plessis | Chair of the Department of Economics, Stellenbosch University |
-| Dieter von Fintel | Vice-Dean: Research, Faculty of Economic and Management Sciences |
-| Jesse Naidoo | Director, Centre for Household Finance |
-| Hennis de Jongh | Head: Channel Sales, Capitec Bank |
-| Kanshukan Rajaratnam | Director, School for Data Science and Computational Thinking |
-| Tarun Ramadorai | Professor of Financial Economics, London School of Economics |
-| David Fowkes | Special Advisor to the Governor, South African Reserve Bank |
+```{r}
+#| output: asis
+chf_board_table(board)
+chf_stamp("_board.yml", "Board as at")
+```
 
 ## Documents
 
 ```{r}
-#| include: false
-source("../R/chf.R")
-docs <- yaml::read_yaml("_documents.yml")
-```
-
-```{r}
 #| output: asis
 chf_doc_list(docs)
+chf_stamp("_documents.yml", "Register last updated")
 ```

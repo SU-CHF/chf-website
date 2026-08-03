@@ -1,0 +1,29 @@
+# The Centre's Board. Rendered by chf_board_table() in R/chf.R.
+#
+# The "Board as at <date>" stamp under the table on the Governance page comes
+# from this file's git history, so editing it — and only it — re-dates the Board.
+# Keep unrelated wording changes to about/governance.qmd out of the same commit
+# if you want the stamp to stay meaningful.
+#
+# Fields: name, position
+
+- name: Sophia du Plessis
+  position: Chair of the Department of Economics, Stellenbosch University
+
+- name: Dieter von Fintel
+  position: "Vice-Dean: Research, Faculty of Economic and Management Sciences"
+
+- name: Jesse Naidoo
+  position: Director, Centre for Household Finance
+
+- name: Hennis de Jongh
+  position: "Head: Channel Sales, Capitec Bank"
+
+- name: Kanshukan Rajaratnam
+  position: Director, School for Data Science and Computational Thinking
+
+- name: Tarun Ramadorai
+  position: Professor of Financial Economics, London School of Economics
+
+- name: David Fowkes
+  position: Special Advisor to the Governor, South African Reserve Bank

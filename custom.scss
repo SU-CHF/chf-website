@@ -349,7 +349,47 @@ main table, .table {
 // ═══════════════════════════════════════════════════════════════════════
 //  6. Governance document list
 // ═══════════════════════════════════════════════════════════════════════
-.chf-doclist { list-style: none; padding-left: 0; margin: 1.5rem 0 2.5rem; }
+// "Last updated" stamps. Colour and size come from .chf-meta; this only adds
+// separation from whatever the stamp sits beneath.
+.chf-stamp {
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+// The Board table is emitted by R rather than written as markdown, so it does
+// not pick up Pandoc's .table class. Match the styling of markdown tables.
+table.chf-board {
+  width: 100%;
+  border-color: $chf-maroon-20;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+
+  > thead {
+    background-color: $chf-maroon;
+    th {
+      color: $chf-white;
+      font-weight: 600;
+      border-bottom: none;
+      vertical-align: bottom;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+  }
+  > tbody {
+    td {
+      padding: 0.5rem 0.75rem;
+      border-color: $chf-maroon-20;
+      vertical-align: top;
+    }
+    > tr:nth-of-type(odd) > * { background-color: $chf-maroon-10; }
+  }
+}
+
+// Bottom margin is small because a .chf-stamp normally follows and brings its
+// own top margin; keeping 2.5rem here left the register stamp visibly further
+// from its list than the Board stamp is from its table.
+.chf-doclist { list-style: none; padding-left: 0; margin: 1.5rem 0 0.6rem; }
 
 .chf-doc {
   padding: 0.9rem 0;

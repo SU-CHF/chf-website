@@ -23,6 +23,70 @@ esc <- function(x) {
 # YAML folded scalars (`>`) leave newlines behind; collapse them to one line.
 tidy_text <- function(x) trimws(gsub("[[:space:]]+", " ", x %||% ""))
 
+# Site-wide date format, matching the governance approval dates.
+chf_format_date <- function(d) trimws(format(as.Date(d), "%e %B %Y"))
+
+
+# ── "Last updated" stamps ─────────────────────────────────────────────────
+#
+# Dates come from git, per file, not from Quarto's `date-modified`. Quarto's
+# only automatic source is filesystem mtime, which resets to checkout time on a
+# fresh clone — so the first render on a new machine would stamp every page with
+# the day it was cloned, and nobody would notice it was wrong.
+#
+# Paths are relative to the calling document's directory, which is where knitr
+# runs each chunk. Git resolves pathspecs relative to the working directory, so
+# `chf_stamp("_people.yml")` from team/index.qmd needs no qualification.
+
+#' Date a file was last changed, as a formatted string, or NULL.
+chf_last_updated <- function(path) {
+
+  if (!file.exists(path)) return(NULL)
+
+  git <- function(args) {
+    suppressWarnings(
+      system2("git", args, stdout = TRUE, stderr = FALSE)
+    )
+  }
+
+  # Not a git repo, or git missing entirely — no stamp, no error.
+  inside <- suppressWarnings(
+    system2("git", c("rev-parse", "--is-inside-work-tree"),
+            stdout = TRUE, stderr = FALSE)
+  )
+  if (!identical(as.character(inside)[1], "true")) return(NULL)
+
+  # Uncommitted changes against HEAD mean the edit is happening right now: you
+  # edit the data file, render, then commit. Git history does not know about it
+  # yet, so today is the honest answer.
+  dirty <- suppressWarnings(
+    system2("git", c("diff", "--quiet", "HEAD", "--", shQuote(path)),
+            stdout = FALSE, stderr = FALSE)
+  )
+  if (!identical(as.integer(dirty), 0L)) return(chf_format_date(Sys.Date()))
+
+  # Author date rather than committer date: stable across rebases.
+  d <- git(c("log", "-1", "--format=%as", "--", shQuote(path)))
+
+  # No history, but the file exists and we are in a repo — it is new and
+  # untracked, so `git diff` did not flag it. Today is still correct. (Returning
+  # nothing here would silently drop the stamp on any newly added data file.)
+  if (length(d) == 0 || !nzchar(d[1])) return(chf_format_date(Sys.Date()))
+
+  chf_format_date(d[1])
+}
+
+#' Emit a "last updated" line. Silent when the date cannot be determined.
+#'
+#' @param path   file whose history dates the claim
+#' @param prefix leading text, e.g. "Team last updated"
+chf_stamp <- function(path, prefix) {
+  when <- chf_last_updated(path)
+  if (is.null(when)) return(invisible(NULL))
+  cat(sprintf('<p class="chf-meta chf-stamp">%s %s</p>\n', esc(prefix), esc(when)))
+  invisible(NULL)
+}
+
 
 # ── Icon links ────────────────────────────────────────────────────────────
 
@@ -132,6 +196,36 @@ chf_people_grid <- function(people, kind) {
 }
 
 
+# ── Board ─────────────────────────────────────────────────────────────────
+
+#' Emit the Board table.
+#'
+#' Driven from _board.yml rather than a markdown table so that the "Board as at"
+#' stamp tracks actual membership changes — with the table inline in the .qmd, a
+#' typo fix anywhere on the page would silently re-date the Board.
+#'
+#' @param board entries from _board.yml, each with `name` and `position`
+chf_board_table <- function(board) {
+
+  if (length(board) == 0) {
+    cat('<p class="chf-meta">No members listed.</p>\n')
+    return(invisible(NULL))
+  }
+
+  # Flush-left, as elsewhere in this file — indentation would make Pandoc read
+  # the block as an indented code block and escape it into a <pre>.
+  cat('<table class="chf-board">\n<thead>\n<tr>\n')
+  cat('<th>Member</th>\n<th>Position</th>\n')
+  cat('</tr>\n</thead>\n<tbody>\n')
+  for (m in board) {
+    cat(sprintf('<tr>\n<td>%s</td>\n<td>%s</td>\n</tr>\n',
+                esc(m$name), esc(tidy_text(m$position))))
+  }
+  cat('</tbody>\n</table>\n')
+  invisible(NULL)
+}
+
+
 # ── Governance documents ──────────────────────────────────────────────────
 
 #' Emit the governance document list.
@@ -172,7 +266,7 @@ chf_doc_list <- function(docs, dir = "../documents") {
     # with no date than to guess one. Omitted dates just drop from the meta line.
     meta <- c(esc(d$doctype), paste("Version", esc(d$version)))
     if (!is.null(d$date) && nzchar(as.character(d$date))) {
-      meta <- append(meta, trimws(format(as.Date(d$date), "%e %B %Y")), after = 2)
+      meta <- append(meta, chf_format_date(d$date), after = 2)
     }
     meta <- paste(c(meta, paste0("PDF, ", size)), collapse = " &middot; ")
 

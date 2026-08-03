@@ -69,6 +69,20 @@ with no bibliography.
 
 ---
 
+## Change the Board
+
+Edit `about/_board.yml`. One entry per member, in the order they should appear:
+
+```yaml
+- name: Full Name
+  position: Their role, and the institution it is at
+```
+
+Quote any position containing a colon — `"Head: Channel Sales, Capitec Bank"` —
+or YAML will read it as a nested key.
+
+---
+
 ## Publish a governance document
 
 1. Name the PDF to the convention in the brand guidelines:
@@ -134,3 +148,33 @@ whenever an item changes.
 `scripts/build-research.R` reads the JSON before every render. If the export is
 missing it prints a note and leaves the existing listing alone, so a fresh clone
 still builds.
+
+---
+
+## "Last updated" stamps
+
+Three places carry one, and all three are automatic — there is no date to edit:
+
+| Stamp | Comes from |
+|---|---|
+| "Team last updated …" | `team/_people.yml` |
+| "Board as at …" | `about/_board.yml` |
+| "Register last updated …" | `about/_documents.yml` |
+
+Each is the date that **file** last changed, read from git at render time. So a
+stamp moves when you edit the data behind it, and stays put when you edit the
+prose around it. That is why the Board lives in a YAML file rather than as a
+markdown table in the page.
+
+Two consequences worth knowing:
+
+- The stamps are deliberately limited to claims a reader cannot otherwise date.
+  Insights posts already show a published date, so they carry no "updated" stamp;
+  a revision worth announcing gets a sentence in the body, where you can say what
+  changed and why. Evergreen pages — the landing page, About, Contact — carry
+  none either, since a stamp there would make correctly-unchanged text look
+  neglected.
+- Stamps need git history, so they only appear when rendering in a real clone. If
+  the deployment ever moves to GitHub Actions, `actions/checkout` defaults to
+  `fetch-depth: 1`, which returns nothing from `git log` and would make every
+  stamp silently vanish. Set `fetch-depth: 0` if that day comes.

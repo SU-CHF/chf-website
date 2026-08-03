@@ -28,4 +28,5 @@ interest in the field, please [get in touch](/about/contact.html).
 ```{r}
 #| output: asis
 chf_people_grid(people$students, "student")
+chf_stamp("_people.yml", "Team last updated")
 ```
