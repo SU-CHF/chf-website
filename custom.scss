@@ -174,12 +174,13 @@ html {
   // intrinsic size. Quarto's default `max-height` + `width: auto` collapses them
   // to nothing; an explicit height is required. Do not change this back.
   //
-  // At 64px the horizontal lockup is ~218px wide, comfortably over the 142px
-  // on-screen minimum in §2 of the guidelines.
+  // At 84px the horizontal lockup is ~286px wide, well over the 142px on-screen
+  // minimum in §2 of the guidelines. The lockup stacks three tiers of type, so
+  // it needs real height before the descriptor line becomes legible.
   // `max-height: none` is load-bearing: Quarto's base rule caps .navbar-logo at
   // 24px, which would otherwise clamp the height set here.
   .navbar-logo {
-    height: 64px;
+    height: 84px;
     max-height: none;
     width: auto;
     max-width: 100%;
@@ -454,25 +455,40 @@ table.chf-board {
   background-color: $chf-white;
   color: $chf-steel;
   font-size: $footer-font-size;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
   line-height: 1.5;
+  padding: 1.25rem $chf-gap;
+
+  // Align the footer with the navbar and the page content rather than letting
+  // it run to the viewport edge.
+  max-width: 1320px;
+  margin: 0 auto;
+  align-items: flex-start;
 
   a       { color: $chf-steel; text-decoration: none; }
   a:hover { color: $chf-maroon; text-decoration: underline; }
   strong  { color: $chf-maroon; font-weight: 600; }
 
-  // The contact block is three long lines; give it room so the address does not
-  // wrap mid-phrase against a narrow default column.
-  .nav-footer-left  { flex: 1 1 72%; max-width: 72%; }
-  .nav-footer-right { flex: 0 1 28%; text-align: right; }
+  p { margin-bottom: 0; }
+
+  // Quarto always emits a centre column — holding just &nbsp; when no centre
+  // content is configured — and gives it min-height: 3em. That floor, not the
+  // content, is what made the footer tall.
+  .nav-footer-center { min-height: 0; }
+
+  // Size both populated columns to their content so they share one row. Fixed
+  // percentages here pushed the right column onto a second line: the centre
+  // column also flexes, so 72% + 28% + centre exceeds the available width.
+  .nav-footer-left  { flex: 1 1 auto; text-align: left; }
+  .nav-footer-right { flex: 0 0 auto; text-align: right; }
 
   @media (max-width: 768px) {
+    padding: 1.25rem 1rem;
     .nav-footer-left, .nav-footer-right {
       flex: 1 1 100%;
       max-width: 100%;
       text-align: left;
     }
+    .nav-footer-right { margin-top: 0.75rem; }
   }
 }
 
