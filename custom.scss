@@ -1,8 +1,9 @@
 /*-- scss:defaults --*/
 
 // ═══════════════════════════════════════════════════════════════════════
-//  CHF brand palette — CHF Brand & Document Guidelines v1.1 (July 2026), §3.
-//  Every colour on this site traces to a value below. Nothing hardcodes a hex.
+//  CHF brand palette — CHF Brand & Document Guidelines v1.2 (July 2026), §3,
+//  applied to the web per §7. Every colour on this site traces to a value
+//  below. Nothing hardcodes a hex.
 //
 //  Note: inside scss:defaults you cannot use Bootstrap's own variables
 //  ($white, $primary) or functions (tint-color, shade-color) — user defaults
@@ -32,6 +33,7 @@ $chf-rule-gold:   2px solid $chf-gold;
 $chf-rule-hair:   1px solid $chf-maroon-20;
 
 // Layout tokens (were CSS custom properties in the deleted styles.css)
+$chf-container:   1320px;    // page width the navbar and footer align to
 $chf-gap:         2rem;
 $chf-radius:      6px;
 $chf-transition:  0.25s;
@@ -70,18 +72,24 @@ $h4-font-size:          1.05rem;
 $h5-font-size:          1rem;
 $h6-font-size:          0.9rem;
 
-// ── Navbar: white field, maroon links, gold rule beneath ──────────────
-$navbar-bg:             $chf-white;
-$navbar-fg:             $chf-maroon;
-$navbar-hl:             $chf-maroon;
-$navbar-brand:          $chf-maroon;
-$navbar-brand-hl:       $chf-maroon;
+// ── Navbar: maroon band, white nav, gold rule beneath ─────────────────
+// Guidelines §7: a full-width Confident Maroon header carrying the
+// gold-and-white lockup and white navigation. SU colourway 1 (4.1.5).
+//
+// $navbar-hl is white rather than gold: gold clears AA on maroon (4.90:1) but
+// stays a rule colour here, and the active state is carried by weight plus a
+// gold underline rather than by a colour change alone (§4 DON'T list).
+$navbar-bg:             $chf-maroon;
+$navbar-fg:             $chf-white;
+$navbar-hl:             $chf-white;
+$navbar-brand:          $chf-white;
+$navbar-brand-hl:       $chf-white;
 
-// ── Footer: white page, gold hairline, Steel Grey metadata ────────────
-// A full-bleed maroon footer would be exactly the "background wash" the
-// guidelines rule out, and would fight the white header.
-$footer-bg:             $chf-white;
-$footer-fg:             $chf-steel;
+// ── Footer: maroon band, white contact block, gold hairline above ─────
+// Guidelines §7: the footer is a Confident Maroon band carrying the standard
+// contact block in white. Steel Grey cannot appear on it — 1.49:1.
+$footer-bg:             $chf-maroon;
+$footer-fg:             $chf-white;
 $footer-font-size:      0.8125rem;   // the 7.5–8.5pt caption band
 
 // ── Tables: maroon header row, 10% maroon stripes ─────────────────────
@@ -148,14 +156,19 @@ html {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  2. Navbar — white, gold hairline, brand hard left
+//  2. Navbar — full-bleed maroon band, gold hairline, brand hard left
+//
+//  Guidelines §7 Web & digital: a full-width Confident Maroon header with the
+//  gold-and-white co-branded lockup top-left and navigation in white. The band
+//  is painted on .navbar, which runs edge to edge; .navbar-container is the
+//  inner element that aligns the contents to the page width.
 // ═══════════════════════════════════════════════════════════════════════
 .navbar {
-  background-color: $chf-white;
+  background-color: $chf-maroon;
   border-bottom: $chf-rule-gold;
   box-shadow: none;
 
-  .navbar-container { max-width: 1320px; margin: 0 auto; padding: 0 $chf-gap; }
+  .navbar-container { max-width: $chf-container; margin: 0 auto; padding: 0 $chf-gap; }
 
   // Quarto centres a logo-only brand with .mx-auto; the guidelines require the
   // logo (or wordmark) top-left.
@@ -164,8 +177,9 @@ html {
     margin-right: auto !important;
   }
 
+  // Unused today (navbar.title is false), kept consistent with the nav links.
   .navbar-title {
-    color: $chf-maroon;
+    color: $chf-white;
     font-weight: 600;
     letter-spacing: 0.01em;
   }
@@ -174,31 +188,49 @@ html {
   // intrinsic size. Quarto's default `max-height` + `width: auto` collapses them
   // to nothing; an explicit height is required. Do not change this back.
   //
-  // At 84px the horizontal lockup is ~286px wide, well over the 142px on-screen
-  // minimum in §2 of the guidelines. The lockup stacks three tiers of type, so
-  // it needs real height before the descriptor line becomes legible.
+  // At 84px the horizontal lockup is 286px wide, well over the 142px on-screen
+  // minimum in §2 and §7. The lockup stacks three tiers of type, so it needs
+  // real height before the descriptor line becomes legible.
   // `max-height: none` is load-bearing: Quarto's base rule caps .navbar-logo at
   // 24px, which would otherwise clamp the height set here.
+  //
+  // No padding here. Under border-box, padding comes out of the declared
+  // height, so `padding: 4px 0` shrank the artwork to 76px and the lockup to
+  // 259px — and at the 44px mobile size to 36px and 122px, under the 142px
+  // minimum. The artwork carries its own clear space: measured on the supplied
+  // SVG, the transparent margin above and below the ink is 25.5% and 24.4% of
+  // the file's height, against a capital "S" in "Stellenbosch" that is 12.6%.
+  // So the lockup arrives with ~2× the cap-height already built in, and the
+  // navbar's 1rem padding-y is clear space on top of that.
   .navbar-logo {
     height: 84px;
     max-height: none;
     width: auto;
     max-width: 100%;
-    padding: 4px 0;
   }
 
+  // White on maroon is 11.67:1. Weight 600 rather than 500: SU 4.3.2 asks for
+  // one weight heavier when type is reversed out of a colour, and §4 repeats it.
+  // Hover and active never restate the colour — $chf-maroon-dark on maroon is
+  // 1.20:1 — so the gold underline and the weight carry both states, which also
+  // keeps them off colour alone (§4 DON'T list).
   .nav-link {
-    color: $chf-maroon;
-    font-weight: 500;
+    color: $chf-white;
+    font-weight: 600;
     letter-spacing: 0.01em;
     border-bottom: 2px solid transparent;
     padding-bottom: 0.15rem;
 
-    &:hover, &:focus { color: $chf-maroon-dark; border-bottom-color: $chf-gold; }
-    &.active         { color: $chf-maroon; font-weight: 600; border-bottom-color: $chf-gold; }
+    &:hover, &:focus { color: $chf-white; border-bottom-color: $chf-gold; }
+    &.active         { color: $chf-white; font-weight: 700; border-bottom-color: $chf-gold; }
   }
 
+  // The dropdown panel hangs below the band onto white, so it keeps the
+  // light colourway. Background stated explicitly: Quarto marks the navbar
+  // data-bs-theme="dark", and Bootstrap's dark tokens would otherwise be free
+  // to darken the panel underneath the maroon items.
   .dropdown-menu {
+    background-color: $chf-white;
     border: $chf-rule-hair;
     border-top: $chf-rule-gold;
     border-radius: 0 0 $chf-radius $chf-radius;
@@ -207,11 +239,50 @@ html {
       &:hover, &:focus { background-color: $chf-maroon-10; color: $chf-maroon-dark; }
     }
   }
+
+  // ── Chrome that is invisible until the band goes maroon ──────────────
+  //
+  // Search. As configured (`search: true`, which is Quarto's overlay type) the
+  // navbar shows only the magnifier button — that is what the two
+  // .aa-DetachedSearchButton rules below dress. The input itself opens in an
+  // overlay on white, outside .navbar, and keeps Quarto's dark-on-light
+  // styling, which is correct there.
+  //
+  // The .aa-Form / .aa-Input rules are inert today: Quarto's own
+  // `#quarto-search.type-overlay .aa-Form` rule outranks them. They matter if
+  // the search type is ever switched to an inline textbox, which would
+  // otherwise drop a white-on-white field into the maroon band. Translucent
+  // white rather than a solid fill so it reads as part of the band.
+  #quarto-search {
+    // 45% white over maroon composites to 3.58:1 — over the 3:1 WCAG 1.4.11
+    // asks of a control's boundary. 35% looks right and measures 2.73:1.
+    .aa-Form {
+      background-color: rgba($chf-white, 0.12);
+      border: 1px solid rgba($chf-white, 0.45);
+      border-radius: $chf-radius;
+    }
+    .aa-Input { color: $chf-white; }
+    .aa-Input::placeholder { color: rgba($chf-white, 0.75); opacity: 1; }
+    .aa-Label svg, .aa-SubmitButton svg, .aa-ClearButton svg { fill: $chf-white; }
+    .aa-DetachedSearchButton { border-color: rgba($chf-white, 0.45); }
+    .aa-DetachedSearchButtonIcon { color: $chf-white; }
+  }
+
+  // Hamburger (< 992px). Bootstrap builds the icon as a data URI coloured from
+  // the navbar foreground, so $navbar-fg carries it; the border does not.
+  // Same 45% as the search field, and for the same 3:1 reason.
+  .navbar-toggler { border-color: rgba($chf-white, 0.45); }
+
+  // Default focus ring is $primary — maroon on maroon, i.e. no ring at all.
+  :focus-visible {
+    outline: 2px solid $chf-white;
+    outline-offset: 2px;
+  }
 }
 
 @media (max-width: 768px) {
   .navbar .navbar-container { padding: 0 1rem; }
-  // Stays above the 142px minimum: 44px tall is ~150px wide.
+  // Stays above the 142px minimum: 44px tall is 150px wide.
   .navbar .navbar-logo      { height: 44px; max-height: none; }
 }
 
@@ -449,24 +520,48 @@ table.chf-board {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  8. Footer
+//  8. Footer — full-bleed maroon band, white contact block
+//
+//  Guidelines §7: the footer is a Confident Maroon band carrying the standard
+//  contact block and links in white, under the gold hairline set by
+//  page-footer.border in _quarto.yml.
 // ═══════════════════════════════════════════════════════════════════════
-.nav-footer {
-  background-color: $chf-white;
-  color: $chf-steel;
+//
+// Scoped `footer.footer .nav-footer` rather than `.nav-footer`: Quarto sets
+// padding-left/right on that two-class selector, which outranks a bare
+// .nav-footer and would otherwise win the horizontal padding.
+footer.footer .nav-footer {
+  background-color: $chf-maroon;
+  color: $chf-white;
   font-size: $footer-font-size;
   line-height: 1.5;
-  padding: 1.25rem $chf-gap;
-
-  // Align the footer with the navbar and the page content rather than letting
-  // it run to the viewport edge.
-  max-width: 1320px;
-  margin: 0 auto;
   align-items: flex-start;
 
-  a       { color: $chf-steel; text-decoration: none; }
-  a:hover { color: $chf-maroon; text-decoration: underline; }
-  strong  { color: $chf-maroon; font-weight: 600; }
+  // The band runs edge to edge; only its contents align to the page width.
+  //
+  // This was `max-width: 1320px; margin: 0 auto`, which is invisible on a white
+  // footer and wrong the moment the footer has a colour: it constrains the
+  // painted background as well, leaving a maroon rectangle floating in a white
+  // strip. Padding does the same alignment without bounding the element — and
+  // it keeps the gold hairline full width too, since Quarto puts that border
+  // on this element rather than on the wrapper.
+  //
+  // The inset reproduces the navbar's content edge exactly, so the contact
+  // block starts on the same vertical as the logo at every width. That edge is
+  // three things stacked: 1rem of padding Quarto puts on the nav element
+  // itself, $chf-gap of padding inside .navbar-container, and the auto margins
+  // that appear once the viewport is wider than $chf-container.
+  padding: 1.25rem calc(1rem + #{$chf-gap} + max((100% - 2rem - #{$chf-container}) / 2, 0px));
+
+  // White on maroon is 11.67:1. Hover is an underline rather than a colour
+  // change, so the affordance does not depend on colour; gold would read as a
+  // second link state and is reserved for rules here.
+  a       { color: $chf-white; text-decoration: none; }
+  a:hover { color: $chf-white; text-decoration: underline; }
+
+  // Was maroon — invisible on the band. §4 lists SU Black or maroon for a bold
+  // lead-in and never gold, so reversed that is white, with weight carrying it.
+  strong  { color: $chf-white; font-weight: 600; }
 
   p { margin-bottom: 0; }
 
@@ -482,7 +577,8 @@ table.chf-board {
   .nav-footer-right { flex: 0 0 auto; text-align: right; }
 
   @media (max-width: 768px) {
-    padding: 1.25rem 1rem;
+    // .navbar-container drops to 1rem here, so the shared content edge is 2rem.
+    padding: 1.25rem 2rem;
     .nav-footer-left, .nav-footer-right {
       flex: 1 1 100%;
       max-width: 100%;

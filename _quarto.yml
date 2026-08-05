@@ -37,11 +37,13 @@ website:
   image: images/banner_001.jpg
 
   navbar:
-    # Official co-branded lockup, gold-and-maroon on transparent, for the white
-    # header. images/logo/chf-horizontal-on-maroon.svg is the reversed variant,
-    # for any dark background added later.
+    # Official co-branded lockup, reversed — gold-and-white on transparent — for
+    # the maroon header band. This is SU colourway 1 (Brand Manual 4.1.5), the
+    # pairing the guidelines' §7 specifies for web headers.
+    # images/logo/chf-horizontal-on-light.svg is the gold-and-maroon variant,
+    # for white or light backgrounds.
     title: false
-    logo: images/logo/chf-horizontal-on-light.svg
+    logo: images/logo/chf-horizontal-on-maroon.svg
     logo-alt: "Centre for Household Finance, Stellenbosch University"
     right:
       - text: Research
@@ -60,8 +62,13 @@ website:
             href: about/contact.qmd
 
   page-footer:
-    # Brilliant Gold hairline above the footer, per the guidelines' letterhead
-    # anatomy. Set here so it needs no CSS.
+    # Brilliant Gold hairline separating white content from the maroon footer
+    # band. Set here so it needs no CSS. (§5's letterhead puts a *maroon*
+    # hairline above the contact block, which would be invisible against the
+    # maroon band §7 specifies for web; gold is the web-specific reading.)
+    #
+    # Quarto emits this as border-top on .nav-footer, which custom.scss §8
+    # keeps full-bleed for exactly this reason — see the note there.
     border: "#CAA258"
     left: |
       **Centre for Household Finance** · Department of Economics · Stellenbosch University<br>
