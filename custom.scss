@@ -589,7 +589,38 @@ footer.footer .nav-footer {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-//  9. Contact block, disclaimer, misc
+//  9. Buttons
+//
+//  §7 lists "gold as a thin accent (rules, buttons, active states)" and
+//  "links and buttons: maroon or gold". So: maroon fill, white type, and gold
+//  entering on hover as a border — a thin accent, never a fill and never the
+//  text colour, which at 2.38:1 on white it cannot be.
+//
+//  There is no button in the site's markup today. This is here so the first one
+//  added is on-brand rather than flatly green, and because $primary alone left
+//  the hover and active states as Bootstrap's auto-shaded
+//  rgb(82.45, 28.9, 50.15) — a colour that is in no palette and cannot be
+//  checked against the guidelines by eye. Pinned to the sanctioned tint.
+// ═══════════════════════════════════════════════════════════════════════
+.btn-primary {
+  --bs-btn-color:                 #{$chf-white};
+  --bs-btn-bg:                    #{$chf-maroon};
+  --bs-btn-border-color:          #{$chf-maroon};
+  --bs-btn-hover-color:           #{$chf-white};
+  --bs-btn-hover-bg:              #{$chf-maroon-dark};
+  --bs-btn-hover-border-color:    #{$chf-gold};
+  --bs-btn-active-color:          #{$chf-white};
+  --bs-btn-active-bg:             #{$chf-maroon-dark};
+  --bs-btn-active-border-color:   #{$chf-gold};
+  --bs-btn-disabled-color:        #{$chf-white};
+  --bs-btn-disabled-bg:           #{$chf-maroon};
+  --bs-btn-disabled-border-color: #{$chf-maroon};
+  // Focus ring in gold rather than a maroon halo, matching the active states.
+  --bs-btn-focus-shadow-rgb:      202, 162, 88;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  10. Contact block, disclaimer, misc
 // ═══════════════════════════════════════════════════════════════════════
 .chf-contact {
   font-size: 1.1rem;
