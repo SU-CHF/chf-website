@@ -1,12 +1,13 @@
 # SU Raleway — desktop fonts
 
-These 18 TrueType files are SU Raleway, as distributed by Stellenbosch University
-Corporate Communication. They are **not used by the website** — install them locally for
-authoring Word and PDF documents to the naming convention in the CHF Brand & Document
-Guidelines (`CHF-[DocType]-[ShortTitle]-vX.Y.docx`).
+The 18 TrueType files in [`fonts/`](fonts/) are SU Raleway, as distributed by
+Stellenbosch University Corporate Communication. They are **not used by the website** —
+install them locally for authoring Word and PDF documents to the naming convention in the
+CHF Brand & Document Guidelines (`CHF-[DocType]-[ShortTitle]-vX.Y.docx`).
 
 The website serves the same typeface from `/fonts` as six WOFF2 faces. See
-[`../README.md`](../README.md) for the brand implementation record.
+[`implementation-record.md`](implementation-record.md) for how the brand is applied
+on the site.
 
 ## Provenance
 

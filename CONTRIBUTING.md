@@ -51,12 +51,16 @@ and thesis topic to appear on a public page.
 cp -r insights/_template insights/my-post-slug
 ```
 
-Edit `insights/my-post-slug/index.qmd`, then delete `draft: true` when it is
-ready. Directories are slug-named with no date prefix, so the URL stays stable
-and quotable; the `date:` field drives ordering on the listing.
+Edit `insights/my-post-slug/index.qmd`, replace or delete the `image:` line, and
+delete `draft: true` when it is ready. Directories are slug-named with no date
+prefix, so the URL stays stable and quotable; the `date:` field drives ordering
+on the listing.
 
 `description:` is what appears on the listing and in the RSS feed — write it to
 stand alone.
+
+The template itself is never rendered or published: Quarto ignores directories
+whose names begin with an underscore, which is why it is `_template`.
 
 Every post ends with the Research Charter §7.2 disclaimer:
 

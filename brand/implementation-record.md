@@ -16,10 +16,10 @@ Not published — `brand/` is excluded from the render in `_quarto.yml`.
 
 | File | What it is |
 |---|---|
-| `README.md` | This file. The implementation record |
+| `implementation-record.md` | This file. How the guidelines are applied on the website |
 | `CHF-Brand-and-Document-Guidelines-v1.2.pdf` | The governing document. Version in the filename because v1.1 and v1.2 disagree about maroon, and it matters which one a claim rests on |
 | `SU-Brand-Manual-Reference.md` | Working reference: the SU manual clauses that bear on CHF documents, plus the v1.0 → v1.1 → v1.2 change log |
-| `website-update-plan-v1.2.md` | The plan this site's v1.2 update followed |
+| `su-raleway-fonts.md` | Provenance of the desktop fonts, and why not to "upgrade" them |
 | `founding-record.md` | The 2025 founding announcements, kept from the old landing page |
 | `fonts/` | The 18 desktop TTFs, for authoring Word and PDF documents |
 
@@ -87,8 +87,8 @@ Ligatures are disabled (`font-variant-ligatures: none` plus explicit
 
 Six weights are served as WOFF2 from `/fonts`: Regular, Italic, Medium, SemiBold,
 Bold and BoldItalic. The 18 desktop TTFs in `fonts/` are for authoring Word and
-PDF documents — see [`fonts/README.md`](fonts/README.md), which also records why
-there was no font migration to do.
+PDF documents — see [`su-raleway-fonts.md`](su-raleway-fonts.md), which also
+records why there was no font migration to do.
 
 ### The heading scale is an interpretation
 
@@ -106,7 +106,8 @@ The **ratios, weights and colours are preserved** against a web-native 16px base
 | Body | 10.5pt | 1rem | Regular |
 | Captions, footer | 7.5–8.5pt | 0.8125rem | Regular, Steel Grey |
 
-**This awaits brand-owner sign-off.**
+**This awaits brand-owner sign-off**, and did not get it in the v1.2 round —
+v1.2 did not touch the heading scale. It is the oldest open question here.
 
 ## Layout decisions
 
@@ -167,6 +168,28 @@ than an SU rule. The correction is logged as changes 16–17 in
 The history is worth keeping because the site has now been built both ways, and
 the argument for the white version was made in this file in good faith.
 
+### Where the build departed from the plan
+
+The v1.2 work followed a written plan, of which five parts were built
+differently. Four because measuring contradicted an estimate, which is the
+reason to record them: the same estimates would otherwise be made again.
+
+| Planned | Built | Why |
+|---|---|---|
+| Add ~18px navbar padding for clear space | No padding added | The artwork already carries it — see below |
+| "Logo sizing is load-bearing — do not touch" | Removed the logo's `padding: 4px 0` | It was silently shrinking the lockup under the minimum size — see below |
+| `$navbar-hl: $chf-gold` | `$navbar-hl: $chf-white` | Gold stays a rule colour; the plan's own prose said so two paragraphs later |
+| Gold footer hairline is "§5's letterhead anatomy" | Hairline kept, citation dropped | §5 puts a *maroon* hairline above the footer, invisible on the maroon band |
+| Title band carries a title and a subtitle | Title alone | The subtitle restated the paragraph below it |
+
+Two further corrections the plan did not anticipate. The footer's content inset
+has to reproduce the navbar's three-part inset — the nav element's own padding,
+plus `.navbar-container`'s, plus the auto margins above 1320px — rather than a
+single centring rule; otherwise the contact block sits 34px left of the logo on
+wide viewports. And the translucent white borders on the search field and
+hamburger are 45%, not the 35% that looks right: 35% composites to 2.73:1 and
+misses the 3:1 that WCAG 1.4.11 asks of a control's boundary.
+
 ## The logo
 
 The official co-branded lockups, exactly as supplied by SU Corporate
@@ -208,6 +231,13 @@ Current sizing is 84px tall (290px wide) on desktop and 44px (154px) on mobile.
 The §2 and §7 on-screen minimum is 142px wide for the horizontal lockup and 85px
 high for the stacked one, with clear space of twice the cap-height of the "S" in
 "Stellenbosch" (SU 4.1.4).
+
+**Open question: does 142px mean the file or the mark?** Those measurements are
+the artwork's bounding box, which is what this repository has always assumed.
+The supplied SVG carries wide transparent margins, so the *visible* lockup is
+narrower than its box — 215px on desktop and 113px on mobile. On that reading
+the mobile logo is under the minimum and would need to grow to roughly 63px
+tall. Worth putting to the brand owner alongside the heading scale.
 
 ### The second sizing gotcha: padding eats the height
 

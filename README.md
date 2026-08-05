@@ -6,7 +6,7 @@ GitHub Pages.
 
 To add a person, an Insights post or a governance document, see
 [CONTRIBUTING.md](CONTRIBUTING.md). For colours, type and logo usage, see
-[brand/README.md](brand/README.md).
+[brand/implementation-record.md](brand/implementation-record.md).
 
 ## Prerequisites
 
