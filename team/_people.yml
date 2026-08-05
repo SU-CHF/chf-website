@@ -13,6 +13,9 @@
 # will be normalised.
 #
 # links: may contain any of website, scholar, linkedin, github.
+#
+# Quote any value containing a colon — "Expected graduation: 2028" — or YAML
+# reads it as a nested key and the render fails.
 
 staff:
   - name: Jesse Naidoo
@@ -61,7 +64,7 @@ staff:
 students:
   - name: Anine Keel
     degree: Master's student
-    year: Expected graduation 2027
+    year: "Expected graduation: 2027"
     email: aninekeel@sun.ac.za
     photo: /images/team/anine-keel.jpg
     focus: center 8%
@@ -71,7 +74,7 @@ students:
 
   - name: Connor Lane
     degree: Master's student
-    year: Expected graduation 2028
+    year: "Expected graduation: 2028"
     email: connorlane@sun.ac.za
     photo: /images/team/connor-lane.jpg
     focus: center 55%
@@ -81,7 +84,7 @@ students:
 
   - name: Annemé Lahoud
     degree: Master's student
-    year: Expected graduation 2028
+    year: "Expected graduation: 2028"
     email: lahoudai@sun.ac.za
     photo: /images/team/anneme-lahoud.jpg
     focus: center 40%
@@ -91,7 +94,7 @@ students:
 
 #  - name: Full Name
 #    degree: Master's student         # or: PhD candidate
-#    year: Expected graduation 2029   # optional
+#    year: "Expected graduation: 2029"   # optional
 #    email: name@sun.ac.za
 #    photo: /images/team/full-name.jpg
 #    focus: center 40%                # optional; portraits only

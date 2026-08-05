@@ -135,7 +135,7 @@ chf_person_card <- function(p, kind = c("staff", "student")) {
     label  <- "Thesis"
     detail <- tidy_text(p$thesis)
     extra  <- if (!is.null(p$supervisor)) {
-      sprintf('<p class="chf-meta">Supervised by %s</p>', esc(p$supervisor))
+      sprintf('<p class="chf-meta">Supervisor: %s</p>', esc(p$supervisor))
     } else ""
   }
 
