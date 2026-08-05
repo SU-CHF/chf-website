@@ -1,15 +1,32 @@
 # Brand implementation record
 
-How the [CHF Brand & Document Guidelines v1.2](https://www.sun.ac.za) (July 2026)
-are applied on this website, and why in the places where a judgement was made.
-Where the guidelines are silent, the [SU Brand Manual](https://www.su.ac.za/en/about/brand-identity)
-(Corporate Communication and Marketing, November 2025) governs; clause numbers
-below in the form "SU 4.1.5" are its.
+How the [CHF Brand & Document Guidelines v1.2](CHF-Brand-and-Document-Guidelines-v1.2.pdf)
+(July 2026) are applied on this website, and why in the places where a judgement
+was made. Where the guidelines are silent, the Stellenbosch University
+[Brand Manual](https://www.su.ac.za/en/about/brand-identity) (Corporate
+Communication and Marketing, November 2025) governs; clause numbers below in the
+form "SU 4.1.5" are its.
 
 Everything here is implemented in [`../custom.scss`](../custom.scss). Nothing
 else in the repository should introduce a colour or a font.
 
 Not published — `brand/` is excluded from the render in `_quarto.yml`.
+
+## What is in this folder
+
+| File | What it is |
+|---|---|
+| `README.md` | This file. The implementation record |
+| `CHF-Brand-and-Document-Guidelines-v1.2.pdf` | The governing document. Version in the filename because v1.1 and v1.2 disagree about maroon, and it matters which one a claim rests on |
+| `SU-Brand-Manual-Reference.md` | Working reference: the SU manual clauses that bear on CHF documents, plus the v1.0 → v1.1 → v1.2 change log |
+| `website-update-plan-v1.2.md` | The plan this site's v1.2 update followed |
+| `founding-record.md` | The 2025 founding announcements, kept from the old landing page |
+| `fonts/` | The 18 desktop TTFs, for authoring Word and PDF documents |
+
+The guidelines PDF is the authority for anything cited as "§" below; the SU
+manual is the authority for anything cited as "SU". Both were previously
+external to the repository, which meant this file cited documents nobody reading
+it could open.
 
 ## Palette
 
@@ -123,8 +140,8 @@ gold-and-white *on* maroon, and the primary ratio makes maroon dominant. v1.2
 renamed the principle from "Restraint" to "Maroon leads", removed the
 white-page framing, and added §7 Web & digital; its own footnote records that
 "maroon headers and footers are off-brand" was an editorial overstatement rather
-than an SU rule. The correction is logged as changes 16–17 in the SU brand
-manual working reference.
+than an SU rule. The correction is logged as changes 16–17 in
+[`SU-Brand-Manual-Reference.md`](SU-Brand-Manual-Reference.md).
 
 The history is worth keeping because the site has now been built both ways, and
 the argument for the white version was made in this file in good faith.
@@ -147,7 +164,7 @@ pair `#61223B` and `#CAA258`, the `-on-maroon` pair `#FFF` and `#CAA258`. So the
 navbar swap is a file swap, not a restyle; SU supplied the reversed colourway
 ready to use.
 
-(The SU brand manual working reference records that SU's own delivery named the
+([`SU-Brand-Manual-Reference.md`](SU-Brand-Manual-Reference.md) records that SU's own delivery named the
 reversed horizontal file `CHF_logo_maroon_gold_horizontal_RGB.svg` although it
 holds the white-and-gold artwork. The files here are named for what they
 contain.)
