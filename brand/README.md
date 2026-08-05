@@ -125,7 +125,23 @@ block, which would be invisible against a maroon band. Gold is the only value
 that does the job on both edges.
 
 **Content stays white** with SU Black body text, maroon headings and gold as
-thin accents, per §7. The bands are the only large maroon fields on the site.
+thin accents, per §7.
+
+**A maroon title band opens the landing page**, and only the landing page. §7
+sanctions title bands and §6 gives the shape: maroon field, gold accent bar,
+subtitle in a light tint, white content beneath. It is opt-in per page with
+`title-block-banner: true` in the front matter, so any page can take one, and no
+page takes one by accident. The gold bar is the rule every `h1.title` already
+carries — read against maroon rather than against white.
+
+Between the two, the navbar and the title band make about 280px of maroon at the
+top of the landing page, separated by the gold hairline. That is deliberate, and
+it is the one place on the site where the 70% primary ratio is visible as
+literal page area rather than as structural weight.
+
+**Buttons** are maroon with white type, taking gold as a border on hover and as
+the focus ring. There is no button in the markup yet; the styling exists so the
+first one is on-brand. Gold never becomes the fill or the label.
 
 ### This reverses what v1.1 said, and what this file used to say
 
