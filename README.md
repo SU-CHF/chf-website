@@ -77,7 +77,7 @@ git rm -r --cached docs && rm -rf docs && quarto render && git add docs
 | `scripts/build-research.R` | Zotero export → Research listing, run before each render |
 | `custom.scss` | The entire stylesheet, including the brand implementation |
 | `fonts/` | SU Raleway web fonts, six weights |
-| `brand/` | Internal reference material. Not published |
+| `brand/` | The brand guidelines, the SU manual reference, and how they are applied here. Not published |
 | `_inbox/` | Untracked staging area for raw photos, PDFs and artwork |
 | `docs/` | Build output. Generated — never edit by hand |
 

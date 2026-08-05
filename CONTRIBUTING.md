@@ -14,9 +14,10 @@ Edit `team/_people.yml`. Staff go under `staff:`, students under `students:`.
 ```yaml
   - name: Full Name
     degree: PhD (Economics)          # students; staff use `role:` and `qualification:`
-    year: 2nd year
+    year: "Expected graduation: 2029"
     email: name@sun.ac.za
     photo: /images/team/full-name.jpg
+    focus: center 40%                # optional; portraits only, moves the crop
     thesis: >
       Working title or a one-line description of the topic.
     supervisor: Jesse Naidoo
@@ -24,6 +25,10 @@ Edit `team/_people.yml`. Staff go under `staff:`, students under `students:`.
       website:  https://...
       linkedin: https://...
 ```
+
+Quote any value containing a colon — `"Expected graduation: 2029"` — or YAML
+reads it as a nested key and the render fails. Same rule as the Board below.
+`year:` is free text, so `2nd year` works equally well.
 
 Staff carry `role`, `qualification` and `interests`; students carry `degree`,
 `year`, `thesis` and `supervisor`. Everything except `name` is optional — a

@@ -1,8 +1,44 @@
 # Website update plan — CHF Brand & Document Guidelines v1.2
 
-Status: proposed, not yet implemented. Branch `restructure-2026`.
-Source: `branding-and-templates/CHF-Brand-and-Document-Guidelines.pdf` (v1.2, July 2026)
-and `SU-Brand-Manual-Reference.md` (changes 16–17).
+**Status: implemented, August 2026, on branch `restructure-2026`.** A–F are all
+done. The body below is left in its original proposing tense — it is the record
+of what was intended, and the value of keeping it is in reading it against what
+was built. For how the site *is*, read [`README.md`](README.md); this file is
+only how it got there.
+
+Source: [`CHF-Brand-and-Document-Guidelines-v1.2.pdf`](CHF-Brand-and-Document-Guidelines-v1.2.pdf)
+and [`SU-Brand-Manual-Reference.md`](SU-Brand-Manual-Reference.md) (changes
+16–17). Both now live in this folder; the `branding-and-templates/` path this
+file originally cited was never in the repository.
+
+## What was built differently, and why
+
+Five departures, four of them because measuring contradicted an estimate:
+
+| Plan said | Built | Why |
+|---|---|---|
+| §A: add ~18px navbar padding for clear space, "current `padding: 4px 0` is under that" | No padding added | Rasterising the supplied SVG shows it carries ~25% of its own height as transparent margin, against a cap-height of 12.6%. 2× the cap-height is already inside the file; measured clear space is 22px against a 9.6px "S" |
+| §A: "logo sizing is load-bearing — do not touch" | Removed the logo's `padding: 4px 0` | Under border-box the padding came out of the declared height, rendering the artwork at 76px not 84px — and on mobile at 36px, putting the lockup at 122px wide, **under the 142px minimum**. Heights themselves are untouched |
+| §A defaults: `$navbar-hl: $chf-gold` | `$navbar-hl: $chf-white` | The plan's own §A prose two paragraphs later says gold "stays a rule colour — do not promote it to nav-link text". Followed the prose |
+| §B: the gold footer hairline is "exactly §5's letterhead anatomy" | Hairline kept, citation dropped | §5 puts a *maroon* hairline above the footer contact block, which is invisible on the maroon band §7 specifies. Gold is a web-specific reading, now documented as one |
+| §E: band carries title and banner image | Band carries the title alone | Built with a subtitle first, reviewed, cut — it restated the paragraph below it. The light-tint subtitle styling remains for any page that wants one |
+
+Two further corrections the plan did not anticipate: the footer's content inset
+had to reproduce the navbar's three-part inset (nav padding + container padding
++ auto margins) rather than a single centring rule, or the contact block sat
+34px left of the logo on wide viewports; and the translucent white borders went
+to 45% from the plan's 35%, which composites to 2.73:1 and misses the 3:1 that
+WCAG 1.4.11 asks of a control boundary.
+
+## Still open
+
+- The heading-scale interpretation flagged in `README.md` still awaits
+  brand-owner sign-off. v1.2 did not address it. The plan's closing note to
+  raise it in the same round stands, and has not been actioned.
+- Whether the 142px screen minimum applies to the artwork's bounding box or to
+  the visible mark. The site uses the box, which is what the repository already
+  assumed. On the ink reading the mobile lockup measures 113px and would need to
+  grow to roughly 63px tall.
 
 ## What changed in the guidelines
 
