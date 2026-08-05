@@ -1,7 +1,10 @@
 # Brand implementation record
 
-How the [CHF Brand & Document Guidelines v1.1](https://www.sun.ac.za) (July 2026)
+How the [CHF Brand & Document Guidelines v1.2](https://www.sun.ac.za) (July 2026)
 are applied on this website, and why in the places where a judgement was made.
+Where the guidelines are silent, the [SU Brand Manual](https://www.su.ac.za/en/about/brand-identity)
+(Corporate Communication and Marketing, November 2025) governs; clause numbers
+below in the form "SU 4.1.5" are its.
 
 Everything here is implemented in [`../custom.scss`](../custom.scss). Nothing
 else in the repository should introduce a colour or a font.
@@ -12,7 +15,7 @@ Not published — `brand/` is excluded from the render in `_quarto.yml`.
 
 | Role | Value | Where it is used |
 |---|---|---|
-| Confident Maroon | `#61223B` | Headings, links, navbar text, table header row |
+| Confident Maroon | `#61223B` | Navbar band, footer band, headings, links, table header row |
 | Brilliant Gold | `#CAA258` | Thin rules only — navbar underline, heading rules, card top border |
 | SU Black | `#2C2A29` | Body text |
 | Steel Grey | `#4D5356` | Captions, footer, metadata |
@@ -40,6 +43,24 @@ contrast ratios against white:
 | **Brilliant Gold** | **2.38:1** | **fails everything** |
 
 Gold appears only as rules, borders and the disclaimer's left edge.
+
+§7 does sanction "links and buttons: maroon or gold", so gold link text is not a
+brand violation. It is an accessibility one on a white page, and §4 still lists
+"set body text in maroon, gold, or light grey" among the DON'Ts, so the rule
+above stands unchanged: gold is a rule colour here, never a text colour.
+
+Reversed out of the maroon bands, the same measurements are:
+
+| Foreground on `#61223B` | Ratio | WCAG |
+|---|---|---|
+| White | 11.67:1 | AAA |
+| Brilliant Gold | 4.90:1 | AA normal, AAA large |
+| Steel Grey | 1.49:1 | fails everything |
+| `$chf-maroon-dark` | 1.20:1 | fails everything |
+
+Which is why the navbar and footer carry white type, why Steel Grey cannot
+appear on either band, and why neither hover state restates the text colour —
+the gold underline and the extra weight carry them instead.
 
 ## Typography
 
@@ -72,16 +93,41 @@ The **ratios, weights and colours are preserved** against a web-native 16px base
 
 ## Layout decisions
 
-**White header with a gold rule.** The guidelines are explicit that maroon and
-gold are accents on a white page, not a background wash, and that the logo sits
-top-left on a clean background. The site previously had a full-bleed maroon
-navbar with a reversed logo; that is the treatment §2 reserves for dark
-backgrounds.
+**Maroon header and footer (v1.2 §7).** The header is a full-width Confident
+Maroon band carrying the reversed gold-and-white lockup top-left, with the
+navigation in white; the footer is a second maroon band carrying the standard
+contact block. This is SU colourway 1 — "Brilliant Gold and white on a Confident
+Maroon background" (SU 4.1.5) — and it expresses the primary ratio's 70%
+Confident Maroon (SU 4.2.4). SU's own properties, su.ac.za and centre sites such
+as resep.sun.ac.za, are built the same way.
 
-**White footer with a gold hairline**, carrying the standard contact block from
-§5 in Steel Grey. A maroon footer would be the same background wash, and would
-make the page bookend-heavy against a white header. If more colour is wanted, the
-sanctioned move is a `#EFE9EB` tint band, not a maroon fill.
+**A gold hairline separates each band from the white content.** Note that this
+is a web-specific reading, not a transcription: §5's letterhead anatomy puts a
+gold rule under the header but a *maroon* hairline above the footer contact
+block, which would be invisible against a maroon band. Gold is the only value
+that does the job on both edges.
+
+**Content stays white** with SU Black body text, maroon headings and gold as
+thin accents, per §7. The bands are the only large maroon fields on the site.
+
+### This reverses what v1.1 said, and what this file used to say
+
+Until August 2026 the two paragraphs above read the other way round. They argued
+for a white header and a white footer on the grounds that "the guidelines are
+explicit that maroon and gold are accents on a white page, not a background
+wash", and that a maroon footer would be "the same background wash".
+
+That reasoning was wrong, and the wording it rested on has been withdrawn.
+Nothing in the SU Brand Manual restricts maroon to accents: colourway 1 places
+gold-and-white *on* maroon, and the primary ratio makes maroon dominant. v1.2
+renamed the principle from "Restraint" to "Maroon leads", removed the
+white-page framing, and added §7 Web & digital; its own footnote records that
+"maroon headers and footers are off-brand" was an editorial overstatement rather
+than an SU rule. The correction is logged as changes 16–17 in the SU brand
+manual working reference.
+
+The history is worth keeping because the site has now been built both ways, and
+the argument for the white version was made in this file in good faith.
 
 ## The logo
 
@@ -90,19 +136,27 @@ Communication (RGB SVG), live in `images/logo/`:
 
 | File | Use |
 |---|---|
-| `chf-horizontal-on-light.svg` | **In use** — the white navbar |
-| `chf-stacked-on-light.svg` | Narrow or square spaces on light backgrounds |
-| `chf-horizontal-on-maroon.svg` | Reversed, gold-and-white, for dark backgrounds |
+| `chf-horizontal-on-maroon.svg` | **In use** — the maroon navbar band |
 | `chf-stacked-on-maroon.svg` | Reversed, narrow or square |
+| `chf-horizontal-on-light.svg` | Gold-and-maroon, for white or light backgrounds |
+| `chf-stacked-on-light.svg` | Narrow or square spaces on light backgrounds |
 
-They are byte-identical to the supplied artwork — no recolouring, no reformatting,
-no added attributes. Each contains only paths in `#61223B` and `#CAA258` on a
-transparent ground.
+They are the supplied artwork — no recolouring, no reformatting, no added
+attributes. Each is paths in two fills on a transparent ground: the `-on-light`
+pair `#61223B` and `#CAA258`, the `-on-maroon` pair `#FFF` and `#CAA258`. So the
+navbar swap is a file swap, not a restyle; SU supplied the reversed colourway
+ready to use.
+
+(The SU brand manual working reference records that SU's own delivery named the
+reversed horizontal file `CHF_logo_maroon_gold_horizontal_RGB.svg` although it
+holds the white-and-gold artwork. The files here are named for what they
+contain.)
 
 The earlier `images/logo.png` has been deleted. It was the **reversed** lockup
 flattened onto a solid maroon rectangle with no transparency (80% of its pixels
-were `#61223B`), so on a white navbar it rendered as a maroon plate — that
-variant used outside the context §2 sanctions.
+were `#61223B`). Even now that the band behind it is maroon, a flattened plate
+would be the wrong asset: it cannot inherit the band's exact colour, and SU
+supplies the reversed artwork on a transparent ground precisely so it does.
 
 ### Sizing gotcha
 
@@ -112,10 +166,35 @@ collapses such an image to zero width — the logo silently disappears. `custom.
 therefore sets an explicit `height` *and* `max-height: none`; both are needed,
 since the 24px cap would otherwise clamp the height back down.
 
-Current sizing is 64px tall (~218px wide) on desktop and 44px (~150px) on mobile.
-The §2 on-screen minimum is 142px wide for the horizontal lockup and 85px high for
-the stacked one, with clear space of twice the cap-height of the "S" in
-"Stellenbosch".
+Current sizing is 84px tall (290px wide) on desktop and 44px (154px) on mobile.
+The §2 and §7 on-screen minimum is 142px wide for the horizontal lockup and 85px
+high for the stacked one, with clear space of twice the cap-height of the "S" in
+"Stellenbosch" (SU 4.1.4).
+
+### The second sizing gotcha: padding eats the height
+
+`.navbar-logo` used to carry `padding: 4px 0`. Under `box-sizing: border-box`,
+which Bootstrap applies to everything, padding comes *out of* the declared
+height rather than adding to it — so the artwork rendered at 76px, not 84px, and
+the lockup at 259px rather than 290px. On mobile that took a nominal 44px logo
+down to 36px of artwork and **122px wide, under the 142px minimum**. The padding
+has been removed; both breakpoints now clear the minimum, measured in the
+browser at 290px and 154px.
+
+### Clear space is already inside the artwork
+
+Measured on the supplied SVG by rasterising it and reading the ink extents: the
+transparent margin above the artwork is 25.5% of the file's height and the one
+below is 24.4%, against a capital "S" in "Stellenbosch" that is 12.6%. Twice the
+cap-height is therefore 25.2% — so the file arrives with essentially the whole
+clear-space requirement built into its own canvas.
+
+On top of that the navbar contributes 1rem of padding and the brand container
+0.3rem, which measures 22px above the lockup and 22px below it to the gold rule,
+against a 9.6px cap-height at the desktop size. The requirement is met roughly
+four times over, and **no navbar padding needed adding** to satisfy it. Worth
+knowing before anyone "fixes" the clear space by growing the band: at these
+sizes the constraint is not binding.
 
 ## Charts
 
