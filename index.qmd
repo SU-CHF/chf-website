@@ -1,15 +1,13 @@
 ---
 title: "Centre for Household Finance"
-# Trimmed from the site description in _quarto.yml, so the band carries the
-# Centre's own words rather than a second version of them.
-subtitle: "Research on consumer financial markets in developing countries"
 title-block-banner: true
 ---
 
 We are a research group within the [Department of Economics](https://www.ekon.sun.ac.za)
 at [Stellenbosch University](https://www.sun.ac.za). Our goal is to advance
-knowledge about consumer financial markets in developing countries: how they
-work, and which policies may make them work more efficiently and more equitably.
+knowledge about consumer financial markets in developing countries, and South
+Africa in particular: how they work, and which policies may make them work more
+efficiently and more equitably.
 
 We use tools from applied microeconomics and causal inference to study how people
 make financial decisions and what influences their choices. We focus on South

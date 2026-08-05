@@ -129,10 +129,15 @@ thin accents, per §7.
 
 **A maroon title band opens the landing page**, and only the landing page. §7
 sanctions title bands and §6 gives the shape: maroon field, gold accent bar,
-subtitle in a light tint, white content beneath. It is opt-in per page with
-`title-block-banner: true` in the front matter, so any page can take one, and no
-page takes one by accident. The gold bar is the rule every `h1.title` already
-carries — read against maroon rather than against white.
+white content beneath. It is opt-in per page with `title-block-banner: true` in
+the front matter, so any page can take one, and no page takes one by accident.
+The gold bar is the rule every `h1.title` already carries — read against maroon
+rather than against white.
+
+The band carries the title alone. A `subtitle:` in the front matter renders in
+the 10% maroon tint, 9.73:1, per §6's "subtitle in a light tint" — Steel Grey,
+which every subtitle elsewhere on the site uses, is 1.49:1 here and cannot be
+used on the band.
 
 Between the two, the navbar and the title band make about 280px of maroon at the
 top of the landing page, separated by the gold hairline. That is deliberate, and
