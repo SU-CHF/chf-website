@@ -302,6 +302,44 @@ html {
   font-weight: 400;
 }
 
+// ── Maroon title band (§7 "title bands"; §6's title-field convention) ──
+//
+// Opt-in per page with `title-block-banner: true`. Quarto emits the banner as a
+// page-columns grid, so it is already full-bleed with its contents on the body
+// column — no padding arithmetic needed here, unlike the footer.
+//
+// The gold rule under the title is the one every h1.title carries; against
+// maroon it reads as §6's gold accent bar rather than as a heading underline,
+// which is why it is not repeated at the foot of the band. The band ends on a
+// hard maroon-to-white edge, as the slide convention does.
+.quarto-title-banner {
+  background-color: $chf-maroon;
+  padding: 2.5rem 0 2rem;
+  // No bottom margin: Quarto's banner layout already puts padding above the
+  // content, and adding to it opens a gap that reads as a missing element.
+  margin-bottom: 0;
+
+  // Colour comes from the rule below, which has to carry #title-block-header:
+  // the base h1.title rule above is scoped to that ID, and an ID outranks any
+  // number of classes. Left as a class selector, the title stays maroon and
+  // disappears into the band.
+
+  // "Subtitle in a light tint" (§6). The 10% maroon tint at 9.73:1 — a tint of
+  // the field it sits on, which Steel Grey at 1.49:1 could never be.
+  .subtitle, p.subtitle {
+    color: $chf-maroon-10;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) { padding: 1.75rem 0 1.5rem; }
+}
+
+#title-block-header .quarto-title-banner .quarto-title h1.title {
+  color: $chf-white;
+  border-bottom-color: $chf-gold;
+}
+
 main h2 {
   color: $chf-maroon;
   font-weight: 700;

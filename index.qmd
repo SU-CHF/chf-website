@@ -1,5 +1,9 @@
 ---
 title: "Centre for Household Finance"
+# Trimmed from the site description in _quarto.yml, so the band carries the
+# Centre's own words rather than a second version of them.
+subtitle: "Research on consumer financial markets in developing countries"
+title-block-banner: true
 ---
 
 We are a research group within the [Department of Economics](https://www.ekon.sun.ac.za)
