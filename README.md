@@ -31,9 +31,11 @@ Edit `.qmd` and `.yml` files; the browser refreshes as you save.
 
 ## Publishing
 
-GitHub Pages serves branch `main`, path `/docs`. **Nothing goes live until the
-rendered output in `docs/` is committed** — pushing source changes alone
-redeploys the same site.
+GitHub Pages serves branch `main`, path `/docs`, in "deploy from a branch" mode.
+There is no GitHub Actions workflow and no build step on GitHub: Pages serves
+the files in `docs/` exactly as they were rendered on someone's machine and
+committed. **Nothing goes live until the rendered output in `docs/` is
+committed** — pushing source changes alone redeploys the same site.
 
 ```bash
 quarto render
@@ -44,8 +46,42 @@ git push
 
 Pages redeploys automatically, usually within a minute.
 
-Any branch other than `main` is invisible to Pages, so feature branches are safe
-to push and share.
+**There is no staging site. Pushing to `main` is publishing.** Any branch other
+than `main` is invisible to Pages, so feature branches are safe to push and
+share, but the moment one is merged into `main` and pushed, it is live. Before
+merging, render the branch and look at the static output, not the preview
+server:
+
+```bash
+quarto render
+python3 -m http.server -d docs 4201   # http://localhost:4201
+```
+
+`quarto preview` renders pages on demand, so it can hide a file that the full
+render never copies into `docs/`, such as a font or PDF missing from
+`resources` in `_quarto.yml`. The static server shows exactly what Pages will
+serve.
+
+To undo a bad publish, revert the commit on `main` and push; Pages redeploys
+the previous `docs/`:
+
+```bash
+git revert <commit>
+git push
+```
+
+The custom domain, `householdfinance.org.za` (and `www.`), is read from
+`docs/CNAME`, which the render copies from the root `CNAME` because it is listed
+under `resources`. Keep it there: if `docs/CNAME` disappears, Pages drops the
+custom domain on the next deploy. HTTPS is enforced; the certificate is managed
+by GitHub and renews on its own.
+
+The Pages settings themselves (source branch and path, domain, HTTPS) live in
+the repository settings on GitHub, not in this repo. To check them:
+
+```bash
+gh api repos/SU-CHF/chf-website/pages
+```
 
 ## Editing alongside other people
 
