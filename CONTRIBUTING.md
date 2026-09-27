@@ -19,7 +19,7 @@ Edit `team/_people.yml`. Staff go under `staff:`, students under `students:`.
     photo: /images/team/full-name.jpg
     focus: center 40%                # optional; portraits only, moves the crop
     thesis: >
-      Working title or a one-line description of the topic.
+      Working Title of the Thesis
     supervisor: Jesse Naidoo
     links:
       website:  https://...
@@ -36,6 +36,11 @@ person with no photo gets a placeholder, and one with no email simply omits that
 line. So you can add someone before all their details are to hand.
 
 `links:` accepts any of `website`, `scholar`, `linkedin`, `github`.
+
+**Thesis titles** are titles, not descriptions: title case, with articles,
+short prepositions and conjunctions in lower case unless they come first, and
+no full stop at the end. For example, "Marginal Borrowers in the Market for
+Home Loans".
 
 **Photos.** Square, ideally 600×600 or larger. Drop any crop into `_inbox/` and
 it can be normalised into `images/team/` from there.

@@ -1,12 +1,10 @@
 ---
-title: "Governance & reports"
-pagetitle: "Governance"
+title: "Governance"
 ---
 
 The Centre operates under a constitution approved by the Faculty and a Research
 Charter that governs research independence, data governance, and our
-relationships with funders and data partners. These, and our annual reports, are
-published here in full.
+relationships with funders and data partners. Both are published here in full.
 
 ```{r}
 #| include: false

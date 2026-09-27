@@ -61,6 +61,8 @@ staff:
 #
 # Before publishing a student, confirm they are happy for their name, email and
 # thesis topic to appear on a public page.
+#
+# `thesis` is a title: title case, no full stop at the end.
 students:
   - name: Anine Keel
     degree: Master's student
@@ -69,7 +71,7 @@ students:
     photo: /images/team/anine-keel.jpg
     focus: center 8%
     thesis: >
-      The balance sheets of South African households.
+      The Balance Sheets of South African Households
     supervisor: Jesse Naidoo
 
   - name: Connor Lane
@@ -79,7 +81,7 @@ students:
     photo: /images/team/connor-lane.jpg
     focus: center 55%
     thesis: >
-      Marginal borrowers in the market for home loans.
+      Marginal Borrowers in the Market for Home Loans
     supervisor: Jesse Naidoo
 
   - name: Annemé Lahoud
@@ -89,7 +91,7 @@ students:
     photo: /images/team/anneme-lahoud.jpg
     focus: center 40%
     thesis: >
-      Funeral Insurance, Spousal Deaths, and Consumption Smoothing in South Africa.
+      Funeral Insurance, Spousal Deaths, and Consumption Smoothing in South Africa
     supervisor: Jesse Naidoo
 
 #  - name: Full Name
@@ -99,7 +101,7 @@ students:
 #    photo: /images/team/full-name.jpg
 #    focus: center 40%                # optional; portraits only
 #    thesis: >
-#      Working title or one-line description of the thesis topic.
+#      Working Title of the Thesis
 #    supervisor: Jesse Naidoo
 #    links:
 #      linkedin: https://www.linkedin.com/in/...

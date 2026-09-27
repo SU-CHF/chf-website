@@ -29,6 +29,5 @@ If any of these describe you or your organisation, please
 
 The Centre operates under a constitution approved by the Faculty and a Research
 Charter that governs research independence, data governance, and our
-relationships with funders and data partners. These, together with our annual
-reports, are published in full on the
-[Governance & reports](governance.qmd) page.
+relationships with funders and data partners. Both are published in full on the
+[Governance](governance.qmd) page.

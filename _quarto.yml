@@ -56,7 +56,7 @@ website:
         menu:
           - text: About the Centre
             href: about/index.qmd
-          - text: Governance & reports
+          - text: Governance
             href: about/governance.qmd
           - text: Contact
             href: about/contact.qmd
@@ -73,7 +73,7 @@ website:
     left: |
       **Centre for Household Finance** · Department of Economics · Stellenbosch University<br>
       CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br>
-      +27 (0)21 808 2247 · <econ@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
+      +27 (0)21 808 2247 · <householdfinance@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
     right: |
       &copy; 2026 Centre for Household Finance<br>
       [Contact](/about/contact.html) · [Governance](/about/governance.html)

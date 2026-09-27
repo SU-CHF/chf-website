@@ -23,8 +23,7 @@
     Establishes the Centre, its objects and membership, its Board, and its
     relationship to the Department of Economics and the Faculty.
 
-# Add the Research Charter and the Directors' Report here once their PDFs are
-# in documents/:
+# Add the Research Charter here once its PDF is in documents/:
 #
 # - title: "Research Charter"
 #   doctype: Charter
@@ -34,11 +33,3 @@
 #   summary: >
 #     Governs research independence, data governance, conflicts of interest,
 #     funder relationships and publication disclaimers.
-#
-# - title: "Directors' Report 2025"
-#   doctype: Report
-#   version: "1.0"
-#   file: CHF-Report-Directors2025-v1.0.pdf
-#   summary: >
-#     Annual report on activities, outputs, funding and staffing for the 2025
-#     calendar year.
