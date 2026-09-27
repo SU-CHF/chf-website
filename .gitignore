@@ -11,3 +11,6 @@ _site
 _inbox/
 
 **/*.quarto_ipynb
+
+# Local Claude Code session state (permissions, write cache) — machine-specific.
+.claude/
