@@ -91,7 +91,13 @@ students:
     photo: /images/team/anneme-lahoud.jpg
     focus: center 40%
     thesis: >
-      Funeral Insurance, Spousal Deaths, and Consumption Smoothing in South Africa
+      The Economic Effects of a Spouse's Death
+    supervisor: Jesse Naidoo
+
+  - name: Almé Hugo
+    photo: /images/team/alme-hugo.jpg
+    thesis: >
+      The Contested Nature of Property Rights in South Africa's Urban Townships
     supervisor: Jesse Naidoo
 
 #  - name: Full Name

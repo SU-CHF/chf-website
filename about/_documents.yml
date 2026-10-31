@@ -23,13 +23,12 @@
     Establishes the Centre, its objects and membership, its Board, and its
     relationship to the Department of Economics and the Faculty.
 
-# Add the Research Charter here once its PDF is in documents/:
-#
-# - title: "Research Charter"
-#   doctype: Charter
-#   version: "1.1"
-#   date: 2026-07-15
-#   file: CHF-Charter-Research-v1.1.pdf
-#   summary: >
-#     Governs research independence, data governance, conflicts of interest,
-#     funder relationships and publication disclaimers.
+- title: "Research Charter"
+  doctype: Charter
+  version: "2.11"
+  date: 2026-10-30
+  file: CHF-Charter-Research-v2.11.pdf
+  summary: >
+    Governs authorship and project registration, the continuation of projects
+    when members leave, authorship disputes, research independence and
+    funding, the use of AI, and ethical clearance and data security.
