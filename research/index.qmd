@@ -28,27 +28,27 @@ listing:
     filter-ui: false
 ---
 
-We use tools from applied microeconomics and causal inference to study how South
-African households make financial decisions, and which policies would make
-consumer financial markets work more efficiently and more equitably.
+We use the tools of applied microeconomics to study how South African households
+make financial decisions, and which policies would make consumer financial
+markets work more efficiently and more equitably. We seek out and use relevant
+survey and administrative data from sources in the public and private sectors.
 
-## Research programmes
+## Research themes
 
-Our work is organised into programmes. Each output below is tagged with the
-programme it belongs to; use the tags to filter the list.
+Our work is organised into themes. Each output below is tagged with the theme it
+belongs to; use the tags to filter the list.
 
-**Mortgage pricing in South Africa.** Access to affordable housing finance is
-essential for economic mobility, yet mortgage pricing varies significantly across
-applicants. This programme investigates disparities in mortgage offer
-probabilities and interest rates by age, gender, marital status and first-time
-buyer status, with a view to policies that promote fair and transparent lending.
+**Mortgage pricing in South Africa.** Using a unique dataset of mortgage
+applications, we study how banks price home loans in South Africa, how this
+pricing varies with borrower characteristics, and how willing households are to
+switch lenders.
 
 **The market for funeral insurance.** Funeral insurance is one of the most widely
-purchased financial products in South Africa, while life insurance remains far
-less common. This programme examines the extent to which the two are substitutes,
-on both the supply side — regulatory barriers and industry practice — and the
-demand side, where mortality, income and intergenerational living arrangements
-shape what households buy.
+purchased financial products in South Africa; life insurance remains far less
+common. Yet the two products deliver very similar benefits to households — cash
+in the event of a death — at different prices. Our work on this theme explores
+the drivers of demand for these products, the extent to which they are
+substitutes, and the implications for household welfare and public policy.
 
 ## Papers
 

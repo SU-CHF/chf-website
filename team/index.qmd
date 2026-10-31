@@ -21,9 +21,9 @@ chf_people_grid(people$staff, "staff")
 
 ## Students
 
-We supervise Masters and PhD students working on household finance in South
+We supervise Master's and PhD students working on household finance in South
 Africa. If you are a postgraduate student at Stellenbosch University with an
-interest in the field, please [get in touch](/about/contact.html).
+interest in the field, please [contact us](/about/contact.html).
 
 ```{r}
 #| output: asis

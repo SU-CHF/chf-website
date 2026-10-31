@@ -138,7 +138,7 @@ collection **CHF Outputs** and tag it:
 | Tag | Effect |
 |---|---|
 | `chf:public` | **Required.** Only tagged items reach the website |
-| `project:Mortgages` | Assigns it to a research programme; becomes a filter chip |
+| `project:Mortgages` | Assigns it to a research theme; becomes a filter chip |
 | `status:working-paper` | Shows a "working paper" badge |
 | `status:published` | Shows a "published" badge |
 

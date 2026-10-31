@@ -19,6 +19,6 @@ listing:
 
 Short, evidence-led pieces on South African consumer financial markets — market
 overviews, new facts from our data work, reviews of policy issues, and book
-reviews. Work that informs decisions but would not appear in an academic journal.
+reviews.
 
 [Subscribe by RSS](index.xml)

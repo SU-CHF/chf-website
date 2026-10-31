@@ -15,7 +15,7 @@
 #
 # Tags that matter:
 #   chf:public              only tagged items reach the website
-#   project:<Programme>     assigns an output to a research programme
+#   project:<Theme>         assigns an output to a research theme
 #   status:working-paper    drives the badge
 #   status:published
 
