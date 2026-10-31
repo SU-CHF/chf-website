@@ -64,6 +64,10 @@ on the listing.
 `description:` is what appears on the listing and in the RSS feed — write it to
 stand alone.
 
+**First post only.** Insights is left out of the navbar while it has no posts.
+When you publish the first one, uncomment the Insights entry in `_quarto.yml`
+and add it back to the list of links in `404.qmd`.
+
 The template itself is never rendered or published: Quarto ignores directories
 whose names begin with an underscore, which is why it is `_template`.
 
@@ -138,9 +142,13 @@ collection **CHF Outputs** and tag it:
 | Tag | Effect |
 |---|---|
 | `chf:public` | **Required.** Only tagged items reach the website |
-| `project:Mortgages` | Assigns it to a research theme; becomes a filter chip |
+| `project:Financial information and advice` | Assigns it to a research theme; becomes a filter chip |
 | `status:working-paper` | Shows a "working paper" badge |
 | `status:published` | Shows a "published" badge |
+
+Name a `project:` tag after the theme's heading on the Research page, so the
+chip and the paragraph describing it match. No commas: the export joins tags with
+commas, so a comma splits one tag into two.
 
 The `chf:public` gate means Zotero can hold work in progress without it leaking
 onto the site.

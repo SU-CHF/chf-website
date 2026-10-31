@@ -25,13 +25,15 @@ Stellenbosch Central, Stellenbosch 7600
 Postal: Private Bag X1, Stellenbosch 7599, South Africa  
 Telephone: +27 (0)21 808 2247
 
+<!-- OpenStreetMap rather than Google Maps: the embed sets no third-party
+     tracking cookies. Marker at the CGW Schumann Building. -->
 <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.3351221030653!2d18.86467737738871!3d-33.93250782236441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdb242ac0640e3%3A0xd8c3ef52bc869eca!2sCGW%20Schumann%20Building!5e0!3m2!1sen!2sza!4v1743082576872!5m2!1sen!2sza"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=18.8597%2C-33.9355%2C18.8697%2C-33.9295&amp;layer=mapnik&amp;marker=-33.93251%2C18.86468"
     width="100%"
     height="300px"
     style="border:0;"
-    allowfullscreen=""
     loading="lazy"
-    title="Map showing the CGW Schumann Building, Stellenbosch"
-    referrerpolicy="no-referrer-when-downgrade">
+    title="Map showing the CGW Schumann Building, Stellenbosch">
 </iframe>
+
+[View a larger map](https://www.openstreetmap.org/?mlat=-33.93251&mlon=18.86468#map=18/-33.93251/18.86468)

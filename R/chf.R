@@ -101,10 +101,10 @@ chf_icon <- function(url, icon, label) {
 chf_links <- function(links) {
   if (is.null(links)) return("")
   html <- paste0(
-    chf_icon(links$website,  "fas fa-link",           "Personal website"),
-    chf_icon(links$scholar,  "fas fa-graduation-cap", "Google Scholar"),
-    chf_icon(links$linkedin, "fab fa-linkedin",       "LinkedIn"),
-    chf_icon(links$github,   "fab fa-github",         "GitHub")
+    chf_icon(links$website,  "bi bi-link-45deg",           "Personal website"),
+    chf_icon(links$scholar,  "bi bi-mortarboard-fill", "Google Scholar"),
+    chf_icon(links$linkedin, "bi bi-linkedin",       "LinkedIn"),
+    chf_icon(links$github,   "bi bi-github",         "GitHub")
   )
   if (!nzchar(html)) "" else sprintf('<div class="chf-card-links">%s</div>', html)
 }
@@ -274,7 +274,7 @@ chf_doc_list <- function(docs, dir = "../documents") {
     # this as a code block.
     cat(paste0(
       '<li class="chf-doc">\n',
-      sprintf('<a class="chf-doc-title" href="/documents/%s"><i class="fas fa-file-pdf" aria-hidden="true"></i>%s</a>\n',
+      sprintf('<a class="chf-doc-title" href="/documents/%s"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>%s</a>\n',
               esc(d$file), esc(d$title)),
       sprintf('<span class="chf-doc-meta">%s</span>\n', meta),
       sprintf('<p class="chf-doc-summary">%s</p>\n', esc(tidy_text(d$summary))),

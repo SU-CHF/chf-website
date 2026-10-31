@@ -50,12 +50,23 @@ in the event of a death — at different prices. Our work on this theme explores
 the drivers of demand for these products, the extent to which they are
 substitutes, and the implications for household welfare and public policy.
 
+**Financial information and advice.** Households choose financial products with
+what they know and what they are told — by advisers, by lenders, and
+increasingly by the algorithms that screen their applications. Our work on this
+theme measures financial literacy in South Africa and how it varies across
+households, and studies the incentives of those who supply advice and
+explanations to consumers.
+
 ## Papers
 
 :::{#papers}
 :::
 
-## Data
-
-:::{#datasets}
-:::
+```{r}
+#| output: asis
+# The Data heading appears only once Zotero holds a public dataset, so the page
+# never shows an empty section.
+if (length(yaml::read_yaml("datasets.yml"))) {
+  cat("## Data\n\n:::{#datasets}\n:::\n")
+}
+```

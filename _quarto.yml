@@ -48,8 +48,10 @@ website:
     right:
       - text: Research
         href: research/index.qmd
-      - text: Insights
-        href: insights/index.qmd
+      # Insights is hidden until the first post is published. The page still
+      # renders at /insights/; restore these two lines to link it.
+      # - text: Insights
+      #   href: insights/index.qmd
       - text: Team
         href: team/index.qmd
       - text: About
@@ -75,7 +77,7 @@ website:
       CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br>
       +27 (0)21 808 2247 · <householdfinance@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
     right: |
-      &copy; 2026 Centre for Household Finance<br>
+      &copy; Centre for Household Finance<br>
       [Contact](/about/contact.html) · [Governance](/about/governance.html)
 
 format:
@@ -90,7 +92,6 @@ format:
       - text: |
           <link rel="preload" href="/fonts/SU-Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin>
           <link rel="preload" href="/fonts/SU-Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 execute:
   echo: false

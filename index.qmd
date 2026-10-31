@@ -3,15 +3,21 @@ title: "Centre for Household Finance"
 title-block-banner: true
 ---
 
-We are a research group within the [Department of Economics](https://www.ekon.sun.ac.za)
-at [Stellenbosch University](https://www.sun.ac.za). Our goal is to advance
-knowledge about consumer financial markets in developing countries, and South
-Africa in particular: how they work, and which policies may make them work more
-efficiently and more equitably.
+We are a research group in the [Department of Economics](https://www.ekon.sun.ac.za)
+at [Stellenbosch University](https://www.sun.ac.za). We study consumer financial
+markets in developing countries, and in South Africa in particular: how they
+work, and which policies would make them work more efficiently and more
+equitably.
 
-We use tools from applied microeconomics and causal inference to study how people
-make financial decisions and what influences their choices. We focus on South
-African survey and administrative data in a variety of domains, including
-retirement, insurance, and credit.
+We use the tools of applied microeconomics to study how households make
+financial decisions and what shapes the choices they make. To do this, we
+seek out survey and administrative data from sources in the public and private
+sectors.
+
+## Working with us
+
+We are a new and growing centre, and we are looking for data partners, research
+funding, and postdocs. If you are interested in working with us, please
+[get in touch](about/contact.qmd).
 
 ![](images/banner_001.jpg){.chf-banner fig-alt="Centre for Household Finance"}

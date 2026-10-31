@@ -30,7 +30,7 @@ staff:
       linkedin: https://www.linkedin.com/in/jesse-naidoo/
 
   - name: Allan Davids
-    role: Senior Researcher
+    role: Affiliated Researcher
     qualification: PhD, University of Cape Town
     # Allan is an affiliated researcher based at UCT.
     email: allan.davids@uct.ac.za
@@ -90,6 +90,7 @@ students:
     supervisor: Jesse Naidoo
 
   - name: Almé Hugo
+    degree: Master's student
     year: "Expected graduation: 2028"
     email: almehugo@sun.ac.za
     photo: /images/team/alme-hugo.jpg

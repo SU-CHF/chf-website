@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Research – Centre for Household Finance</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -35,14 +41,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-845ec18d6917ab22e8ead265234ecf5f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8ad06fffa4af3f033cd9508c498095f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title','listing-author','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-categories","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -129,10 +134,9 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <link rel="preload" href="../fonts/SU-Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="preload" href="../fonts/SU-Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin="">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -190,10 +194,6 @@ window.Quarto = {
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../insights/index.html"> 
-<span class="menu-text">Insights</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../team/index.html"> 
 <span class="menu-text">Team</span></a>
   </li>  
@@ -228,7 +228,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -251,12 +251,13 @@ window.Quarto = {
 </header>
 
 
-<p>We use tools from applied microeconomics and causal inference to study how South African households make financial decisions, and which policies would make consumer financial markets work more efficiently and more equitably.</p>
-<section id="research-programmes" class="level2">
-<h2 data-anchor-id="research-programmes">Research programmes</h2>
-<p>Our work is organised into programmes. Each output below is tagged with the programme it belongs to; use the tags to filter the list.</p>
-<p><strong>Mortgage pricing in South Africa.</strong> Access to affordable housing finance is essential for economic mobility, yet mortgage pricing varies significantly across applicants. This programme investigates disparities in mortgage offer probabilities and interest rates by age, gender, marital status and first-time buyer status, with a view to policies that promote fair and transparent lending.</p>
-<p><strong>The market for funeral insurance.</strong> Funeral insurance is one of the most widely purchased financial products in South Africa, while life insurance remains far less common. This programme examines the extent to which the two are substitutes, on both the supply side — regulatory barriers and industry practice — and the demand side, where mortality, income and intergenerational living arrangements shape what households buy.</p>
+<p>We use the tools of applied microeconomics to study how South African households make financial decisions, and which policies would make consumer financial markets work more efficiently and more equitably. We seek out and use relevant survey and administrative data from sources in the public and private sectors.</p>
+<section id="research-themes" class="level2">
+<h2 data-anchor-id="research-themes">Research themes</h2>
+<p>Our work is organised into themes. Each output below is tagged with the theme it belongs to; use the tags to filter the list.</p>
+<p><strong>Mortgage pricing in South Africa.</strong> Using a unique dataset of mortgage applications, we study how banks price home loans in South Africa, how this pricing varies with borrower characteristics, and how willing households are to switch lenders.</p>
+<p><strong>The market for funeral insurance.</strong> Funeral insurance is one of the most widely purchased financial products in South Africa; life insurance remains far less common. Yet the two products deliver very similar benefits to households — cash in the event of a death — at different prices. Our work on this theme explores the drivers of demand for these products, the extent to which they are substitutes, and the implications for household welfare and public policy.</p>
+<p><strong>Financial information and advice.</strong> Households choose financial products with what they know and what they are told — by advisers, by lenders, and increasingly by the algorithms that screen their applications. Our work on this theme measures financial literacy in South Africa and how it varies across households, and studies the incentives of those who supply advice and explanations to consumers.</p>
 </section>
 <section id="papers" class="level2">
 <h2 data-anchor-id="papers">Papers</h2>
@@ -268,25 +269,66 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="" data-listing-date-sort="1767225600000">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="" class="no-external">Financial Literacy in South Africa</a>
+</h3>
+<div class="listing-categories">
 
+</div>
+<div class="delink listing-description"><a href="" class="no-external">
+<p><span class="chf-status">working paper</span> We examine financial literacy in South Africa using a nationally representative survey conducted in 2017 that includes standardized questions on financial literacy used in over 140 countries. South Africa follows patterns found in other countries: less educated and low-income respondents display low levels of financial literacy. Most countries have large gender gaps in financial literacy while the gender gap is absent in South Africa. The absence of an aggregate gender gap masks two offsetting patterns. Men are more financially literate than their female partners, but single women are more financially literate than single men.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="" class="no-external">
+<div class="listing-date">
+2026
+</div>
+<div class="listing-author">
+Lwanga Elizabeth Nanziri, Matthew Olckers
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="" data-listing-date-sort="1767225600000">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="https://arxiv.org/abs/2301.12884" class="no-external">Incentives to Offer Algorithmic Recourse</a>
+</h3>
+<div class="listing-categories">
+
+</div>
+<div class="delink listing-description"><a href="https://arxiv.org/abs/2301.12884" class="no-external">
+<p><span class="chf-status">working paper</span> Algorithmic recourse promises to help applicants rejected by automated systems by explaining the changes needed to secure acceptance. What incentive do decision-makers, such as banks and employers, have to offer recourse? We study this question in a screening model in which recourse is both productive and selective: completing recourse improves an applicant’s value to the decision-maker, but applicants differ in their cost of completion. The optimal policy is a threshold rule: reject applicants with low scores, offer recourse to an intermediate range of scores, and accept applicants with high scores outright. Because the intermediate range spans the cutoff that would separate acceptance from rejection when recourse is not available, some marginal applicants gain a new path to acceptance, while others—who would have been accepted outright—must now clear a costly hurdle.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="https://arxiv.org/abs/2301.12884" class="no-external">
+<div class="listing-date">
+2026
+</div>
+<div class="listing-author">
+Matthew Olckers, Toby Walsh
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+
+
+
 </section>
-<section id="data" class="level2">
-<h2 data-anchor-id="data">Data</h2>
-<div id="listing-datasets" class="quarto-listing quarto-listing-container-default">
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-datasets">
 <div class="list quarto-listing-default">
 
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div>
-
-
-
-</section>
-
-</main> <!-- /main -->
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {
@@ -695,7 +737,7 @@ window.Quarto = {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>© 2026 Centre for Household Finance<br> <a href="../about/contact.html">Contact</a> · <a href="../about/governance.html">Governance</a></p>
+<p>© Centre for Household Finance<br> <a href="../about/contact.html">Contact</a> · <a href="../about/governance.html">Governance</a></p>
 </div>
   </div>
 </footer>
