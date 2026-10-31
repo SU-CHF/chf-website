@@ -97,6 +97,7 @@ students:
   - name: Almé Hugo
     email: almehugo@sun.ac.za
     photo: /images/team/alme-hugo.jpg
+    focus: center 0%
     thesis: >
       The Contested Nature of Property Rights in South Africa's Urban Townships
     supervisor: Jesse Naidoo
