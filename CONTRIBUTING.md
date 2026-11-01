@@ -154,7 +154,26 @@ The `chf:public` gate means Zotero can hold work in progress without it leaking
 onto the site.
 
 Items of type `dataset` render under **Data**; everything else under **Papers**.
-Abstract, DOI and URL are carried across automatically.
+Titles and abstracts are plain text. Each version of the paper gets its own
+labelled link beneath the abstract, read from the item's DOI and URL fields:
+
+| Status tag | Links shown | Also shown |
+|---|---|---|
+| `status:working-paper` | **Working paper**: the URL, or the DOI if there is no URL | — |
+| `status:published` | **Published version**: the DOI; **Preprint**: the URL | Journal, volume, issue, year and pages |
+
+So when a working paper is published, update the same Zotero item: change its
+type to Journal Article, add the journal details and the journal DOI, swap the
+tag to `status:published`, and leave the URL pointing at the preprint. Zotero
+often fills the URL with the publisher's page when it imports an article;
+replace that with the preprint link, or clear it, or it will be labelled
+"preprint".
+
+To host a preprint here, put the PDF in `research/papers/`, named
+`Author-Author-Year-Short-Title.pdf`, and set the item's URL to
+`https://householdfinance.org.za/research/papers/<file>.pdf`. The build turns
+that into a site-relative link, so it also works in a local preview. PDFs open
+in a new tab.
 
 ### One-time Zotero setup
 

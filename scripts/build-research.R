@@ -18,6 +18,11 @@
 #   project:<Theme>         assigns an output to a research theme
 #   status:working-paper    drives the badge
 #   status:published
+#
+# Links under each abstract (rendered by research/papers.ejs):
+#   working paper           URL, else DOI ("Working paper")
+#   published               DOI ("Published version") and URL ("Preprint"), plus a
+#                           venue line from the journal, volume, issue and pages
 
 suppressPackageStartupMessages({
   library(jsonlite)
@@ -55,30 +60,61 @@ year <- function(it) {
   if (is.null(p) || is.na(p)) NULL else as.character(p)
 }
 
-to_entry <- function(it) {
-  status <- tagged(it, "status:")
-  badge  <- if (length(status)) {
-    sprintf('<span class="chf-status">%s</span> ', gsub("-", " ", status[1]))
-  } else ""
-
-  # Drop empty fields rather than writing `~`: a null `path` renders as a title
-  # linking to href="", which just reloads the Research page.
-  Filter(Negate(is.null), list(
-    title       = it$title %||% "Untitled",
-    author      = as.list(authors(it)),
-    date        = year(it),
-    categories  = as.list(tagged(it, "project:")),
-    description = paste0(badge, it$abstract %||% ""),
-    path        = link(it)
-  ))
+byline <- function(a) {
+  if (length(a) <= 2) return(paste(a, collapse = " and "))
+  paste0(paste(head(a, -1), collapse = ", "), ", and ", tail(a, 1))
 }
+
+is_published <- function(it) "published" %in% tagged(it, "status:")
 
 # A paper hosted on this site (research/papers/) carries its full public URL in
 # Zotero. Strip the domain so the link also works in a local preview.
-link <- function(it) {
-  url <- it$URL %||% (if (!is.null(it$DOI)) paste0("https://doi.org/", it$DOI) else NULL)
+local_url <- function(url) {
   if (is.null(url)) return(NULL)
   sub("^https?://(www\\.)?householdfinance\\.org\\.za(?=/)", "", url, perl = TRUE)
+}
+
+# Once a paper is published, the DOI is the version of record and the URL field
+# holds the preprint. Before that, whichever of the two exists is the working
+# paper (an arXiv DOI is a preprint DOI, not a publication).
+links <- function(it) {
+  doi <- if (!is.null(it$DOI)) paste0("https://doi.org/", it$DOI)
+  url <- local_url(it$URL)
+  out <- if (is_published(it)) {
+    list(
+      if (!is.null(doi %||% url)) list(label = "Published version", url = doi %||% url),
+      if (!is.null(doi) && !is.null(url) && url != doi) list(label = "Preprint", url = url)
+    )
+  } else {
+    list(if (!is.null(url %||% doi)) list(label = "Working paper", url = url %||% doi))
+  }
+  Filter(Negate(is.null), out)
+}
+
+venue <- function(it) {
+  if (!is_published(it) || is.null(it$`container-title`)) return(NULL)
+  vol <- paste0(it$volume %||% "", if (!is.null(it$issue)) sprintf(" (%s)", it$issue) else "")
+  parts <- c(sprintf("<em>%s</em>%s", it$`container-title`,
+                     if (nzchar(vol)) paste0(" ", vol) else ""),
+             year(it),
+             if (!is.null(it$page)) paste0("pp. ", gsub("-", "–", it$page)))
+  paste0(paste(parts, collapse = ", "), ".")
+}
+
+# Empty fields are dropped rather than written as `~`.
+to_entry <- function(it) {
+  status <- tagged(it, "status:")
+  Filter(function(x) !is.null(x) && length(x), list(
+    title       = it$title %||% "Untitled",
+    author      = as.list(authors(it)),
+    byline      = byline(authors(it)),
+    date        = year(it),
+    categories  = as.list(tagged(it, "project:")),
+    status      = if (length(status)) gsub("-", " ", status[1]),
+    venue       = venue(it),
+    description = it$abstract,
+    chf_links   = links(it)
+  ))
 }
 
 public  <- Filter(function(it) "chf:public" %in% kw(it), items)
