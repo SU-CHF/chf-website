@@ -4,7 +4,7 @@ title-block-banner: true
 ---
 
 We are a research group in the [Department of Economics](https://www.ekon.sun.ac.za)
-at [Stellenbosch University](https://www.sun.ac.za). Household finance is the
+at [Stellenbosch University](https://www.su.ac.za/en). Household finance is the
 study of how, and how successfully, households use financial instruments to
 achieve their goals.
 

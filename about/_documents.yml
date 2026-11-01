@@ -17,7 +17,8 @@
 - title: "Constitution of the Centre for Household Finance"
   doctype: Constitution
   version: "1.0"
-  # TODO: add the approval date once confirmed, as `date: YYYY-MM-DD`.
+  # Noted by Senate on this date; the PDF is the version of record of 19 July 2026.
+  date: 2025-05-30
   file: CHF-Constitution-Centre-v1.0.pdf
   summary: >
     Establishes the Centre, its objects and membership, its Board, and its

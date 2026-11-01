@@ -61,14 +61,24 @@ to_entry <- function(it) {
     sprintf('<span class="chf-status">%s</span> ', gsub("-", " ", status[1]))
   } else ""
 
-  list(
+  # Drop empty fields rather than writing `~`: a null `path` renders as a title
+  # linking to href="", which just reloads the Research page.
+  Filter(Negate(is.null), list(
     title       = it$title %||% "Untitled",
     author      = as.list(authors(it)),
     date        = year(it),
     categories  = as.list(tagged(it, "project:")),
     description = paste0(badge, it$abstract %||% ""),
-    path        = it$URL %||% (if (!is.null(it$DOI)) paste0("https://doi.org/", it$DOI) else NULL)
-  )
+    path        = link(it)
+  ))
+}
+
+# A paper hosted on this site (research/papers/) carries its full public URL in
+# Zotero. Strip the domain so the link also works in a local preview.
+link <- function(it) {
+  url <- it$URL %||% (if (!is.null(it$DOI)) paste0("https://doi.org/", it$DOI) else NULL)
+  if (is.null(url)) return(NULL)
+  sub("^https?://(www\\.)?householdfinance\\.org\\.za(?=/)", "", url, perl = TRUE)
 }
 
 public  <- Filter(function(it) "chf:public" %in% kw(it), items)

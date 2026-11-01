@@ -22,6 +22,8 @@ project:
     # Likewise: governance PDFs are linked from HTML emitted by an R chunk,
     # which the scanner does not trace.
     - documents/*.pdf
+    # Papers hosted here are linked from the generated research/papers.yml.
+    - research/papers/*.pdf
     # Only the lockup referenced by the navbar is discovered. Ship the other
     # variants too, so referencing one from CSS later cannot silently 404.
     - images/logo/*.svg
@@ -89,6 +91,16 @@ format:
     toc: false
     anchor-sections: false
     link-external-newwindow: true
+    # PDFs hosted on the site (governance documents, papers) count as internal
+    # links, so link-external-newwindow misses them. Open them in a new tab too.
+    include-after-body:
+      - text: |
+          <script>
+          document.querySelectorAll('a[href$=".pdf" i]').forEach(function (a) {
+            a.target = "_blank";
+            a.rel = "noopener";
+          });
+          </script>
     include-in-header:
       - text: |
           <link rel="preload" href="/fonts/SU-Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin>

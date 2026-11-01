@@ -162,9 +162,20 @@ Both exports need the [Better BibTeX](https://retorque.re/zotero-better-bibtex/)
 plugin, and both must have **Keep updated** ticked so Zotero rewrites them
 whenever an item changes.
 
-1. Right-click the **CHF Outputs** collection → Export Collection →
+1. Copy tags into the JSON export. Better CSL JSON leaves Zotero tags out by
+   default, and without them no item carries `chf:public`, so the Research
+   listing comes out empty. In Zotero → Settings → Better BibTeX → Export →
+   Postscript, paste:
+
+   ```js
+   if (Translator.BetterCSLJSON) {
+     csl.keyword = zotero.tags.map(t => t.tag).join(', ')
+   }
+   ```
+
+2. Right-click the **CHF Outputs** collection → Export Collection →
    **Better CSL JSON** → save as `research/zotero-outputs.json`
-2. Repeat with **Better BibTeX** → save as `research/chf-outputs.bib`
+3. Repeat with **Better BibTeX** → save as `research/chf-outputs.bib`
    (this one is for citations inside Insights posts)
 
 `scripts/build-research.R` reads the JSON before every render. If the export is
