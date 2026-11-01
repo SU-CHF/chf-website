@@ -4,19 +4,18 @@ title-block-banner: true
 ---
 
 We are a research group in the [Department of Economics](https://www.ekon.sun.ac.za)
-at [Stellenbosch University](https://www.sun.ac.za). We study consumer financial
-markets in developing countries, and in South Africa in particular: how they
-work, and which policies would make them work more efficiently and more
-equitably.
+at [Stellenbosch University](https://www.sun.ac.za). Household finance is the
+study of how, and how successfully, households use financial instruments to
+achieve their goals.
 
-We use the tools of applied microeconomics to study how households make
-financial decisions and what shapes the choices they make. To do this, we
-seek out survey and administrative data from sources in the public and private
-sectors.
+We combine economic theory, knowledge of South Africa's institutions and
+history, and survey and administrative data to address questions in this field:
+how consumer financial markets work, and which policies would make them work
+more efficiently and more equitably.
 
 ## Working with us
 
-We are a new and growing centre, and we are looking for data partners, research
+We are a new and growing group, and we are looking for data partners, research
 funding, and postdocs. If you are interested in working with us, please
 [get in touch](about/contact.qmd).
 
