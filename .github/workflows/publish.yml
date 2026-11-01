@@ -1,0 +1,61 @@
+# Renders the site and deploys it to GitHub Pages on every push to main.
+#
+# Requires Settings → Pages → Source set to "GitHub Actions". The custom domain
+# is then set in those settings too: Pages ignores a CNAME file in an Actions
+# deployment.
+
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push cancels a render still in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The "last updated" stamps read each data file's date from git log.
+          # A shallow clone has no history, and every stamp would silently vanish.
+          fetch-depth: 0
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.18
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 4.6.1
+          use-public-rspm: true
+
+      # Installs the package versions pinned in renv.lock.
+      - uses: r-lib/actions/setup-renv@v2
+
+      - name: Render
+        run: quarto render
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

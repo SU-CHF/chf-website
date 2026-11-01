@@ -10,16 +10,22 @@ To add a person, an Insights post or a governance document, see
 
 ## Prerequisites
 
-- [Quarto](https://quarto.org/docs/get-started/) 1.4 or later
-- R, with four packages:
+- [Quarto](https://quarto.org/docs/get-started/) 1.10 or later
+- R 4.6 or later, with the packages pinned in `renv.lock`. In a fresh clone,
+  start R in the repo (`.Rprofile` activates the project library) and run:
 
   ```r
-  install.packages(c("yaml", "jsonlite", "knitr", "htmltools"))
+  renv::restore()
   ```
 
 R is required, not optional: the Team page and the governance document list are
 generated from YAML data files by `R/chf.R`, and the Research listing is built
 from a Zotero export by `scripts/build-research.R`.
+
+To add an R package, install it in the project, use it, then run
+`renv::snapshot()` and commit `renv.lock`. The GitHub Actions build (see
+[deployment-plan.md](deployment-plan.md)) installs exactly what the lockfile
+lists, so a package missing from it fails the deploy.
 
 ## Working on the site
 
@@ -30,6 +36,10 @@ quarto preview     # live reload at http://localhost:4200
 Edit `.qmd` and `.yml` files; the browser refreshes as you save.
 
 ## Publishing
+
+> A move to rendering on GitHub Actions is under way; see
+> [deployment-plan.md](deployment-plan.md). Until its cutover step is done, the
+> process below still applies.
 
 GitHub Pages serves branch `main`, path `/docs`, in "deploy from a branch" mode.
 There is no GitHub Actions workflow and no build step on GitHub: Pages serves
@@ -116,6 +126,8 @@ git rm -r --cached docs && rm -rf docs && quarto render && git add docs
 | `brand/` | The brand guidelines, the SU manual reference, and how they are applied here. Not published |
 | `_inbox/` | Untracked staging area for raw photos, PDFs and artwork |
 | `docs/` | Build output. Generated — never edit by hand |
+| `renv.lock`, `renv/`, `.Rprofile` | Pinned R packages and the project library that loads them |
+| `.github/workflows/publish.yml` | Renders and deploys the site on GitHub Actions |
 
 ## Notes
 

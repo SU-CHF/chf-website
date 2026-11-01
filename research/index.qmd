@@ -28,10 +28,6 @@ listing:
     filter-ui: false
 ---
 
-We use the tools of applied microeconomics to study how South African households
-make financial decisions, and which policies would make consumer financial
-markets work more efficiently and more equitably. We seek out and use relevant
-survey and administrative data from sources in the public and private sectors.
 
 ## Research themes
 
