@@ -1,8 +1,8 @@
 # Centre for Household Finance — website
 
 Source for [householdfinance.org.za](https://householdfinance.org.za). Built with
-[Quarto](https://quarto.org); the rendered site lives in `docs/` and is served by
-GitHub Pages.
+[Quarto](https://quarto.org), rendered by GitHub Actions and served by GitHub
+Pages.
 
 To add a person, an Insights post or a governance document, see
 [CONTRIBUTING.md](CONTRIBUTING.md). For colours, type and logo usage, see
@@ -23,9 +23,8 @@ generated from YAML data files by `R/chf.R`, and the Research listing is built
 from a Zotero export by `scripts/build-research.R`.
 
 To add an R package, install it in the project, use it, then run
-`renv::snapshot()` and commit `renv.lock`. The GitHub Actions build (see
-[deployment-plan.md](deployment-plan.md)) installs exactly what the lockfile
-lists, so a package missing from it fails the deploy.
+`renv::snapshot()` and commit `renv.lock`. The GitHub Actions build installs
+exactly what the lockfile lists, so a package missing from it fails the deploy.
 
 ## Working on the site
 
@@ -37,30 +36,21 @@ Edit `.qmd` and `.yml` files; the browser refreshes as you save.
 
 ## Publishing
 
-> A move to rendering on GitHub Actions is under way; see
-> [deployment-plan.md](deployment-plan.md). Until its cutover step is done, the
-> process below still applies.
+**Pushing to `main` is publishing.** Every push to `main` runs
+`.github/workflows/publish.yml`, which checks out the repo with its full
+history, installs the Quarto and R versions the site was built with and the R
+packages in `renv.lock`, runs `quarto render`, and deploys the result to GitHub
+Pages. A deploy takes about two minutes; follow it under the repository's
+Actions tab. To redeploy without a new commit, use Actions → Publish site → Run
+workflow.
 
-GitHub Pages serves branch `main`, path `/docs`, in "deploy from a branch" mode.
-There is no GitHub Actions workflow and no build step on GitHub: Pages serves
-the files in `docs/` exactly as they were rendered on someone's machine and
-committed. **Nothing goes live until the rendered output in `docs/` is
-committed** — pushing source changes alone redeploys the same site.
+The rendered site is never committed: `docs/` is local build output and is
+gitignored. Commit source files only.
 
-```bash
-quarto render
-git add -A
-git commit -m "Describe the change"
-git push
-```
-
-Pages redeploys automatically, usually within a minute.
-
-**There is no staging site. Pushing to `main` is publishing.** Any branch other
-than `main` is invisible to Pages, so feature branches are safe to push and
-share, but the moment one is merged into `main` and pushed, it is live. Before
-merging, render the branch and look at the static output, not the preview
-server:
+There is no staging site. Any branch other than `main` is invisible to Pages,
+so feature branches are safe to push and share, but the moment one is merged
+into `main` it is live. Before merging, render the branch and look at the
+static output, not the preview server:
 
 ```bash
 quarto render
@@ -69,44 +59,30 @@ python3 -m http.server -d docs 4201   # http://localhost:4201
 
 `quarto preview` renders pages on demand, so it can hide a file that the full
 render never copies into `docs/`, such as a font or PDF missing from
-`resources` in `_quarto.yml`. The static server shows exactly what Pages will
-serve.
+`resources` in `_quarto.yml`. The static server shows exactly what the deploy
+will serve.
 
-To undo a bad publish, revert the commit on `main` and push; Pages redeploys
-the previous `docs/`:
+If the build fails, nothing is deployed and the live site stays as it was. The
+usual causes are an R package missing from `renv.lock` and a governance PDF
+that `_documents.yml` lists but `documents/` lacks; the failed run's log names
+the step.
+
+To undo a bad publish, revert the commit on `main` and push; the workflow
+redeploys the previous state:
 
 ```bash
 git revert <commit>
 git push
 ```
 
-The custom domain, `householdfinance.org.za` (and `www.`), is read from
-`docs/CNAME`, which the render copies from the root `CNAME` because it is listed
-under `resources`. Keep it there: if `docs/CNAME` disappears, Pages drops the
-custom domain on the next deploy. HTTPS is enforced; the certificate is managed
-by GitHub and renews on its own.
-
-The Pages settings themselves (source branch and path, domain, HTTPS) live in
-the repository settings on GitHub, not in this repo. To check them:
+The Pages settings (source "GitHub Actions", the custom domain
+`householdfinance.org.za`, HTTPS enforced) live in the repository settings on
+GitHub, not in this repo. An Actions deployment ignores the root `CNAME` file,
+so the domain is kept only in those settings; the certificate is managed by
+GitHub and renews on its own. To check them:
 
 ```bash
 gh api repos/SU-CHF/chf-website/pages
-```
-
-## Editing alongside other people
-
-`docs/` is generated, and two people rendering the same site will produce
-conflicting output. `.gitattributes` hides it from pull request diffs, but the
-working rule matters more:
-
-> **Content editors change source files only. Whoever merges re-renders `docs/`
-> on `main`, as a separate commit.**
-
-If a `docs/` conflict happens anyway, never resolve it by hand — throw the
-directory away and rebuild:
-
-```bash
-git rm -r --cached docs && rm -rf docs && quarto render && git add docs
 ```
 
 ## Layout
@@ -125,7 +101,7 @@ git rm -r --cached docs && rm -rf docs && quarto render && git add docs
 | `fonts/` | SU Raleway web fonts, six weights |
 | `brand/` | The brand guidelines, the SU manual reference, and how they are applied here. Not published |
 | `_inbox/` | Untracked staging area for raw photos, PDFs and artwork |
-| `docs/` | Build output. Generated — never edit by hand |
+| `docs/` | Local build output. Gitignored; the deploy renders its own |
 | `renv.lock`, `renv/`, `.Rprofile` | Pinned R packages and the project library that loads them |
 | `.github/workflows/publish.yml` | Renders and deploys the site on GitHub Actions |
 

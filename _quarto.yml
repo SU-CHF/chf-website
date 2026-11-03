@@ -12,7 +12,6 @@ project:
     # {{< include >}} example, which Quarto would execute if it rendered the file.
     # (README.md is excluded by Quarto automatically.)
     - "!CONTRIBUTING.md"
-    - "!deployment-plan.md"
   resources:
     - CNAME
     # Quarto discovers resources by scanning rendered HTML. It cannot see url()

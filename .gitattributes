@@ -1,10 +1,3 @@
-# docs/ is Quarto build output, committed only because GitHub Pages serves it
-# from this branch. Suppress it from diffs and language stats so pull requests
-# show source changes only.
-docs/**          linguist-generated=true
-docs/**          -diff
-docs/search.json -diff -merge
-
 # Binary assets
 *.woff2 binary
 *.ttf   binary
