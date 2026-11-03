@@ -1,0 +1,25 @@
+---
+title: "Post title"
+subtitle: "A market overview"
+description: >
+  Two or three sentences summarising the piece. This is what appears on the
+  Insights listing and in the RSS feed, so make it stand alone.
+author:
+  - name: Your Name
+    affiliation: Centre for Household Finance, Stellenbosch University
+date: 2026-01-01
+categories: [Mortgages, Market overview, Policy]
+image: cover.png
+image-alt: "Describe the cover image for screen readers"
+draft: true
+# Delete both lines below if the post cites nothing.
+bibliography: ../../research/chf-outputs.bib
+csl: https://www.zotero.org/styles/econometrica
+---
+
+Body text.
+
+Cite papers from the Centre's Zotero collection with `@citekey`, which resolves
+against `research/chf-outputs.bib`.
+
+{{< include ../_disclaimer.md >}}

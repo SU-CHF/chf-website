@@ -1,37 +1,112 @@
 project:
   type: website
   output-dir: docs
+  pre-render:
+    - scripts/build-research.R
+  render:
+    - "*"
+    # brand/ holds internal reference material — desktop fonts, the brand
+    # implementation record, the founding-announcements archive. Not published.
+    - "!brand/**"
+    # Repo documentation, not site pages. CONTRIBUTING.md in particular shows a
+    # {{< include >}} example, which Quarto would execute if it rendered the file.
+    # (README.md is excluded by Quarto automatically.)
+    - "!CONTRIBUTING.md"
+    - "!deployment-plan.md"
+  resources:
+    - CNAME
+    # Quarto discovers resources by scanning rendered HTML. It cannot see url()
+    # references inside compiled SCSS, so fonts must be declared explicitly or
+    # they are never copied into docs/ and every @font-face 404s.
+    - fonts/*.woff2
+    # Likewise: governance PDFs are linked from HTML emitted by an R chunk,
+    # which the scanner does not trace.
+    - documents/*.pdf
+    # Papers hosted here are linked from the generated research/papers.yml.
+    - research/papers/*.pdf
+    # Only the lockup referenced by the navbar is discovered. Ship the other
+    # variants too, so referencing one from CSS later cannot silently 404.
+    - images/logo/*.svg
 
 website:
   title: "Centre for Household Finance"
+  site-url: https://householdfinance.org.za
+  description: >
+    Research on consumer financial markets in developing countries, at the
+    Department of Economics, Stellenbosch University.
+  favicon: favicon.png
+  search: true
+  open-graph: true
+  image: images/banner_001.jpg
+
   navbar:
+    # Official co-branded lockup, reversed — gold-and-white on transparent — for
+    # the maroon header band. This is SU colourway 1 (Brand Manual 4.1.5), the
+    # pairing the guidelines' §7 specifies for web headers.
+    # images/logo/chf-horizontal-on-light.svg is the gold-and-maroon variant,
+    # for white or light backgrounds.
     title: false
-    logo: "images/logo.png"
+    logo: images/logo/chf-horizontal-on-maroon.svg
+    logo-alt: "Centre for Household Finance, Stellenbosch University"
     right:
       - text: Research
-        href: research.qmd
+        href: research/index.qmd
+      # Insights is hidden until the first post is published. The page still
+      # renders at /insights/; restore these two lines to link it.
+      # - text: Insights
+      #   href: insights/index.qmd
       - text: Team
-        href: team.qmd
-      - text: Contact
-        href: contact.qmd
-  search: false
-  favicon: favicon.png
+        href: team/index.qmd
+      - text: About
+        menu:
+          - text: About the Centre
+            href: about/index.qmd
+          - text: Governance
+            href: about/governance.qmd
+          - text: Contact
+            href: about/contact.qmd
+
   page-footer:
-    background: dark 
+    # Brilliant Gold hairline separating white content from the maroon footer
+    # band. Set here so it needs no CSS. (§5's letterhead puts a *maroon*
+    # hairline above the contact block, which would be invisible against the
+    # maroon band §7 specifies for web; gold is the web-specific reading.)
+    #
+    # Quarto emits this as border-top on .nav-footer, which custom.scss §8
+    # keeps full-bleed for exactly this reason — see the note there.
+    border: "#CAA258"
+    left: |
+      **Centre for Household Finance** · Department of Economics · Stellenbosch University<br>
+      CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br>
+      +27 (0)21 808 2247 · <householdfinance@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
     right: |
-      &copy; 2025 Centre for Household Finance.
+      &copy; Centre for Household Finance<br>
+      [Contact](/about/contact.html) · [Governance](/about/governance.html)
 
 format:
   html:
     theme:
       - flatly
       - custom.scss
-    css: styles.css
     toc: false
+    anchor-sections: false
+    link-external-newwindow: true
+    # PDFs hosted on the site (governance documents, papers) count as internal
+    # links, so link-external-newwindow misses them. Open them in a new tab too.
+    include-after-body:
+      - text: |
+          <script>
+          document.querySelectorAll('a[href$=".pdf" i]').forEach(function (a) {
+            a.target = "_blank";
+            a.rel = "noopener";
+          });
+          </script>
     include-in-header:
       - text: |
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+          <link rel="preload" href="/fonts/SU-Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin>
+          <link rel="preload" href="/fonts/SU-Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
-resources:
-  - CNAME
-
+execute:
+  echo: false
+  warning: false
+  message: false

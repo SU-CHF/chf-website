@@ -1,0 +1,40 @@
+---
+title: "Contact"
+pagetitle: "Contact"
+aliases:
+  - /contact.html
+---
+
+If you or your organisation would like to work with us, please get in touch.
+Research students at Stellenbosch University with an interest in household
+finance are welcome to email us to set up a meeting.
+
+## Email
+
+::: {.chf-contact}
+[householdfinance@sun.ac.za](mailto:householdfinance@sun.ac.za)
+:::
+
+## Physical address
+
+Centre for Household Finance  
+Department of Economics, Stellenbosch University  
+CGW Schumann Building, Bosman Street  
+Stellenbosch Central, Stellenbosch 7600
+
+Postal: Private Bag X1, Stellenbosch 7599, South Africa  
+Telephone: +27 (0)21 808 2247
+
+<!-- OpenStreetMap rather than Google Maps: the embed sets no third-party
+     tracking cookies. Marker at the centre of the CGW Schumann Building as
+     mapped in OSM (way 250285368), in a box about 400 m across. -->
+<iframe
+    src="https://www.openstreetmap.org/export/embed.html?bbox=18.8651%2C-33.9335%2C18.8695%2C-33.9315&amp;layer=mapnik&amp;marker=-33.93250%2C18.86730"
+    width="100%"
+    height="300px"
+    style="border:0;"
+    loading="lazy"
+    title="Map showing the CGW Schumann Building, Stellenbosch">
+</iframe>
+
+[View a larger map](https://www.openstreetmap.org/way/250285368)

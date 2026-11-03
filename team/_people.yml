@@ -1,0 +1,112 @@
+# People shown on the Team page. Edited by hand; rendered by R/chf.R.
+#
+# Staff fields:    name, role, qualification, email, photo, interests, links
+# Student fields:  name, degree, year, email, photo, thesis, supervisor, links
+#
+# Every field except `name` is optional — a person with no photo falls back to a
+# tinted placeholder, and one with no email simply omits that line. So an entry
+# can be added before all its details are to hand.
+#
+# Photos live in images/team/. Cards are square, so a portrait is cropped by the
+# browser; `focus:` moves the crop window (a lower percentage keeps more of the
+# top of the frame). Omit it for square photos. Drop any crop into _inbox/ and it
+# will be normalised.
+#
+# links: may contain any of website, scholar, linkedin, github.
+#
+# Quote any value containing a colon — "Expected graduation: 2028" — or YAML
+# reads it as a nested key and the render fails.
+
+staff:
+  - name: Jesse Naidoo
+    role: Director
+    qualification: PhD, University of Chicago
+    email: jnaidoo@sun.ac.za
+    photo: /images/team/jesse-naidoo.jpg
+    interests: >
+      The interaction of formal and informal finance; insurance; intrafamily transfers.
+    links:
+      website:  https://jnaidoo.rbind.io/
+      linkedin: https://www.linkedin.com/in/jesse-naidoo/
+
+  - name: Allan Davids
+    role: Affiliated Researcher
+    qualification: PhD, University of Cape Town
+    # Allan is an affiliated researcher based at UCT.
+    email: allan.davids@uct.ac.za
+    photo: /images/team/allan-davids.jpg
+    interests: >
+      Housing markets; intergenerational transfers; wealth inequality.
+    links:
+      website:  https://allandav.github.io/
+      linkedin: https://www.linkedin.com/in/allan-davids-34139a99/
+
+  - name: Matthew Olckers
+    role: Senior Researcher
+    qualification: PhD, Paris School of Economics
+    email: olckersm@sun.ac.za
+    photo: /images/team/matthew-olckers.jpg
+    interests: >
+      Financial advice; financial literacy; algorithmic decision-making in consumer finance.
+    links:
+      website:  https://www.matthewolckers.com/
+      linkedin: https://www.linkedin.com/in/matthew-olckers/
+
+# Students. Copy an entry below to add one.
+#
+# Before publishing a student, confirm they are happy for their name, email and
+# thesis topic to appear on a public page.
+#
+# `thesis` is a title: title case, no full stop at the end.
+students:
+  - name: Anine Keel
+    degree: Master's student
+    year: "Expected graduation: 2027"
+    email: aninekeel@sun.ac.za
+    photo: /images/team/anine-keel.jpg
+    focus: center 8%
+    thesis: >
+      Comparing Direct and Indirect Measures of Household Wealth
+    supervisor: Jesse Naidoo
+
+  - name: Connor Lane
+    degree: Master's student
+    year: "Expected graduation: 2028"
+    email: connorlane@sun.ac.za
+    photo: /images/team/connor-lane.jpg
+    focus: center 55%
+    thesis: >
+      Marginal Borrowers in the Market for Home Loans
+    supervisor: Jesse Naidoo
+
+  - name: Annemé Lahoud
+    degree: Master's student
+    year: "Expected graduation: 2028"
+    email: lahoudai@sun.ac.za
+    photo: /images/team/anneme-lahoud.jpg
+    focus: center 40%
+    thesis: >
+      The Economic Effects of a Spouse's Death
+    supervisor: Jesse Naidoo
+
+  - name: Almé Hugo
+    degree: Master's student
+    year: "Expected graduation: 2028"
+    email: almehugo@sun.ac.za
+    photo: /images/team/alme-hugo.jpg
+    focus: center 0%
+    thesis: >
+      The Contested Nature of Property Rights in South Africa's Urban Townships
+    supervisor: Jesse Naidoo
+
+#  - name: Full Name
+#    degree: Master's student         # or: PhD candidate
+#    year: "Expected graduation: 2029"   # optional
+#    email: name@sun.ac.za
+#    photo: /images/team/full-name.jpg
+#    focus: center 40%                # optional; portraits only
+#    thesis: >
+#      Working Title of the Thesis
+#    supervisor: Jesse Naidoo
+#    links:
+#      linkedin: https://www.linkedin.com/in/...

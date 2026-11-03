@@ -1,0 +1,32 @@
+---
+title: "Governance"
+---
+
+The Centre operates under a constitution approved by the Faculty and a Research
+Charter that governs research independence, data governance, and our
+relationships with funders and data partners. Both are published here in full.
+
+```{r}
+#| include: false
+source("../R/chf.R")
+board <- yaml::read_yaml("_board.yml")
+docs  <- yaml::read_yaml("_documents.yml")
+```
+
+## Board
+
+The Board oversees the Centre's work and holds the Director to account for it.
+
+```{r}
+#| output: asis
+chf_board_table(board)
+chf_stamp("_board.yml", "Board as at")
+```
+
+## Documents
+
+```{r}
+#| output: asis
+chf_doc_list(docs)
+chf_stamp("_documents.yml", "Register last updated")
+```

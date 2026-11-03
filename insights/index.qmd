@@ -1,0 +1,24 @@
+---
+title: "Insights"
+pagetitle: "Insights"
+subtitle: "Market overviews, new facts and policy notes for policymakers and industry."
+listing:
+  contents: "*/index.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: [date, title]
+  filter-ui: true
+  fields: [image, date, title, description, author, categories, reading-time]
+  date-format: "D MMMM YYYY"
+  feed:
+    type: partial
+    title: "CHF Insights"
+    items: 20
+---
+
+Short, evidence-led pieces on South African consumer financial markets — market
+overviews, new facts from our data work, reviews of policy issues, and book
+reviews.
+
+[Subscribe by RSS](index.xml)

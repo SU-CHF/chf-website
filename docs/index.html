@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Centre for Household Finance</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -25,19 +31,34 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
-<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fedee630f27febd29db529ea574835ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-051239078e16e7f24e12c869fd13db01.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -52,40 +73,62 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="preload" href="./fonts/SU-Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="./fonts/SU-Raleway-Bold.woff2" as="font" type="font/woff2" crossorigin="">
 
 
-<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Centre for Household Finance">
+<meta property="og:description" content="Research on consumer financial markets in developing countries, at the Department of Economics, Stellenbosch University.">
+<meta property="og:image" content="https://householdfinance.org.za/images/banner_001.jpg">
+<meta property="og:site_name" content="Centre for Household Finance">
+<meta property="og:image:alt" content="Centre for Household Finance">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo.png" alt="" class="navbar-logo">
+    <img src="./images/logo/chf-horizontal-on-maroon.svg" alt="Centre for Household Finance, Stellenbosch University" class="navbar-logo light-content">
+    <img src="./images/logo/chf-horizontal-on-maroon.svg" alt="Centre for Household Finance, Stellenbosch University" class="navbar-logo dark-content">
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="./research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./team.html"> 
+    <a class="nav-link" href="./team/index.html"> 
 <span class="menu-text">Team</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
-<span class="menu-text">Contact</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="./about/index.html">
+ <span class="dropdown-text">About the Centre</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./about/governance.html">
+ <span class="dropdown-text">Governance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./about/contact.html">
+ <span class="dropdown-text">Contact</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -94,42 +137,39 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Centre for Household Finance</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Centre for Household Finance</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p>We are a research group within the <a href="https://www.ekon.sun.ac.za">Department of Economics</a> at <a href="https://www.sun.ac.za">Stellenbosch University</a>. Our goal is to advance knowledge about consumer financial markets in developing countries: how they work, and which policies may make them work more efficiently and more equitably.</p>
-<p>We use tools from applied microeconomics and causal inference to study how people make financial decisions and what influences their choices. We focus on South African survey and administrative data in a variety of domains, including retirement, insurance, and credit.</p>
-<p><img src="images/banner_001.jpg" class="img-fluid"></p>
-<section id="news" class="level2">
-<h2 class="anchored" data-anchor-id="news">News</h2>
-<ul>
-<li><strong>March, 2025</strong>: We welcomed <a href="https://matthewolckers.com/">Dr Matthew Olckers</a> as a senior researcher and founding member of our group. Matthew has worked on a range of household finance topics, including retirement saving and financial literacy.</li>
-<li><strong>February, 2025</strong>: <a href="https://allandav.github.io/">Dr Allan Davids</a>, a senior lecturer at the University of Cape Town, has joined our group as an affiliated researcher and founding member. Allan’s research focuses on housing and credit.</li>
-<li><strong>January, 2025</strong>: <a href="https://jnaidoo.rbind.io/">Dr Jesse Naidoo</a> joined Stellenbosch University as the founding director of our research centre. <a href="https://www.ekon.sun.ac.za/blog/2025-1-17-jesse-naidoo-heads-new-centre">Here is</a> an interview with Jesse where he describes his vision for the Centre.</li>
-</ul>
+<p>We are a research group in the <a href="https://www.ekon.sun.ac.za">Department of Economics</a> at <a href="https://www.su.ac.za/en">Stellenbosch University</a>. Household finance is the study of how, and how successfully, households use financial instruments to achieve their goals.</p>
+<p>We combine economic theory, knowledge of South Africa’s institutions and history, and survey and administrative data to address questions in this field: how consumer financial markets work, and which policies would make them work more efficiently and more equitably.</p>
+<section id="working-with-us" class="level2">
+<h2 data-anchor-id="working-with-us">Working with us</h2>
+<p>We are a new and growing group, and we are looking for data partners, research funding, and postdocs. If you are interested in working with us, please <a href="./about/contact.html">get in touch</a>.</p>
+<p><img src="images/banner_001.jpg" class="chf-banner img-fluid" alt="Centre for Household Finance"></p>
 
 
 </section>
@@ -137,13 +177,6 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -186,13 +219,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -207,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/householdfinance\.org\.za");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -221,6 +255,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -538,16 +577,22 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
-    </div>   
+<p><strong>Centre for Household Finance</strong> · Department of Economics · Stellenbosch University<br> CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br> +27 (0)21 808 2247 · <a href="mailto:householdfinance@sun.ac.za" class="email">householdfinance@sun.ac.za</a> · <a href="https://www.ekon.sun.ac.za">www.ekon.sun.ac.za</a></p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>© 2025 Centre for Household Finance.</p>
+<p>© Centre for Household Finance<br> <a href="./about/contact.html">Contact</a> · <a href="./about/governance.html">Governance</a></p>
 </div>
   </div>
 </footer>
+<script>
+document.querySelectorAll('a[href$=".pdf" i]').forEach(function (a) {
+  a.target = "_blank";
+  a.rel = "noopener";
+});
+</script>
 
 
 

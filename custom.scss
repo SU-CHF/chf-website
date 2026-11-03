@@ -1,53 +1,716 @@
 /*-- scss:defaults --*/
 
-$dark: #61223b !default;
-$link-color: #61223b !default;
+// ═══════════════════════════════════════════════════════════════════════
+//  CHF brand palette — CHF Brand & Document Guidelines v1.2 (July 2026), §3,
+//  applied to the web per §7. Every colour on this site traces to a value
+//  below. Nothing hardcodes a hex.
+//
+//  Note: inside scss:defaults you cannot use Bootstrap's own variables
+//  ($white, $primary) or functions (tint-color, shade-color) — user defaults
+//  are emitted BEFORE Bootstrap's _variables.scss. Use literals and Sass mix().
+// ═══════════════════════════════════════════════════════════════════════
+$chf-maroon:      #61223B;   // Confident Maroon — primary
+$chf-gold:        #CAA258;   // Brilliant Gold   — accent; RULES ONLY, never text
+$chf-black:       #2C2A29;   // SU Black         — body text
+$chf-steel:       #4D5356;   // Steel Grey       — captions, footers, metadata
+$chf-white:       #FFFFFF;
 
-$font-family-sans-serif: "Raleway", "Trebuchet MS", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+// Sanctioned maroon tints (guidelines allow 10/20/40/60% only). Each is the
+// stated percentage of Confident Maroon mixed into white — the 10% value is
+// exactly the #EFE9EB printed in §3, so the others are derived, not invented.
+//
+// Written as literals rather than mix() calls because Dart Sass emits
+// fractional rgb(239.2, 232.9, 235.4), which browsers round correctly but which
+// makes the compiled CSS impossible to check against the guidelines by eye.
+$chf-maroon-10:   #EFE9EB;   // mix($chf-maroon, #FFFFFF, 10%)
+$chf-maroon-20:   #DFD3D8;   // mix($chf-maroon, #FFFFFF, 20%)
+$chf-maroon-dark: #4C1B2E;   // mix($chf-maroon, #000000, 78%) — hover/pressed only
+
+// Gold is never used for text. This is an accessibility requirement as well as
+// a brand rule: gold on white measures 2.38:1, failing every WCAG threshold.
+// For contrast, maroon on white is 11.67:1, SU Black 14.28:1, Steel Grey 7.81:1.
+$chf-rule-gold:   2px solid $chf-gold;
+$chf-rule-hair:   1px solid $chf-maroon-20;
+
+// Layout tokens (were CSS custom properties in the deleted styles.css)
+$chf-container:   1320px;    // page width the navbar and footer align to
+$chf-gap:         2rem;
+$chf-radius:      6px;
+$chf-transition:  0.25s;
+
+// ── Bootstrap / flatly overrides ──────────────────────────────────────
+$body-bg:               $chf-white;
+$body-color:            $chf-black;
+$primary:               $chf-maroon;
+$secondary:             $chf-steel;
+$dark:                  $chf-black;
+$light:                 $chf-maroon-10;
+
+$link-color:            $chf-maroon;
+$link-hover-color:      $chf-maroon-dark;
+$link-decoration:       none;
+$link-hover-decoration: underline;
+
+$font-family-sans-serif: "SU Raleway", "Trebuchet MS", Verdana, -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-size-base:        1rem;
+$line-height-base:      1.6;
+$font-weight-normal:    400;
+$font-weight-bold:      700;
+
+// Heading scale. The guidelines specify print points (24–28 / 15 / 12.5 / 10.5pt).
+// Transcribed literally that yields ~14px body text, which is unreadable on
+// screen. The RATIOS, weights and colours are preserved against a web-native
+// 16px base. This is a deliberate interpretation and awaits brand-owner sign-off.
+$headings-font-weight:  700;
+$headings-color:        $chf-maroon;
+$headings-line-height:  1.25;
+$h1-font-size:          2rem;      // document title   (24–28pt Bold)
+$h2-font-size:          1.5rem;    // section H1       (15pt Bold, gold rule)
+$h3-font-size:          1.2rem;    // sub-section H2   (12.5pt SemiBold, gold rule)
+$h4-font-size:          1.05rem;
+$h5-font-size:          1rem;
+$h6-font-size:          0.9rem;
+
+// ── Navbar: maroon band, white nav, gold rule beneath ─────────────────
+// Guidelines §7: a full-width Confident Maroon header carrying the
+// gold-and-white lockup and white navigation. SU colourway 1 (4.1.5).
+//
+// $navbar-hl is white rather than gold: gold clears AA on maroon (4.90:1) but
+// stays a rule colour here, and the active state is carried by weight plus a
+// gold underline rather than by a colour change alone (§4 DON'T list).
+$navbar-bg:             $chf-maroon;
+$navbar-fg:             $chf-white;
+$navbar-hl:             $chf-white;
+$navbar-brand:          $chf-white;
+$navbar-brand-hl:       $chf-white;
+
+// ── Footer: maroon band, white contact block, gold hairline above ─────
+// Guidelines §7: the footer is a Confident Maroon band carrying the standard
+// contact block in white. Steel Grey cannot appear on it — 1.49:1.
+$footer-bg:             $chf-maroon;
+$footer-fg:             $chf-white;
+$footer-font-size:      0.8125rem;   // the 7.5–8.5pt caption band
+
+// ── Tables: maroon header row, 10% maroon stripes ─────────────────────
+$table-striped-bg:      $chf-maroon-10;
+$table-striped-color:   $chf-black;
+$table-border-color:    $chf-maroon-20;
+$table-cell-padding-y:  0.5rem;
+$table-cell-padding-x:  0.75rem;
+
+$border-radius:         $chf-radius;
+$blockquote-font-size:  1rem;
+
 
 /*-- scss:rules --*/
 
-a {
-    text-decoration: none;
-    color: $link-color;
-    opacity: 1;
+// ═══════════════════════════════════════════════════════════════════════
+//  1. SU Raleway v3.000g, self-hosted.
+//
+//  Paths MUST be root-relative. This file compiles into /site_libs/bootstrap/,
+//  so url("fonts/…") resolves to /site_libs/bootstrap/fonts/… and 404s. That
+//  bug, plus fonts/ never being copied into docs/, is why the site served
+//  Trebuchet rather than Raleway until August 2026.
+//
+//  Safe because the site is served at a domain root. If it ever moves to a
+//  subpath, these become wrong and the resources: glob needs revisiting.
+// ═══════════════════════════════════════════════════════════════════════
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Italic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Medium.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-SemiBold.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-Bold.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "SU Raleway";
+  src: url("/fonts/SU-Raleway-BoldItalic.woff2") format("woff2");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
 
-    &:hover {
-        opacity: 0.6;
-        text-decoration: underline;
+// Ligatures off, per guidelines §4. Raleway v3.000g ships liga/clig/dlig;
+// browsers enable liga and clig by default, which is what this switches off.
+html {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  2. Navbar — full-bleed maroon band, gold hairline, brand hard left
+//
+//  Guidelines §7 Web & digital: a full-width Confident Maroon header with the
+//  gold-and-white co-branded lockup top-left and navigation in white. The band
+//  is painted on .navbar, which runs edge to edge; .navbar-container is the
+//  inner element that aligns the contents to the page width.
+// ═══════════════════════════════════════════════════════════════════════
+.navbar {
+  background-color: $chf-maroon;
+  border-bottom: $chf-rule-gold;
+  box-shadow: none;
+
+  .navbar-container { max-width: $chf-container; margin: 0 auto; padding: 0 $chf-gap; }
+
+  // Quarto centres a logo-only brand with .mx-auto; the guidelines require the
+  // logo (or wordmark) top-left.
+  .navbar-brand-container.mx-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  // Unused today (navbar.title is false), kept consistent with the nav links.
+  .navbar-title {
+    color: $chf-white;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  // The supplied lockups declare a viewBox but no width/height, so they have no
+  // intrinsic size. Quarto's default `max-height` + `width: auto` collapses them
+  // to nothing; an explicit height is required. Do not change this back.
+  //
+  // At 84px the horizontal lockup is 286px wide, well over the 142px on-screen
+  // minimum in §2 and §7. The lockup stacks three tiers of type, so it needs
+  // real height before the descriptor line becomes legible.
+  // `max-height: none` is load-bearing: Quarto's base rule caps .navbar-logo at
+  // 24px, which would otherwise clamp the height set here.
+  //
+  // No padding here. Under border-box, padding comes out of the declared
+  // height, so `padding: 4px 0` shrank the artwork to 76px and the lockup to
+  // 259px — and at the 44px mobile size to 36px and 122px, under the 142px
+  // minimum. The artwork carries its own clear space: measured on the supplied
+  // SVG, the transparent margin above and below the ink is 25.5% and 24.4% of
+  // the file's height, against a capital "S" in "Stellenbosch" that is 12.6%.
+  // So the lockup arrives with ~2× the cap-height already built in, and the
+  // navbar's 1rem padding-y is clear space on top of that.
+  .navbar-logo {
+    height: 84px;
+    max-height: none;
+    width: auto;
+    max-width: 100%;
+  }
+
+  // White on maroon is 11.67:1. Weight 600 rather than 500: SU 4.3.2 asks for
+  // one weight heavier when type is reversed out of a colour, and §4 repeats it.
+  // Hover and active never restate the colour — $chf-maroon-dark on maroon is
+  // 1.20:1 — so the gold underline and the weight carry both states, which also
+  // keeps them off colour alone (§4 DON'T list).
+  .nav-link {
+    color: $chf-white;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.15rem;
+
+    &:hover, &:focus { color: $chf-white; border-bottom-color: $chf-gold; }
+    &.active         { color: $chf-white; font-weight: 700; border-bottom-color: $chf-gold; }
+  }
+
+  // The dropdown panel hangs below the band onto white, so it keeps the
+  // light colourway. Background stated explicitly: Quarto marks the navbar
+  // data-bs-theme="dark", and Bootstrap's dark tokens would otherwise be free
+  // to darken the panel underneath the maroon items.
+  .dropdown-menu {
+    background-color: $chf-white;
+    border: $chf-rule-hair;
+    border-top: $chf-rule-gold;
+    border-radius: 0 0 $chf-radius $chf-radius;
+    .dropdown-item {
+      color: $chf-maroon;
+      &:hover, &:focus { background-color: $chf-maroon-10; color: $chf-maroon-dark; }
     }
+  }
+
+  // ── Chrome that is invisible until the band goes maroon ──────────────
+  //
+  // Search. As configured (`search: true`, which is Quarto's overlay type) the
+  // navbar shows only the magnifier button — that is what the two
+  // .aa-DetachedSearchButton rules below dress. The input itself opens in an
+  // overlay on white, outside .navbar, and keeps Quarto's dark-on-light
+  // styling, which is correct there.
+  //
+  // The .aa-Form / .aa-Input rules are inert today: Quarto's own
+  // `#quarto-search.type-overlay .aa-Form` rule outranks them. They matter if
+  // the search type is ever switched to an inline textbox, which would
+  // otherwise drop a white-on-white field into the maroon band. Translucent
+  // white rather than a solid fill so it reads as part of the band.
+  #quarto-search {
+    // 45% white over maroon composites to 3.58:1 — over the 3:1 WCAG 1.4.11
+    // asks of a control's boundary. 35% looks right and measures 2.73:1.
+    .aa-Form {
+      background-color: rgba($chf-white, 0.12);
+      border: 1px solid rgba($chf-white, 0.45);
+      border-radius: $chf-radius;
+    }
+    .aa-Input { color: $chf-white; }
+    .aa-Input::placeholder { color: rgba($chf-white, 0.75); opacity: 1; }
+    .aa-Label svg, .aa-SubmitButton svg, .aa-ClearButton svg { fill: $chf-white; }
+    .aa-DetachedSearchButton { border-color: rgba($chf-white, 0.45); }
+    .aa-DetachedSearchButtonIcon { color: $chf-white; }
+  }
+
+  // Hamburger (< 992px). Bootstrap builds the icon as a data URI coloured from
+  // the navbar foreground, so $navbar-fg carries it; the border does not.
+  // Same 45% as the search field, and for the same 3:1 reason.
+  .navbar-toggler { border-color: rgba($chf-white, 0.45); }
+
+  // Default focus ring is $primary — maroon on maroon, i.e. no ring at all.
+  :focus-visible {
+    outline: 2px solid $chf-white;
+    outline-offset: 2px;
+  }
 }
 
-
-/* Fonts */
-
-@font-face {
-    font-family: 'Raleway';
-    src: url('fonts/Raleway-Bold.woff2') format('woff2'),
-        url('fonts/Raleway-Bold.woff') format('woff'),
-        url('fonts/Raleway-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+@media (max-width: 768px) {
+  .navbar .navbar-container { padding: 0 1rem; }
+  // Stays above the 142px minimum: 44px tall is 150px wide.
+  .navbar .navbar-logo      { height: 44px; max-height: none; }
 }
 
-@font-face {
-    font-family: 'Raleway';
-    src: url('fonts/Raleway-Regular.woff2') format('woff2'),
-        url('fonts/Raleway-Regular.woff') format('woff'),
-        url('fonts/Raleway-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+// ═══════════════════════════════════════════════════════════════════════
+//  3. Headings — maroon, gold rules on the two section levels
+// ═══════════════════════════════════════════════════════════════════════
+#title-block-header .quarto-title h1.title {
+  color: $chf-maroon;
+  font-weight: 700;
+  border-bottom: $chf-rule-gold;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.25rem;
 }
 
-@font-face {
-    font-family: 'Raleway';
-    src: url('fonts/Raleway-Italic.woff2') format('woff2'),
-        url('fonts/Raleway-Italic.woff') format('woff'),
-        url('fonts/Raleway-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+.quarto-title-block .subtitle, p.subtitle {
+  color: $chf-steel;
+  font-weight: 400;
 }
 
+// ── Maroon title band (§7 "title bands"; §6's title-field convention) ──
+//
+// Opt-in per page with `title-block-banner: true`. Quarto emits the banner as a
+// page-columns grid, so it is already full-bleed with its contents on the body
+// column — no padding arithmetic needed here, unlike the footer.
+//
+// The gold rule under the title is the one every h1.title carries; against
+// maroon it reads as §6's gold accent bar rather than as a heading underline,
+// which is why it is not repeated at the foot of the band. The band ends on a
+// hard maroon-to-white edge, as the slide convention does.
+.quarto-title-banner {
+  background-color: $chf-maroon;
+  padding: 2.5rem 0 2rem;
+  // No bottom margin: Quarto's banner layout already puts padding above the
+  // content, and adding to it opens a gap that reads as a missing element.
+  margin-bottom: 0;
+
+  // Colour comes from the rule below, which has to carry #title-block-header:
+  // the base h1.title rule above is scoped to that ID, and an ID outranks any
+  // number of classes. Left as a class selector, the title stays maroon and
+  // disappears into the band.
+
+  // "Subtitle in a light tint" (§6). The 10% maroon tint at 9.73:1 — a tint of
+  // the field it sits on, which Steel Grey at 1.49:1 could never be.
+  .subtitle, p.subtitle {
+    color: $chf-maroon-10;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) { padding: 1.75rem 0 1.5rem; }
+}
+
+#title-block-header .quarto-title-banner .quarto-title h1.title {
+  color: $chf-white;
+  border-bottom-color: $chf-gold;
+}
+
+main h2 {
+  color: $chf-maroon;
+  font-weight: 700;
+  border-bottom: $chf-rule-gold;
+  padding-bottom: 0.3rem;
+  margin-top: 2.25rem;
+}
+main h3 {
+  color: $chf-maroon;
+  font-weight: 600;                      // SemiBold, per the H2 spec
+  border-bottom: 1px solid $chf-gold;
+  padding-bottom: 0.2rem;
+  margin-top: 1.75rem;
+}
+main h4, main h5, main h6 {
+  color: $chf-maroon;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+// Body text is never maroon, gold or light grey.
+main p, main li { color: $chf-black; }
+
+// Captions / metadata band (7.5–8.5pt, Steel Grey)
+figcaption, .figure-caption, .quarto-figure figcaption,
+caption, .chf-meta, .quarto-title-meta {
+  color: $chf-steel;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  4. Tables — maroon header row, 10% maroon stripes
+// ═══════════════════════════════════════════════════════════════════════
+main table, .table {
+  // Belt-and-braces: Bootstrap 5.3 drives striping through CSS variables, so
+  // setting $table-striped-bg alone is not always sufficient.
+  --bs-table-striped-bg: #{$chf-maroon-10};
+  border-color: $chf-maroon-20;
+  font-size: 0.95rem;
+
+  > thead {
+    background-color: $chf-maroon;
+    th {
+      color: $chf-white;
+      font-weight: 600;                  // "reversed out: one weight heavier"
+      border-bottom: none;
+      vertical-align: bottom;
+    }
+  }
+  > tbody > tr:nth-of-type(odd) > * { background-color: $chf-maroon-10; }
+  > tbody td { border-color: $chf-maroon-20; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  5. Card grid — evolved from the original .team-grid / .team-member.
+//     Generalised so people, documents and listings share one card system.
+// ═══════════════════════════════════════════════════════════════════════
+.chf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $chf-gap;
+  margin: $chf-gap 0 3rem;
+}
+
+.chf-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $chf-white;
+  border: $chf-rule-hair;
+  border-top: $chf-rule-gold;            // gold as a thin rule, not a fill
+  border-radius: $chf-radius;
+  padding: 1.25rem;
+  transition: transform $chf-transition ease, box-shadow $chf-transition ease;
+
+  &:hover, &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba($chf-maroon, 0.14);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: $chf-maroon-10;    // tint placeholder while loading
+  }
+}
+
+.chf-card-body  { flex-grow: 1; }
+.chf-card-name  { font-size: 1.15rem; font-weight: 700; color: $chf-maroon; margin: 0 0 0.15rem; }
+.chf-card-role  { font-size: 0.95rem; font-weight: 500; color: $chf-steel; margin: 0 0 0.1rem; }
+.chf-card-qual  { font-size: 0.85rem; color: $chf-steel; font-style: italic; margin: 0 0 0.75rem; }
+.chf-card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+                  text-transform: uppercase; color: $chf-steel; margin-bottom: 0.15rem; }
+.chf-card-text  { font-size: 0.95rem; color: $chf-black; margin-bottom: 0.75rem; }
+.chf-card-email { font-size: 0.9rem; word-break: break-word; }
+
+.chf-card-links {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: $chf-rule-hair;
+  a {
+    margin-right: 0.9rem;
+    font-size: 1.1rem;
+    color: $chf-steel;
+    &:hover { color: $chf-maroon; }
+  }
+}
+
+@media (max-width: 768px) {
+  .chf-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  6. Governance document list
+// ═══════════════════════════════════════════════════════════════════════
+// "Last updated" stamps. Colour and size come from .chf-meta; this only adds
+// separation from whatever the stamp sits beneath.
+.chf-stamp {
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+// The Board table is emitted by R rather than written as markdown, so it does
+// not pick up Pandoc's .table class. Match the styling of markdown tables.
+table.chf-board {
+  width: 100%;
+  border-color: $chf-maroon-20;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+
+  > thead {
+    background-color: $chf-maroon;
+    th {
+      color: $chf-white;
+      font-weight: 600;
+      border-bottom: none;
+      vertical-align: bottom;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+  }
+  > tbody {
+    td {
+      padding: 0.5rem 0.75rem;
+      border-color: $chf-maroon-20;
+      vertical-align: top;
+    }
+    > tr:nth-of-type(odd) > * { background-color: $chf-maroon-10; }
+  }
+}
+
+// Bottom margin is small because a .chf-stamp normally follows and brings its
+// own top margin; keeping 2.5rem here left the register stamp visibly further
+// from its list than the Board stamp is from its table.
+.chf-doclist { list-style: none; padding-left: 0; margin: 1.5rem 0 0.6rem; }
+
+.chf-doc {
+  padding: 0.9rem 0;
+  border-bottom: $chf-rule-hair;
+  &:first-child { border-top: $chf-rule-gold; }
+
+  .chf-doc-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: $chf-maroon;
+    i { margin-right: 0.5rem; }
+  }
+  .chf-doc-meta    { display: block; font-size: 0.8125rem; color: $chf-steel; margin-top: 0.2rem; }
+  .chf-doc-summary { font-size: 0.95rem; color: $chf-black; margin: 0.4rem 0 0; }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  7. Listings — Research outputs, Insights posts
+// ═══════════════════════════════════════════════════════════════════════
+.quarto-listing {
+  .listing-title { color: $chf-maroon; font-weight: 700; }
+  .listing-date, .listing-author { color: $chf-steel; font-size: 0.85rem; }
+  .listing-description { color: $chf-black; }
+  .listing-item { padding-bottom: 1.25rem; border-bottom: $chf-rule-hair; }
+}
+
+// Research outputs (research/outputs.ejs): plain title and abstract, with each
+// version of the paper as its own labelled link underneath.
+.chf-output {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: $chf-rule-hair;
+  .listing-title { margin-bottom: 0.25rem; }
+  .listing-author { margin-bottom: 0.25rem; }
+  .chf-venue { color: $chf-black; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .listing-categories { margin-bottom: 0.5rem; }
+  .listing-description p { margin-bottom: 0.4rem; }
+
+  // Quarto's listing CSS sets `.quarto-post a` to body colour with no underline,
+  // because its default entries are links in their entirety. Restore the site's
+  // link style, weighted like the contact-block links (§10), so these read as
+  // links against the black abstract.
+  .chf-links {
+    font-size: 0.95rem;
+    a {
+      color: $chf-maroon;
+      font-weight: 700;
+      &:hover { color: $chf-maroon-dark; text-decoration: underline; }
+    }
+    .chf-links-sep { color: $chf-steel; }
+  }
+}
+
+.quarto-category, .listing-category {
+  background-color: $chf-maroon-10;
+  color: $chf-maroon !important;
+  border: 1px solid $chf-maroon-20;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  &:hover { background-color: $chf-maroon-20; }
+}
+
+.quarto-listing-category .category.active {
+  color: $chf-maroon;
+  font-weight: 600;
+  border-bottom: 2px solid $chf-gold;
+}
+
+// Publication-status badge on research outputs
+.chf-status {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $chf-white;
+  background-color: $chf-maroon;
+  border-radius: 3px;
+  padding: 0.1rem 0.45rem;
+  vertical-align: middle;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  8. Footer — full-bleed maroon band, white contact block
+//
+//  Guidelines §7: the footer is a Confident Maroon band carrying the standard
+//  contact block and links in white, under the gold hairline set by
+//  page-footer.border in _quarto.yml.
+// ═══════════════════════════════════════════════════════════════════════
+//
+// Scoped `footer.footer .nav-footer` rather than `.nav-footer`: Quarto sets
+// padding-left/right on that two-class selector, which outranks a bare
+// .nav-footer and would otherwise win the horizontal padding.
+footer.footer .nav-footer {
+  background-color: $chf-maroon;
+  color: $chf-white;
+  font-size: $footer-font-size;
+  line-height: 1.5;
+  align-items: flex-start;
+
+  // The band runs edge to edge; only its contents align to the page width.
+  //
+  // This was `max-width: 1320px; margin: 0 auto`, which is invisible on a white
+  // footer and wrong the moment the footer has a colour: it constrains the
+  // painted background as well, leaving a maroon rectangle floating in a white
+  // strip. Padding does the same alignment without bounding the element — and
+  // it keeps the gold hairline full width too, since Quarto puts that border
+  // on this element rather than on the wrapper.
+  //
+  // The inset reproduces the navbar's content edge exactly, so the contact
+  // block starts on the same vertical as the logo at every width. That edge is
+  // three things stacked: 1rem of padding Quarto puts on the nav element
+  // itself, $chf-gap of padding inside .navbar-container, and the auto margins
+  // that appear once the viewport is wider than $chf-container.
+  padding: 1.25rem calc(1rem + #{$chf-gap} + max((100% - 2rem - #{$chf-container}) / 2, 0px));
+
+  // White on maroon is 11.67:1. Hover is an underline rather than a colour
+  // change, so the affordance does not depend on colour; gold would read as a
+  // second link state and is reserved for rules here.
+  a       { color: $chf-white; text-decoration: none; }
+  a:hover { color: $chf-white; text-decoration: underline; }
+
+  // Was maroon — invisible on the band. §4 lists SU Black or maroon for a bold
+  // lead-in and never gold, so reversed that is white, with weight carrying it.
+  strong  { color: $chf-white; font-weight: 600; }
+
+  p { margin-bottom: 0; }
+
+  // Quarto always emits a centre column — holding just &nbsp; when no centre
+  // content is configured — and gives it min-height: 3em. That floor, not the
+  // content, is what made the footer tall.
+  .nav-footer-center { min-height: 0; }
+
+  // Size both populated columns to their content so they share one row. Fixed
+  // percentages here pushed the right column onto a second line: the centre
+  // column also flexes, so 72% + 28% + centre exceeds the available width.
+  .nav-footer-left  { flex: 1 1 auto; text-align: left; }
+  .nav-footer-right { flex: 0 0 auto; text-align: right; }
+
+  @media (max-width: 768px) {
+    // .navbar-container drops to 1rem here, so the shared content edge is 2rem.
+    padding: 1.25rem 2rem;
+    .nav-footer-left, .nav-footer-right {
+      flex: 1 1 100%;
+      max-width: 100%;
+      text-align: left;
+    }
+    .nav-footer-right { margin-top: 0.75rem; }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  9. Buttons
+//
+//  §7 lists "gold as a thin accent (rules, buttons, active states)" and
+//  "links and buttons: maroon or gold". So: maroon fill, white type, and gold
+//  entering on hover as a border — a thin accent, never a fill and never the
+//  text colour, which at 2.38:1 on white it cannot be.
+//
+//  There is no button in the site's markup today. This is here so the first one
+//  added is on-brand rather than flatly green, and because $primary alone left
+//  the hover and active states as Bootstrap's auto-shaded
+//  rgb(82.45, 28.9, 50.15) — a colour that is in no palette and cannot be
+//  checked against the guidelines by eye. Pinned to the sanctioned tint.
+// ═══════════════════════════════════════════════════════════════════════
+.btn-primary {
+  --bs-btn-color:                 #{$chf-white};
+  --bs-btn-bg:                    #{$chf-maroon};
+  --bs-btn-border-color:          #{$chf-maroon};
+  --bs-btn-hover-color:           #{$chf-white};
+  --bs-btn-hover-bg:              #{$chf-maroon-dark};
+  --bs-btn-hover-border-color:    #{$chf-gold};
+  --bs-btn-active-color:          #{$chf-white};
+  --bs-btn-active-bg:             #{$chf-maroon-dark};
+  --bs-btn-active-border-color:   #{$chf-gold};
+  --bs-btn-disabled-color:        #{$chf-white};
+  --bs-btn-disabled-bg:           #{$chf-maroon};
+  --bs-btn-disabled-border-color: #{$chf-maroon};
+  // Focus ring in gold rather than a maroon halo, matching the active states.
+  --bs-btn-focus-shadow-rgb:      202, 162, 88;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  10. Contact block, disclaimer, misc
+// ═══════════════════════════════════════════════════════════════════════
+.chf-contact {
+  font-size: 1.1rem;
+  a { color: $chf-maroon; font-weight: 500; }
+}
+
+// Research Charter §7.2 disclaimer, carried by every Insights post.
+.chf-disclaimer {
+  margin-top: 3rem;
+  padding: 0.9rem 1.1rem;
+  background-color: $chf-maroon-10;
+  border-left: 3px solid $chf-gold;
+  color: $chf-steel;
+  font-size: 0.8125rem;
+  border-radius: 0 $chf-radius $chf-radius 0;
+}
+
+iframe { border-radius: $chf-radius; border: 0; }
+
+img.chf-banner { width: 100%; border-radius: $chf-radius; margin: 1.5rem 0 2rem; }
+
+blockquote {
+  border-left: 3px solid $chf-gold;
+  color: $chf-steel;
+  padding-left: 1rem;
+}
+
+::selection { background: $chf-maroon-20; }

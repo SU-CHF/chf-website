@@ -1,0 +1,54 @@
+<%
+// Research outputs (papers and datasets), one entry per Zotero item.
+// Fields come from scripts/build-research.R. Unlike Quarto's default listing,
+// the title and abstract are not links: each version of the paper gets its own
+// labelled link beneath the abstract ("published version; preprint").
+// metadataAttrs and the listing-* classes keep the search box and theme
+// filter working.
+%>
+
+::: {.list .quarto-listing-default}
+
+<% for (const item of items) { %>
+
+::: {.quarto-post .chf-output <%= metadataAttrs(item) %>}
+
+::: {.body}
+
+<h3 class="no-anchor listing-title"><%= item.title %></h3>
+
+```{=html}
+<div class="listing-author"><%- item.byline %><% if (item.date) { %> · <%- item.date %><% } %></div>
+<% if (item.venue) { %>
+<div class="chf-venue"><%= item.venue %></div>
+<% } %>
+<% if (item.categories) { %>
+<div class="listing-categories">
+<% for (const category of item.categories) { %>
+<div class="listing-category" onclick="window.quartoListingCategory('<%= utils.b64encode(category) %>'); return false;"><%= category %></div>
+<% } %>
+</div>
+<% } %>
+```
+
+<% if (item.description || item.status) { %>
+::: {.listing-description}
+<% if (item.status) { %><span class="chf-status"><%- item.status %></span> <% } %><%= item.description || "" %>
+:::
+<% } %>
+
+<% if (item.chf_links) { %>
+
+```{=html}
+<div class="chf-links"><% item.chf_links.forEach((l, i) => { %><% if (i) { %><span class="chf-links-sep" aria-hidden="true"> · </span><% } %><a href="<%- l.url %>"><% if (/\.pdf$|arxiv\.org\/pdf\//i.test(l.url)) { %><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> <% } %><%- l.label %></a><% }) %></div>
+```
+
+<% } %>
+
+:::
+
+:::
+
+<% } %>
+
+:::

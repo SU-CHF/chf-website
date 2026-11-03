@@ -1,16 +1,22 @@
 ---
 title: "Centre for Household Finance"
+title-block-banner: true
 ---
 
-We are a research group within the [Department of Economics](https://www.ekon.sun.ac.za) at [Stellenbosch University](https://www.sun.ac.za). Our goal is to advance knowledge about consumer financial markets in developing countries: how they work, and which policies may make them work more efficiently and more equitably.
+We are a research group in the [Department of Economics](https://www.ekon.sun.ac.za)
+at [Stellenbosch University](https://www.su.ac.za/en). Household finance is the
+study of how, and how successfully, households use financial instruments to
+achieve their goals.
 
-We use tools from applied microeconomics and causal inference to study how people make financial decisions and what influences their choices. We focus on South African survey and administrative data in a variety of domains, including retirement, insurance, and credit.
+We combine economic theory, knowledge of South Africa's institutions and
+history, and survey and administrative data to address questions in this field:
+how consumer financial markets work, and which policies would make them work
+more efficiently and more equitably.
 
-![](images/banner_001.jpg)
+## Working with us
 
-## News
+We are a new and growing group, and we are looking for data partners, research
+funding, and postdocs. If you are interested in working with us, please
+[get in touch](about/contact.qmd).
 
-- **March, 2025**: We welcomed [Dr Matthew Olckers](https://matthewolckers.com/) as a senior researcher and founding member of our group. Matthew has worked on a range of household finance topics, including retirement saving and financial literacy. 
-- **February, 2025**: [Dr Allan Davids](https://allandav.github.io/), a senior lecturer at the University of Cape Town, has joined our group as an affiliated researcher and founding member. Allan's research focuses on housing and credit. 
-- **January, 2025**: [Dr Jesse Naidoo](https://jnaidoo.rbind.io/) joined Stellenbosch University as the founding director of our research centre. [Here is](https://www.ekon.sun.ac.za/blog/2025-1-17-jesse-naidoo-heads-new-centre) an interview with Jesse where he describes his vision for the Centre.
-
+![](images/banner_001.jpg){.chf-banner fig-alt="Centre for Household Finance"}
