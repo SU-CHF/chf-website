@@ -226,7 +226,7 @@ Two consequences worth knowing:
   changed and why. Evergreen pages — the landing page, About, Contact — carry
   none either, since a stamp there would make correctly-unchanged text look
   neglected.
-- Stamps need git history, so they only appear when rendering in a real clone. If
-  the deployment ever moves to GitHub Actions, `actions/checkout` defaults to
-  `fetch-depth: 1`, which returns nothing from `git log` and would make every
-  stamp silently vanish. Set `fetch-depth: 0` if that day comes.
+- Stamps need git history, so they only appear when rendering in a real clone.
+  The deploy workflow checks out with `fetch-depth: 0` for this reason:
+  `actions/checkout` defaults to a shallow clone, which returns nothing from
+  `git log` and would make every stamp silently vanish. Keep that setting.
