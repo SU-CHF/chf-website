@@ -535,7 +535,6 @@ table.chf-board {
   .listing-title { margin-bottom: 0.25rem; }
   .listing-author { margin-bottom: 0.25rem; }
   .chf-venue { color: $chf-black; font-size: 0.95rem; margin-bottom: 0.4rem; }
-  .listing-categories { margin-bottom: 0.5rem; }
   .listing-description p { margin-bottom: 0.4rem; }
 
   // Quarto's listing CSS sets `.quarto-post a` to body colour with no underline,
@@ -551,23 +550,6 @@ table.chf-board {
     }
     .chf-links-sep { color: $chf-steel; }
   }
-}
-
-.quarto-category, .listing-category {
-  background-color: $chf-maroon-10;
-  color: $chf-maroon !important;
-  border: 1px solid $chf-maroon-20;
-  border-radius: 999px;
-  padding: 0.1rem 0.6rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  &:hover { background-color: $chf-maroon-20; }
-}
-
-.quarto-listing-category .category.active {
-  color: $chf-maroon;
-  font-weight: 600;
-  border-bottom: 2px solid $chf-gold;
 }
 
 // Publication-status badge on research outputs
