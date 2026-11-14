@@ -6,10 +6,9 @@ listing:
   contents: "*/index.qmd"
   type: default
   sort: "date desc"
-  categories: true
   sort-ui: [date, title]
   filter-ui: true
-  fields: [image, date, title, description, author, categories, reading-time]
+  fields: [image, date, title, description, author, reading-time]
   date-format: "D MMMM YYYY"
   feed:
     type: partial

@@ -10,7 +10,6 @@ author:
   - name: Matthew Olckers
     affiliation: Centre for Household Finance, Stellenbosch University
 date: 2026-11-14
-categories: [Financial education, Financial literacy, Policy]
 bibliography: references.bib
 csl: https://www.zotero.org/styles/chicago-author-date
 link-citations: true

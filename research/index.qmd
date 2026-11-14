@@ -8,8 +8,8 @@ listing:
     contents: papers.yml
     template: outputs.ejs
     sort: "date desc"
-    categories: true
-    fields: [title, author, date, description, categories]
+    categories: false
+    fields: [title, author, date, description]
     field-display-names:
       description: "Abstract"
     date-format: "YYYY"
