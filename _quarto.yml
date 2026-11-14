@@ -50,10 +50,8 @@ website:
     right:
       - text: Research
         href: research/index.qmd
-      # Insights is hidden until the first post is published. The page still
-      # renders at /insights/; restore these two lines to link it.
-      # - text: Insights
-      #   href: insights/index.qmd
+      - text: Insights
+        href: insights/index.qmd
       - text: Team
         href: team/index.qmd
       - text: About

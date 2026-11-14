@@ -1,0 +1,164 @@
+---
+title: "Low financial literacy does not mean we need more financial education"
+description: >
+  Surveys show most South Africans score poorly on financial literacy tests, but
+  that alone does not justify more spending on financial education. Banks and
+  regulators already spend hundreds of millions of rand a year on it; programmes
+  should be kept only where evidence shows large improvements in people's lives
+  relative to cost.
+author:
+  - name: Matthew Olckers
+    affiliation: Centre for Household Finance, Stellenbosch University
+date: 2026-11-14
+categories: [Financial education, Financial literacy, Policy]
+bibliography: references.bib
+csl: https://www.zotero.org/styles/econometrica
+link-citations: true
+lang: en-ZA
+reference-location: document
+footnotes-hover: true
+language:
+  section-title-footnotes: "Notes"
+---
+
+We are frequently reminded of our low levels of financial literacy. Headlines appear: "Majority of South Africans do not understand how money works.", "Most people don’t understand interest rates", "Half of SA youth don’t know how to manage finances". Since we all need to manage money, surely our financial illiteracy needs to be tackled with a siege of financial education.
+
+We should not be so quick to make this jump. Low financial literacy does not mean we need more financial education.
+
+First, I’m not sure we should even call it financial “literacy”. We can’t put financial literacy in the same bucket as reading and writing. The word “literacy” makes it sound like a basic skill we each have a responsibility to acquire. Why should that be the case? Having control over our lives needn’t mean we must make every financial decision ourselves.[^1] We rely on doctors, plumbers and mechanics. Why should we all become our own financial advisers? We should ask how well financial markets could serve people without requiring them to understand every detail.
+
+Second, even if we do become financially literate, some financial products are designed to confuse. Fees sneak in. The key terms and conditions only appear on page 37. We are pushed to buy products we don’t need. And competition will not necessarily solve the problem: firms can compete on the price we notice while keeping other charges out of sight.[^2] Knowing how compound interest works doesn’t tell you which fees a provider has hidden.
+
+Third, what looks like too little financial knowledge may be a sensible response to our circumstances. Learning about finance is costly and time-consuming. It’s only worth the investment if there’s a payoff. What’s the point of learning about the stock market if you have no money to buy stocks? The return to acquiring knowledge depends on how much someone has to save and invest.[^3]
+
+Patterns in South Africa fit this account. In the 2017 National Income Dynamics Study, only 40% of South Africans are financially literate but financial literacy improves sharply with education and income. Financial literacy is only weakly associated with financial product take-up once we account for income, education, employment and other characteristics. For example, whether you earn above R30,000 a month is a much stronger determinant of having life insurance than whether you are financially literate.[^4]
+
+## We already spend a lot on financial education {#we-already-spend-a-lot-on-financial-education .unnumbered}
+
+Government already compels banks, insurers and asset management companies to spend money on financial education. Under the B-BBEE Financial Sector Code, qualifying consumer education spending earns scorecard points, creating an implicit subsidy for these programmes. The standard target is 0.4% of the previous year’s net profit after tax.[^5] Sixteen banks reported R237 million in consumer education spending for 2023.[^6] For example, Standard Bank runs workshops for stokvel groups and employees, Absa supports a financial literacy speech competition for Grade 11 learners, and FNB broadcasts radio campaigns on budgeting, saving and credit.[^7]
+
+The Financial Sector Conduct Authority (FSCA) also runs financial education programmes, funded through levies on the industry.[^8] A donor-funded foundation also spent R7.68 million on FSCA-managed education projects in 2024/25.[^9]
+
+Spending on financial education is scattered. We need to map what government, industry, and civil society currently spend on financial education, who they reach, and what benefits they can demonstrate. Treasury’s draft National Consumer Financial Education Policy recommends such a map.[^10]
+
+Once we have a map of financial education spending, we need to measure the benefits.
+
+## Is financial education worth the money? {#is-financial-education-worth-the-money .unnumbered}
+
+Our highest standard of evidence is randomised control trials where we compare people who randomly received financial education to those who did not. And we can’t merely measure whether they know more after receiving education. The key question is the full pathway from improved knowledge, to changes in behaviour, to improved wellbeing. By wellbeing, I mean a household’s ability to afford food and other necessities, cope with income shocks, avoid high interest debt, and feel comfortable with their financial situation.
+
+We only have a few randomised control trials of financial education programmes in South Africa, and most do not measure wellbeing.
+
+One study wove financial education into *Scandal!*, the television soap opera. A character gets into trouble through borrowing and gambling, then seeks help. Compared with encouragement to watch another soap, encouragement to watch *Scandal!* improved knowledge and changed reported borrowing and gambling behaviour.[^11] But the behaviour change was self-reported; we don’t know whether the education actually changed people’s behaviour.
+
+When we do observe people’s actual decisions, we often find no change in behaviour. I have seen this play out firsthand. At a large South African company, I randomly offered employees a calculator showing their projected retirement income, just before their annual opportunity to change contributions. The effect on contributions was negligible, even though most employees were currently saving at the minimum contribution rate of 7.5%.[^12] After running this experiment and reading the international literature, my conclusion is that financial education might improve knowledge but it rarely changes behaviour.
+
+However, some recent experiments challenge my take that financial education doesn’t do much. Two school programmes provide evidence of lasting changes. In Peru, researchers followed roughly 60,000 students for seven years using administrative records. Financial education shifted borrowing away from expensive revolving credit towards other credit, without worsening repayment.[^13] In Brazil, a study followed around 16,000 students for up to nine years. Those offered financial education were less likely to borrow from expensive sources or make late repayments.[^14]
+
+So I have become less pessimistic about what financial education can achieve. But changing a financial decision is still a step away from showing that someone’s life has improved. Borrowing less might mean avoiding an expensive mistake. It might also mean going without something important. We need to understand what those decisions mean for people’s wellbeing.
+
+Treasury’s draft National Consumer Financial Education Policy offers one example with a clear pathway to improving lives. During Money Smart Week, residents of a rural Eastern Cape community received help to claim retirement benefits they had not known about.[^15] In this case, the education was targeted to a clear problem with a clear improvement to wellbeing.
+
+## So what should we do? {#so-what-should-we-do .unnumbered}
+
+Don’t let low financial literacy persuade you that we should spend more on financial education. Low scores on a financial literacy test don’t tell us whether a programme is worth funding.
+
+The hurdle for financial education programmes should be high. The rules that encourage financial education spending could instead encourage spending on needs with clearer benefits, such as bursaries and scholarships.[^16] Marginal improvements in "awareness" or "engagement" don’t meet the bar.
+
+One benefit of a high bar is you don’t need a precise measure of wellbeing. When you’re only looking for big impacts, you only need to know whether you are crossing the line.
+
+Our monitoring and evaluation should reflect the hurdle. The existing consumer education guidance already calls for independent evaluation. The FSCA’s Conduct Standard 1 of 2025 adds requirements for governance, measurable outcomes, monitoring and evaluation, and reporting arrangements.[^17]
+
+The question for these evaluations should be whether the benefits are large enough to justify the spending, given what else the money could achieve. Finding some benefit isn’t enough. We should only keep programmes where there is clear evidence of a large improvement in people’s lives relative to the cost.
+
+My guess is that most of our current spending won’t clear the hurdle. If it doesn’t, we should change the incentives and move the money elsewhere.
+
+[^1]: @willis2011, especially pp. 431–432. [Open conference version](https://www.aeaweb.org/conference/2011/retrieve.php?pdfid=565).
+
+    Willis questions whether even effective financial education would be worth its costs in money, time, privacy and autonomy. Consumers differ in their circumstances and preferences, while products and the decisions they require keep changing. A programme sufficiently tailored to address these differences could demand considerable resources and intrude on how people want to live.
+
+    Willis argues that supporting people’s preference to delegate decisions gives them more control over their lives. She discusses professional assistance and changes to defaults as alternatives.
+
+[^2]: @gabaix2006; [open full text](https://pages.stern.nyu.edu/~xgabaix/papers/shrouded.pdf).
+
+    In their theoretical model, some consumers overlook add-on prices, while sophisticated consumers anticipate them and can substitute away from the expensive add-ons. Firms use revenue from inattentive customers to subsidise the prominently advertised part of the product. Educating a rival’s customers needn’t attract profitable business: those customers can instead stay with the rival and avoid its add-ons. This can make obscuring charges sustainable even with strong competition and costless advertising.
+
+[^3]: @lusardi2017; [open author manuscript](https://pmc.ncbi.nlm.nih.gov/articles/PMC5445941/).
+
+    The authors build a life-cycle model in which knowledge is costly to acquire, depreciates, and permits access to an investment technology offering higher expected returns. Earnings, education, social insurance and the amount available to save affect the incentive to learn. The model is calibrated to the United States and generates differences in knowledge and wealth even when people make optimal choices given their circumstances.
+
+[^4]: @nanziri2026, especially Table 1 and section 5, Tables 3–4. [Full paper (PDF)](https://householdfinance.org.za/research/papers/Nanziri-Olckers-2026-Financial-Literacy-in-South-Africa.pdf).
+
+    The study uses Wave 5 of NIDS, a nationally representative survey conducted in 2017. Five questions cover four concepts: numeracy, inflation, compound interest and risk diversification. Answering correctly in at least three concepts defines the main literacy threshold. The knowledge analysis includes 23,872 respondents aged 15 or older and accounts for survey weights and sampling design. The estimated literacy rate is 40.57%.
+
+    The product analysis uses a common sample of 20,907 adults aged 18 or older and examines pensions, life insurance, bank loans, credit cards and store cards. After controlling for demographic and economic characteristics, the estimated differences in take-up associated with literacy are less than 2.5 percentage points across all ten specifications. Under the three-concept literacy threshold, the pension and life-insurance differences are 2.01 and 2.43 percentage points, respectively, and statistically significant at the 5% level. Small absolute differences can still matter for uncommon products: only 8.10% of this sample holds a pension. The data describe associations, not causal effects; using financial products may itself build knowledge.
+
+[^5]: @fsc2017, Government Notice 1325, Government Gazette 41287, Statement FS500, sections 2–3 and 6, printed pp. 77–79.
+
+    The main scorecard allocates up to two points for qualifying consumer education contributions against a target of 0.4% of the previous year’s net profit after tax. Additional contributions of 0.1% can earn one bonus point. For banks, the profit base is retail operations. The Code sets separate provisions for international banks and reinsurers. Qualifying spending must meet the consumer education standards.
+
+[^6]: @bankingassociationsouthafrica2024, p. 22.
+
+    The consumer education chart reports R237 million for 2023, based on figures supplied by 16 banks.
+
+[^7]: @standardbankgroup2025, p. 14, describes WalletWise workshops for stokvel groups and employees at workplaces, alongside a financial education radio drama.
+
+    @absagroup2025, p. 18, describes its partnership with the Financial Services Consumer Education Foundation to deliver the Financial Literacy Speech Competition for Grade 11 learners.
+
+    @firstrand2024, pp. 48–50, describes FNB’s consumer education spending and delivery channels. Its June 2024 youth radio campaign covered budgeting, saving, credit and digital banking across 18 stations, including YFM and YOU FM. These examples illustrate bank provision in 2024; the reports do not disclose expenditure on each activity.
+
+[^8]: @financialsectorconductauthority2024, printed pp. 70–72 and 123.
+
+    The report covers 1 April 2023 to 31 March 2024. It describes the FSCA’s statutory financial education role, consumer activities, educational resources and partnerships. The accounting policy on levy income states that the FSCA is funded through levies charged to industry.
+
+[^9]: @financialservicesconsumereducationfoundation2025, printed pp. 3 and 55–57.
+
+    The Foundation funds programmes managed by the FSCA’s Consumer Education Department, including workshops for public works participants and people with disabilities, and a national financial literacy speech competition.
+
+    Project expenditure for the year ended 31 March 2025 was R7,680,891, including accruals. Examples include R3,075,590 on the 2024 Financial Literacy Speech Competition against an approved project budget of R4,971,991; R522,675 on the 2024 national Expanded Public Works Programme project against a budget of R3,205,015; and R714,724 on the 2024 Financial Literacy for People with Disabilities project against a budget of R968,989. These are project budgets, not annual departmental allocations, and unspent amounts can carry forward.
+
+    These figures exclude the FSCA’s provision of secretarial, administrative and financial services at no charge to the Foundation. A full education budget, including FSCA-funded staff and overheads, cannot be inferred from this project spending.
+
+[^10]: @nationaltreasury2026, April consultation draft, sections 4.1, 4.5 and 5.2–5.4, printed pp. 53–54, 60 and 65–66.
+
+    The draft supports education through schools, workplaces, existing government programmes and community channels. It calls for evaluation beyond activity reporting and proposes a national map of providers, audiences, topics and geographic coverage. The mapping proposal does not explicitly require expenditure or demonstrated programme benefits to be recorded. A revised National Consumer Financial Education Strategy and an implementation plan, developed through the National Consumer Financial Education Committee with Treasury and the FSCA, are intended to give further detail on priorities, responsibilities and timelines.
+
+[^11]: @berg2017; [open working-paper version](https://documents.worldbank.org/curated/en/550641468163145018/pdf/wps6407.pdf).
+
+    The 1,031 participants were randomly encouraged, with identical financial incentives, to watch either *Scandal!* or *Muvhango*. This tested encouragement rather than comparing self-selected fans. The storyline lasted two months; the final survey followed four months later.
+
+    Knowledge gains concerned the storyline. Participants reported more formal borrowing and less retail credit and gambling. Focus groups highlighted identification with the familiar character; recall of the debt-counselling organisation faded.
+
+[^12]: @olckers2021; sections 3–5 and Table 1 of the [open July 2021 manuscript](https://arxiv.org/abs/2005.01692v3).
+
+    The experiment assigned 775 employees to an email with a calculator link (193), the email plus a follow-up phone call (194), or a control group (388). It took place around the company’s annual salary review and contribution-change window. The calculator let employees alter inputs and assumptions to see the implications for income in retirement. Over 60% contributed at the minimum, leaving scope for increases relative to the commonly recommended 15% benchmark.
+
+    Company administrative records supply contribution outcomes for 765 employees after ten left the company. In the month after the intervention, estimated effects on the change in contribution rates were 0.070 percentage points for email alone and 0.052 for email plus a call. Their 95% confidence intervals were approximately $[-0.073,0.212]$ and $[-0.107,0.212]$. Link-clicking rose from 27% in the email arm to 65% with the call, yet contribution responses remained small.
+
+[^13]: @frisancho2026, version dated 26 October 2026.
+
+    The original trial randomised financial education across 300 public high schools in six Peruvian regions. Teachers received training and taught grade-specific lessons during school hours in 2016, covering budgeting, financial products and responsible financial choices. The long-term study follows approximately 60,000 students using credit records over seven years, supplemented by pension and tax registers.
+
+    The probability of holding debt was not affected overall. Instead, the paper reports a shift from high-interest revolving credit towards structured non-revolving credit, with a 14.5% expansion in the latter and no deterioration in repayment capacity. Revolving-debt reliance also fell during the COVID-19 period.
+
+[^14]: @bruhn2025, accepted manuscript. [Open working-paper version (April 2024)](https://files.consumerfinance.gov/f/documents/cfpb_bruhn-et-al-conference.pdf).
+
+    The original experiment involved 892 public high schools in six Brazilian states and approximately 25,000 students. Treatment schools received teacher training and materials integrated into the curriculum in 2010–2011. The long-term analysis links roughly 16,000 students to administrative records for up to nine years after the programme, enabling comparison of borrowing, repayment and formal labour-market outcomes between the original treatment and control groups.
+
+    Treated students were less likely to use expensive borrowing and less likely to make delayed repayments. They also shifted from formal employment towards microenterprise ownership.
+
+[^15]: @nationaltreasury2026, section 3.3.2.2, Box 8, printed pp. 31–32.
+
+    Box 8 describes an existing Money Smart Week South Africa outreach activity. It does not report beneficiary numbers, amounts paid, programme costs or an impact evaluation. The surrounding discussion identifies both consumer understanding and administrative barriers, including weaknesses in records and tracing. Information, practical claims assistance and administrative improvements may therefore work together; the example does not establish their separate contributions or the initiative’s cost-effectiveness.
+
+[^16]: @fsc2017, Statement FS500, section 3.3.1, printed p. 78.
+
+    This provision explicitly includes bursaries and scholarships among qualifying socio-economic development activities.
+
+[^17]: @financialsectortransformationcouncil2019, especially sections 2.3.1–2.3.5.
+
+    The guidance recognises delivery by external specialists as well as internal staff, specifies requirements for providers, distinguishes interactive programmes from awareness activities, and limits recognition of marketing. Section 2.3.3 requires monitoring and evaluation within every project and a separation between implementation and independent impact measurement.
+
+    @financialsectorconductauthority2025, especially sections 2–4 and 6–10.
+
+{{< include ../_disclaimer.md >}}
