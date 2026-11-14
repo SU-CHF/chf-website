@@ -39,15 +39,21 @@ website:
   image: images/banner_001.jpg
 
   navbar:
-    # Official co-branded lockup, reversed — gold-and-white on transparent — for
-    # the maroon header band. This is SU colourway 1 (Brand Manual 4.1.5), the
-    # pairing the guidelines' §7 specifies for web headers.
-    # images/logo/chf-horizontal-on-light.svg is the gold-and-maroon variant,
-    # for white or light backgrounds.
+    # Plain SU primary logo, reversed — gold-and-white on transparent — for the
+    # maroon header band: SU colourway 1 (Brand Manual 4.1.5). Copied unaltered
+    # from the RGB "Gold and white" set (SU_goldwhite_horizontal_caa258.svg) in
+    # the management folder's branding-and-templates/logos/su. Issue #3.
+    # The co-branded CHF lockups remain in images/logo/ (chf-*-on-maroon.svg,
+    # chf-*-on-light.svg) for documents and other uses.
     title: false
-    logo: images/logo/chf-horizontal-on-maroon.svg
-    logo-alt: "Centre for Household Finance, Stellenbosch University"
+    logo: images/logo/su-horizontal-on-maroon.svg
+    logo-alt: "Stellenbosch University"
+    # The SU logo links to the university, not to this site's home page; the
+    # Home item below does that instead.
+    logo-href: https://www.sun.ac.za
     right:
+      - text: Home
+        href: index.qmd
       - text: Research
         href: research/index.qmd
       - text: Insights
@@ -75,7 +81,7 @@ website:
     left: |
       **Centre for Household Finance** · Department of Economics · Stellenbosch University<br>
       CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br>
-      +27 (0)21 808 2247 · <householdfinance@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
+      +27 (0)21 808 2247 · <householdfinance@sun.ac.za>
     right: |
       &copy; Centre for Household Finance<br>
       [Contact](/about/contact.html) · [Governance](/about/governance.html)
