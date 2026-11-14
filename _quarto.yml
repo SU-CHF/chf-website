@@ -48,7 +48,12 @@ website:
     title: false
     logo: images/logo/su-horizontal-on-maroon.svg
     logo-alt: "Stellenbosch University"
+    # The SU logo links to the university, not to this site's home page; the
+    # Home item below does that instead.
+    logo-href: https://www.sun.ac.za
     right:
+      - text: Home
+        href: index.qmd
       - text: Research
         href: research/index.qmd
       - text: Insights
@@ -76,7 +81,7 @@ website:
     left: |
       **Centre for Household Finance** · Department of Economics · Stellenbosch University<br>
       CGW Schumann Building, Bosman Street, Stellenbosch 7600 · Private Bag X1, Stellenbosch 7599, South Africa<br>
-      +27 (0)21 808 2247 · <householdfinance@sun.ac.za> · [www.ekon.sun.ac.za](https://www.ekon.sun.ac.za)
+      +27 (0)21 808 2247 · <householdfinance@sun.ac.za>
     right: |
       &copy; Centre for Household Finance<br>
       [Contact](/about/contact.html) · [Governance](/about/governance.html)
