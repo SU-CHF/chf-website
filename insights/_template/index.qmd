@@ -14,7 +14,7 @@ image-alt: "Describe the cover image for screen readers"
 draft: true
 # Delete both lines below if the post cites nothing.
 bibliography: ../../research/chf-outputs.bib
-csl: https://www.zotero.org/styles/econometrica
+csl: https://www.zotero.org/styles/chicago-author-date
 ---
 
 Body text.
