@@ -12,7 +12,7 @@ author:
 date: 2026-11-14
 categories: [Financial education, Financial literacy, Policy]
 bibliography: references.bib
-csl: https://www.zotero.org/styles/econometrica
+csl: https://www.zotero.org/styles/chicago-author-date
 link-citations: true
 lang: en-ZA
 reference-location: document
